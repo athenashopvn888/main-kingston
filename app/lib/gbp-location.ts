@@ -24,8 +24,8 @@ export const gbpLocation = {
     "Accessories"
   ],
   menuUrl: "/",
-  directionsUrl: "https://maps.google.com/?q=615+Kingston+Rd,+Toronto,+ON+M4E+1R3",
-  mapEmbedUrl: "https://maps.google.com/maps?q=Main%20Kingston%20Cannabis%20615%20Kingston%20Rd%2C%20Toronto%2C%20ON%20M4E%201R3&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  directionsUrl: "",
+  mapEmbedUrl: "",
   latitude: "43.6766",
   longitude: "-79.2941",
   hours: ["Open 24 Hours"],

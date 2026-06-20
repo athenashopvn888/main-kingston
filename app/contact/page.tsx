@@ -44,14 +44,6 @@ export default function ContactPage() {
                 <br />
                 <span className={styles.infoMuted}>Kingston Rd & Main St</span>
               </p>
-              <a
-                href="https://maps.google.com/?q=615+Kingston+Rd,+Toronto,+ON+M4E+1R3"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.infoBtn}
-              >
-                Get Directions →
-              </a>
             </div>
 
             {/* Hours */}
@@ -128,16 +120,6 @@ export default function ContactPage() {
 
           {/* Map */}
           <div className={styles.mapSection}>
-            <iframe
-              src="https://maps.google.com/maps?q=615%20Kingston%20Rd,+Toronto,+ON+M4E%201R3&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Main Kingston Cannabis — 615 Kingston Rd, Toronto"
-            ></iframe>
           </div>
         </div>
       </section>

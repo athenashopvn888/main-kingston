@@ -123,14 +123,6 @@ export default async function ItemsCategoryPage({
             <p className={styles.visitText}>
               615 Kingston Rd, Toronto, ON M4E 1R3 · Open 24 Hours
             </p>
-            <a
-              href="https://maps.google.com/?q=615+Kingston+Rd,+Toronto,+ON+M4E+1R3"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.visitBtn}
-            >
-              📍 Get Directions
-            </a>
           </div>
         </div>
       </section>

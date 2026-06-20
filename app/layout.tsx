@@ -101,20 +101,9 @@ const jsonLd = {
       closes: "23:59",
     },
   ],
-  sameAs: [
-    "https://maps.google.com/?q=615+Kingston+Rd,+Toronto,+ON+M4E+1R3",
-    "https://maps.google.com/?q=615+Kingston+Rd,+Toronto,+ON+M4E+1R3",
-  ],
-  hasMap: "https://maps.google.com/?q=615+Kingston+Rd,+Toronto,+ON+M4E+1R3",
   areaServed: {
     "@type": "City",
     name: "Toronto",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "15",
-    bestRating: "5",
   },
 };
 
