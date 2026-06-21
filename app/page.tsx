@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import FlowerCard from "./components/FlowerCard";
 import { allFlowers } from "./lib/products";
 
-/* â”€â”€ Bento Mosaic Config â”€â”€ */
+/* -- Bento Mosaic Config -- */
 const BENTO_TIERS = [
   {
     name: "EXOTICS",
@@ -46,7 +46,7 @@ const BENTO_TIERS = [
     className: styles.bentoTile,
   },
   {
-    name: "EDIBLES â€¢ PREROLLS â€¢ MORE",
+    name: "EDIBLES - PREROLLS - MORE",
     slug: "items/edibles",
     price: "Shop Tiers",
     banner: "/banners/edibles_prerolls_more_banner.webp",
@@ -54,23 +54,23 @@ const BENTO_TIERS = [
   },
 ];
 
-/* â”€â”€ Explore Categories Config (New Banners) â”€â”€ */
+/* -- Explore Categories Config (New Banners) -- */
 const EXPLORE_CATEGORIES = [
-  { name: "Vape Pens", slug: "items/vapes", banner: "/banners/01_Vape_Pens.webp", icon: "ðŸ’¨" },
-  { name: "Nic Vape", slug: "items/vape-disposables", banner: "/banners/02_Vape_Disposable.webp", icon: "ðŸ’¨" },
-  { name: "Concentrates", slug: "items/concentrates", banner: "/banners/03_Concentrates.webp", icon: "ðŸ’Ž" },
-  { name: "Pre-Rolls", slug: "items/prerolls", banner: "/banners/04_Pre_Rolls.webp", icon: "ðŸš¬" },
-  { name: "Accessories", slug: "items/add-ons", banner: "/banners/05_Accessories.webp", icon: "âž•" },
-  { name: "Cigarettes", slug: "items/cigarettes", banner: "/banners/06_Cigarettes.webp", icon: "ðŸ·ï¸" },
-  { name: "Magic Stuff", slug: "items/magic", banner: "/banners/09_Magic_Stuff.webp", icon: "ðŸ„" },
-  { name: "Games Arcade", slug: "games", banner: "/banners/10_Games.webp", icon: "ðŸŽ®" },
+  { name: "Vape Pens", slug: "items/vapes", banner: "/banners/01_Vape_Pens.webp" },
+  { name: "Nic Vape", slug: "items/vape-disposables", banner: "/banners/02_Vape_Disposable.webp" },
+  { name: "Concentrates", slug: "items/concentrates", banner: "/banners/03_Concentrates.webp" },
+  { name: "Pre-Rolls", slug: "items/prerolls", banner: "/banners/04_Pre_Rolls.webp" },
+  { name: "Accessories", slug: "items/add-ons", banner: "/banners/05_Accessories.webp" },
+  { name: "Cigarettes", slug: "items/cigarettes", banner: "/banners/06_Cigarettes.webp" },
+  { name: "Magic Stuff", slug: "items/magic", banner: "/banners/09_Magic_Stuff.webp" },
+  { name: "Games Arcade", slug: "games", banner: "/banners/10_Games.webp" },
 ];
 
-/* â”€â”€ Local FAQs for Jane St â”€â”€ */
+/* -- Local FAQs for Jane St -- */
 const LOCAL_FAQS = [
   {
     q: "What are the hours for Main Kingston Cannabis?",
-    a: "Main Kingston Cannabis at 615 Kingston Rd, Toronto is Open 24 Hours a day, 7 days a week. Walk in anytime â€” no appointment needed.",
+    a: "Main Kingston Cannabis at 615 Kingston Rd, Toronto is Open 24 Hours a day, 7 days a week. Walk in anytime - no appointment needed.",
   },
   {
     q: "What cannabis products do you carry?",
@@ -103,7 +103,7 @@ export default function HomePage() {
   const [reviewsStats, setReviewsStats] = useState<ReviewStats | null>(null);
   const [reviewsLoading, setReviewsLoading] = useState(true);
 
-  /* â”€â”€ 1. Fetch Client-Side Google Reviews â”€â”€ */
+  /* -- 1. Fetch Client-Side Google Reviews -- */
   useEffect(() => {
     const STORE_KEY = "MKC01";
     const SHEET_ID = "1-KeuyKFKprbU-Vl_qVQiZkEKMX_i5CmdScTToNTdkUY";
@@ -171,7 +171,7 @@ export default function HomePage() {
       });
   }, []);
 
-  /* â”€â”€ 2. Build Featured Strains â”€â”€ */
+  /* -- 2. Build Featured Strains -- */
   useEffect(() => {
     const pool = [...allFlowers].filter((f) => f.image);
     // Shuffle pool securely
@@ -197,21 +197,21 @@ export default function HomePage() {
 
   return (
     <main className={styles.main}>
-      {/* â”€â”€ NAVBAR â”€â”€ */}
+      {/* -- NAVBAR -- */}
       <Navbar />
 
-      {/* â”€â”€ WELCOME BANNER â”€â”€ */}
+      {/* -- WELCOME BANNER -- */}
       <section className={styles.welcomeBannerSection}>
         <div className={styles.welcomeBannerContainer}>
           <img
             src="/banners/welcome_banner.webp"
-            alt="Welcome to Main Kingston Cannabis â€” Premium Toronto Cannabis Dispensary"
+            alt="Welcome to Main Kingston Cannabis - Premium Toronto Cannabis Dispensary"
             className={styles.welcomeBannerImg}
           />
         </div>
       </section>
 
-      {/* â”€â”€ BENTO MOSAIC HERO â”€â”€ */}
+      {/* -- BENTO MOSAIC HERO -- */}
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroOverlay} />
@@ -249,7 +249,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ EXPLORE CATEGORIES â”€â”€ */}
+      {/* -- EXPLORE CATEGORIES -- */}
       <section className={styles.categoriesSection} id="menu">
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
@@ -273,7 +273,7 @@ export default function HomePage() {
                 <div className={styles.categoryCardOverlay} />
                 <div className={styles.categoryCardContent}>
                   <h3 className={styles.categoryCardName}>
-                    {cat.icon} {cat.name} <span className={styles.categoryCardArrow}>â†’</span>
+                    {cat.name}
                   </h3>
                 </div>
               </Link>
@@ -282,7 +282,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ FEATURED PRODUCTS â”€â”€ */}
+      {/* -- FEATURED PRODUCTS -- */}
       <section className={styles.featuredSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
@@ -302,25 +302,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ SEO PANEL WRITE-UP â”€â”€ */}
+      {/* -- SEO PANEL WRITE-UP -- */}
       <section className={styles.seoSection}>
         <div className={styles.container}>
           <div className={styles.seoPanel}>
-            <h2 className={styles.seoPanelTitle}>Kingston Rd & Main St's Premier Cannabis Dispensary â€” Open 24 Hours</h2>
+            <h2 className={styles.seoPanelTitle}>Kingston Rd & Main St's Premier Cannabis Dispensary - Open 24 Hours</h2>
             <p className={styles.seoPanelText}>
-              Welcome to <strong>Main Kingston Cannabis</strong>, Toronto's premier 24-hour cannabis destination at 615 Kingston Rd. We carry an electrifying selection of top-shelf strains around the clock â€” from ultra-rare exotics to solid everyday budget picks.
+              Welcome to <strong>Main Kingston Cannabis</strong>, Toronto's premier 24-hour cannabis destination at 615 Kingston Rd. We carry an electrifying selection of top-shelf strains around the clock - from ultra-rare exotics to solid everyday budget picks.
             </p>
             <p className={styles.seoPanelText}>
-              Open 24 hours, 7 days a week â€” Main Kingston Cannabis never closes. Our live menu is constantly refreshed with the freshest drops, premium prerolls, artisan edibles, and everything in between. Whether you're winding down after a late shift or stocking up for the weekend, our knowledgeable staff can help during listed store hours.
+              Open 24 hours, 7 days a week - Main Kingston Cannabis never closes. Our live menu is constantly refreshed with the freshest drops, premium prerolls, artisan edibles, and everything in between. Whether you're winding down after a late shift or stocking up for the weekend, our knowledgeable staff can help during listed store hours.
             </p>
             <p className={styles.seoPanelText}>
-              Searching for a cannabis dispensary in Toronto or the surrounding area? Main Kingston Cannabis is your 24-hour destination for premium flower, potent prerolls, and artisan edibles. Our six-tier pricing system means quality cannabis at every budget level â€” starting from just $3/g.
+              Searching for a cannabis dispensary in Toronto or the surrounding area? Main Kingston Cannabis is your 24-hour destination for premium flower, potent prerolls, and artisan edibles. Our six-tier pricing system means quality cannabis at every budget level - starting from just $3/g.
             </p>
           </div>
         </div>
       </section>
 
-      {/* â”€â”€ CLIENT-SIDE GOOGLE REVIEWS SHOWCASE â”€â”€ */}
+      {/* -- CLIENT-SIDE GOOGLE REVIEWS SHOWCASE -- */}
       <section className={styles.reviewsSection}>
         <div className={styles.container}>
           <div className={styles.reviewsHeader}>
@@ -363,7 +363,7 @@ export default function HomePage() {
                         </span>
                       )}
                     </div>
-                    <span className={styles.rvStars}>â˜…â˜…â˜…â˜…â˜…</span>
+                    <span className={styles.rvStars}>*****</span>
                   </div>
                   <p className={styles.rvText}>
                     {rv.comment.length > 180 ? `${rv.comment.substring(0, 177)}...` : rv.comment}
@@ -378,7 +378,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ FAQS SECTION â”€â”€ */}
+      {/* -- FAQS SECTION -- */}
       <section className={styles.faqSection}>
         <div className={styles.faqContainer}>
           <h2 className={styles.sectionTitle} style={{ textAlign: "center", marginBottom: "32px" }}>
@@ -393,12 +393,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ STORE LOCATION GRID â”€â”€ */}
+      {/* -- STORE LOCATION GRID -- */}
       <section className={styles.storeSection} id="contact">
         <div className={styles.container}>
           <div className={styles.storeGrid}>
             <div className={styles.storeCard}>
-              <span className={styles.storeIcon}>ðŸ“</span>
               <h3 className={styles.storeCardTitle}>Location</h3>
               <p className={styles.storeCardText}>
                 615 Kingston Rd
@@ -408,7 +407,6 @@ export default function HomePage() {
               </p>
             </div>
             <div className={styles.storeCard}>
-              <span className={styles.storeIcon}>ðŸ•’</span>
               <h3 className={styles.storeCardTitle}>Hours</h3>
               <p className={styles.storeCardText}>
                 Open 7 Days a Week
@@ -417,7 +415,6 @@ export default function HomePage() {
               </p>
             </div>
             <div className={styles.storeCard}>
-              <span className={styles.storeIcon}>ðŸ”¥</span>
               <h3 className={styles.storeCardTitle}>Walk In</h3>
               <p className={styles.storeCardText}>
                 No appointment needed
@@ -433,7 +430,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* â”€â”€ FOOTER â”€â”€ */}
+      {/* -- FOOTER -- */}
       <Footer />
     </main>
   );
