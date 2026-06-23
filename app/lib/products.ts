@@ -194,12 +194,12 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
   CONCENTRATES: {
     banner: "/banners/03_Concentrates.webp",
     name: "Concentrates", slug: "concentrates", color: "#f59e0b", icon: "💎",
-    seoTitle: "Cannabis Concentrates Toronto — Shatter, Wax, Hash & Live Resin",
-    seoIntro: "Premium cannabis concentrates at Main Kingston Cannabis, Toronto. Shatter, wax, hash, live resin, and diamonds — all in stock.",
-    seoDescription: "Main Kingston Cannabis offers a premium selection of cannabis concentrates in Toronto. From traditional hash and kief to modern extracts like shatter, wax, live resin, and THC diamonds, we carry products for every preference and potency level. Our concentrates are sourced from trusted extractors and tested for purity. Visit us at 615 Kingston Rd.",
+    seoTitle: "Cannabis Concentrates in Toronto | Main Kingston Cannabis",
+    seoIntro: "Browse concentrates category information at Main Kingston Cannabis in Toronto. Review concentrate-related menu details and confirm current store information before visiting.",
+    seoDescription: "Main Kingston Cannabis provides a concentrates category page for adult shoppers reviewing concentrate-related menu information in Toronto. Use this page to review current menu details, then confirm store information before visiting Main Kingston Cannabis at 615 Kingston Rd in Toronto.",
     faqs: [
-      { q: "What types of concentrates do you carry?", a: "We stock shatter, wax, budder, live resin, rosin, hash, kief, and THC diamonds from top Canadian extractors." },
-      { q: "How do I consume concentrates?", a: "Concentrates can be dabbed with a rig, vaped with a concentrate pen, or added to flower in a joint or bowl for extra potency." },
+      { q: "What concentrate-related information can shoppers review?", a: "This category page helps adult shoppers review concentrate-related menu information when it is listed on the current menu." },
+      { q: "How should customers confirm current concentrate menu details?", a: "Review the current menu information on this page and confirm store details before visiting Main Kingston Cannabis." },
     ],
   },
   PREROLLS: {
