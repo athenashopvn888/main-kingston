@@ -160,13 +160,13 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
   EDIBLES: {
     banner: "/banners/edibles_prerolls_more_banner.webp",
     name: "Edibles", slug: "edibles", color: "#f97316", icon: "🍬",
-    seoTitle: "Cannabis Edibles Toronto — Gummies, Chocolates & Drinks",
-    seoIntro: "Browse the full cannabis edibles menu at Main Kingston Cannabis on Toronto St, Toronto. We carry THC gummies, chocolates, drinks, and more from top Canadian brands.",
-    seoDescription: "Looking for cannabis edibles in Toronto? Main Kingston Cannabis stocks a wide range of THC-infused gummies, chocolates, beverages, and baked goods. Our edibles range from micro-dose options for beginners to high-potency products for experienced consumers. All products are lab-tested and sourced from licensed Canadian producers. Visit us at 615 Kingston Rd — open daily 24 hours.",
+    seoTitle: "Cannabis Edibles in Toronto | Main Kingston Cannabis",
+    seoIntro: "Browse cannabis edibles category information at Main Kingston Cannabis in Toronto. Review edible-related menu details and confirm current store information before visiting.",
+    seoDescription: "Main Kingston Cannabis provides an edibles category page for adult shoppers reviewing edible-related menu information in Toronto. Use this page to review current menu details, then confirm store information before visiting Main Kingston Cannabis at 615 Kingston Rd in Toronto.",
     faqs: [
-      { q: "What cannabis edibles do you carry?", a: "We stock THC gummies, chocolates, beverages, capsules, and baked goods from top Canadian brands. Potencies range from 10mg to 1000mg+ THC." },
+      { q: "What edible-related information can shoppers review?", a: "This category page helps adult shoppers review edible-related menu information when it is listed on the current menu." },
       { q: "How long do edibles take to kick in?", a: "Cannabis edibles typically take 30-90 minutes to take effect. Start with a low dose (5-10mg) and wait at least 2 hours before consuming more." },
-      { q: "Can I buy edibles at Main Kingston Cannabis?", a: "Yes! Visit us at 615 Kingston Rd, Toronto. We're open daily 24 hours with a full edibles selection in store." },
+      { q: "How should customers confirm current edible menu details?", a: "Review the current menu information on this page and confirm store details before visiting Main Kingston Cannabis." },
     ],
   },
   "VAPE PENS": {
