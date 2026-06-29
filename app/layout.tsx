@@ -5,11 +5,11 @@ import AgeGate from "./components/AgeGate";
 export const metadata: Metadata = {
   metadataBase: new URL("https://mainkingstoncannabis.ca"),
   title: {
-    default: "Main Kingston Cannabis — Premium Cannabis Dispensary, Toronto",
+    default: "24 Hour Kingston Road Dispensary | Main Kingston Cannabis",
     template: "%s | Main Kingston Cannabis",
   },
   description:
-    "Shop 200+ premium cannabis strains at Main Kingston Cannabis. Exotic, Premium, AAA+, AA & Budget flower from $3/g. Toronto's uplifting dispensary at 615 Kingston Rd. Open 24 Hours.",
+    "Main Kingston Cannabis is an East Toronto dispensary on Kingston Rd near Main St with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
   keywords: [
     "cannabis dispensary Toronto",
     "weed store Toronto",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: "https://mainkingstoncannabis.ca",
     siteName: "Main Kingston Cannabis",
-    title: "Main Kingston Cannabis — Premium Toronto Cannabis Dispensary",
+    title: "24 Hour Kingston Road Dispensary | Main Kingston Cannabis",
     description:
-      "200+ strains from $3/g. Exotic to Budget. Toronto's uplifting dispensary at 615 Kingston Rd. Open 24 Hours.",
+      "Main Kingston Cannabis is an East Toronto dispensary on Kingston Rd near Main St with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
     images: [
       {
         url: "https://mainkingstoncannabis.ca/wp-content/uploads/2026/04/46Oi5.jpg",
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Main Kingston Cannabis — Toronto's Uplifting Dispensary",
-    description: "200+ strains from $3/g. Open 24 Hours at 615 Kingston Rd, Toronto.",
+    title: "24 Hour Kingston Road Dispensary | Main Kingston Cannabis",
+    description: "Main Kingston Cannabis is an East Toronto dispensary on Kingston Rd near Main St with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
     images: ["https://mainkingstoncannabis.ca/wp-content/uploads/2026/04/46Oi5.jpg"],
   },
   robots: {
