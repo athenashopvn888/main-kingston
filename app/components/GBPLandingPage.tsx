@@ -15,9 +15,35 @@ const categoryLinks: { [key: string]: string } = {
   "Accessories": "/items/add-ons"
 };
 
+
+type StoreSchemaMarkup = {
+  "@context": "https://schema.org";
+  "@type": "Store";
+  name: string;
+  url: string;
+  telephone: string;
+  address: {
+    "@type": "PostalAddress";
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
+  };
+  priceRange: string;
+  openingHours?: string[];
+  geo?: {
+    "@type": "GeoCoordinates";
+    latitude: number;
+    longitude: number;
+  };
+};
 export function GBPLandingPage() {
+  const landmarkList = gbpLocation.localLandmarks.join(", ");
+  const nearbyAreaList = gbpLocation.nearbyAreas.slice(0, 5).join(", ");
+
   // Generate schema.org markup dynamically
-  const schemaMarkup: any = {
+  const schemaMarkup: StoreSchemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Store",
     "name": gbpLocation.storeName,
@@ -77,17 +103,36 @@ export function GBPLandingPage() {
         <p className={styles.introText}>{gbpLocation.introVariant}</p>
       </section>
 
+      {/* Local Visit Planning Section */}
+      <section className={styles.section}>
+        <h2 className={styles.h2}>Plan a Visit Near {gbpLocation.neighborhood}</h2>
+        <p className={styles.infoText}>
+          Use this local page to confirm the store location, review menu categories, and plan a visit around {landmarkList}. {gbpLocation.transitNote} {gbpLocation.parkingNote}.
+        </p>
+        <p className={styles.infoText}>
+          Adult 19+ shoppers can use the category links below to orient themselves before visiting {gbpLocation.storeName}. For store-specific questions, call the store directly or review the menu categories on this site.
+        </p>
+        <div className={styles.btnRow}>
+          <Link href={gbpLocation.menuUrl} className={`${styles.btn} ${styles.btnPrimary}`}>
+            Review Menu Categories
+          </Link>
+          <a href={`tel:${gbpLocation.phoneIntl}`} className={`${styles.btn} ${styles.btnSecondary}`}>
+            Call Store
+          </a>
+        </div>
+      </section>
+
       {/* Product Section */}
       <section className={styles.section}>
-        <h2 className={styles.h2}>Weed and Cannabis Products Available</h2>
+        <h2 className={styles.h2}>Weed and Cannabis Menu Categories</h2>
         <p className={styles.infoText}>
-          At {gbpLocation.storeName}, we offer a curated selection of weed and cannabis products for adults 19+ in {gbpLocation.city}. Enjoy some of Ontario's finest quality and value in the following categories:
+          At {gbpLocation.storeName}, the menu is organized into adult-use cannabis categories for 19+ shoppers in {gbpLocation.city}. Use the links below to browse category pages before you visit:
         </p>
         <div className={styles.productGrid}>
           {gbpLocation.products.map((p) => {
             const href = categoryLinks[p] || "/";
             return (
-              <Link key={p} href={href} className={styles.productCard}>
+              <Link key={p} href={href} className={styles.productCard} aria-label={`Browse ${p} at ${gbpLocation.storeName}`}>
                 {p}
               </Link>
             );
@@ -163,8 +208,19 @@ export function GBPLandingPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Store-Specific Guidance Section */}
       <section className={styles.section}>
+        <h2 className={styles.h2}>Helpful Local Shopper Notes</h2>
+        <p className={styles.infoText}>
+          {gbpLocation.storeName} serves adult 19+ shoppers near {nearbyAreaList}. Before heading over, review the address, store hours shown on this page, and the category links that match the type of visit you are planning.
+        </p>
+        <p className={styles.infoText}>
+          This local page is meant to help shoppers connect the store location with nearby transit, parking, and menu-category information without changing any business name, address, phone, or hour details.
+        </p>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className={styles.section}>
         <h2 className={styles.h2}>Frequently Asked Questions</h2>
         <div className={styles.faqList}>
           <div className={styles.faqItem}>
@@ -187,6 +243,18 @@ export function GBPLandingPage() {
             <h3 className={styles.faqQuestion}>Do I need to be 19+ to shop at {gbpLocation.storeName}?</h3>
             <p className={styles.faqAnswer}>
               Yes, to visit our cannabis store or order from our menu, you must be at least 19 years of age. Valid government-issued photo ID is required for verification.
+            </p>
+          </div>
+          <div className={styles.faqItem}>
+            <h3 className={styles.faqQuestion}>What should I check before visiting {gbpLocation.storeName}?</h3>
+            <p className={styles.faqAnswer}>
+              Review the address, store hours shown on this page, and the menu category links before you visit. If you have a store-specific question, call {gbpLocation.storeName} directly.
+            </p>
+          </div>
+          <div className={styles.faqItem}>
+            <h3 className={styles.faqQuestion}>Can I browse category pages before visiting?</h3>
+            <p className={styles.faqAnswer}>
+              Yes. Use the category links on this page to browse flower, pre-rolls, edibles, THC vapes, concentrates, shatter, CBD oils, and accessories before planning your visit.
             </p>
           </div>
           {gbpLocation.neighborhood && (
