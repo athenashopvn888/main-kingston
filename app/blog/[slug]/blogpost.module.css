@@ -153,3 +153,46 @@
 .backLink:hover {
   color: var(--green-mid);
 }
+
+.relatedLinks {
+  margin: 0 0 40px;
+  padding: 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.relatedList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.relatedList li {
+  padding: 14px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.relatedList li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.relatedList a {
+  color: var(--green-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.relatedList a:hover {
+  color: var(--green-mid);
+}
+
+.relatedList p {
+  margin: 6px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
