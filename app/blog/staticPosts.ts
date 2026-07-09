@@ -24,7 +24,7 @@ export const STATIC_POSTS: StaticBlogPost[] = [
     metaDescription:
       "Adult 19+ guide to Main Kingston Cannabis near Main St and Kingston Rd, with local planning tips, menu-category context, and store-page checks.",
     excerpt: "Main Kingston Cannabis store guide for adults 19+.",
-    author: "Athena SEO Team",
+    author: "Main Kingston Cannabis Team",
     date: "2026-07-01",
     category: "Store Guide",
     readTime: "4 min",
