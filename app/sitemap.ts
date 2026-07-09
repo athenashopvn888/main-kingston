@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { TIER_CONFIG, CATEGORY_CONFIG, allFlowers, allItems } from "./lib/products";
 import { SEO_PAGES } from "./lib/seoPages";
 
-const BASE = "https://mainkingstoncannabis.ca";
+const BASE = "https://www.mainkingstoncannabis.ca";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();

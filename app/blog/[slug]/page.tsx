@@ -15,7 +15,7 @@ export async function generateMetadata({
       title: staticPost.seoTitle,
       description: staticPost.metaDescription,
       alternates: {
-        canonical: `https://mainkingstoncannabis.ca/blog/${slug}`,
+        canonical: `https://www.mainkingstoncannabis.ca/blog/${slug}`,
       },
     };
   }
@@ -29,7 +29,7 @@ export async function generateMetadata({
     title: `${title} - Blog | Main Kingston Cannabis`,
     description: `Read about ${title.toLowerCase()} and other cannabis guides from Main Kingston Cannabis in Toronto.`,
     alternates: {
-      canonical: `https://mainkingstoncannabis.ca/blog/${slug}`,
+      canonical: `https://www.mainkingstoncannabis.ca/blog/${slug}`,
     },
   };
 }

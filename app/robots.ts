@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://mainkingstoncannabis.ca/sitemap.xml",
+    sitemap: "https://www.mainkingstoncannabis.ca/sitemap.xml",
   };
 }
