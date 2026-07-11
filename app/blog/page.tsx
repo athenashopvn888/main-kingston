@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import BlogContent from "./BlogContent";
 
 export const metadata: Metadata = {
-  title: "Cannabis Blog & Guides — Main Kingston Cannabis | Toronto",
-  description: "Read the latest strain reviews, dosing guides, and cannabis news from Main Kingston Cannabis in Toronto.",
+  title: "Main Kingston Cannabis Blog | Cannabis Menu Guides",
+  description: "Read Main Kingston Cannabis cannabis menu guides, flower tier notes, and local store checks for Toronto shoppers.",
   alternates: {
     canonical: "https://www.mainkingstoncannabis.ca/blog",
   },

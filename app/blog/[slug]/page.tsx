@@ -1,39 +1,56 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
+import { notFound, permanentRedirect } from "next/navigation";
 import PostContent from "./PostContent";
-import { getStaticPost } from "../staticPosts";
+import { BLOG_REDIRECTS, STATIC_POSTS, getBlogRedirect, getStaticPost, STORE_BLOG_CONFIG } from "../staticPosts";
 
-export async function generateMetadata({
-  params,
-}: {
+type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const staticPost = getStaticPost(slug);
+};
 
-  if (staticPost) {
+export function generateStaticParams() {
+  return STATIC_POSTS.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const redirectTarget = getBlogRedirect(slug);
+  const finalSlug = redirectTarget || slug;
+  const staticPost = getStaticPost(finalSlug);
+
+  if (!staticPost) {
     return {
-      title: staticPost.seoTitle,
-      description: staticPost.metaDescription,
-      alternates: {
-        canonical: `https://www.mainkingstoncannabis.ca/blog/${slug}`,
-      },
+      title: "Blog | " + STORE_BLOG_CONFIG.storeName,
+      robots: { index: false, follow: false },
     };
   }
 
-  const title = slug
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-
   return {
-    title: `${title} - Blog | Main Kingston Cannabis`,
-    description: `Read about ${title.toLowerCase()} and other cannabis guides from Main Kingston Cannabis in Toronto.`,
+    title: staticPost.seoTitle,
+    description: staticPost.metaDescription,
     alternates: {
-      canonical: `https://www.mainkingstoncannabis.ca/blog/${slug}`,
+      canonical: "https://" + STORE_BLOG_CONFIG.domain + "/blog/" + staticPost.slug,
+    },
+    openGraph: {
+      title: staticPost.seoTitle,
+      description: staticPost.metaDescription,
+      url: "https://" + STORE_BLOG_CONFIG.domain + "/blog/" + staticPost.slug,
+      type: "article",
+      publishedTime: staticPost.date,
+      modifiedTime: staticPost.modifiedDate,
     },
   };
 }
 
-export default function BlogPostPage() {
-  return <PostContent />;
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const redirectTarget = BLOG_REDIRECTS[slug];
+
+  if (redirectTarget) {
+    permanentRedirect("/blog/" + redirectTarget);
+  }
+
+  const staticPost = getStaticPost(slug);
+  if (!staticPost) notFound();
+
+  return <PostContent slug={slug} storeCode={STORE_BLOG_CONFIG.storeCode} storeName={STORE_BLOG_CONFIG.storeName} />;
 }
