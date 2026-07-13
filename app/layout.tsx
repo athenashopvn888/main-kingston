@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "vapes",
     "pre-rolls",
     "native cigarettes Toronto",
-    "weed store Mississauga",
+    "weed store Kingston Road",
   ],
   openGraph: {
     type: "website",
@@ -39,15 +39,18 @@ export const metadata: Metadata = {
         url: "https://mainkingstoncannabis.ca/wp-content/uploads/2026/04/46Oi5.jpg",
         width: 1200,
         height: 630,
-        alt: "Main Kingston Cannabis — Premium Cannabis Dispensary Toronto",
+        alt: "Main Kingston Cannabis — Main Kingston Cannabis Toronto",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "24 Hour Kingston Road Dispensary | Main Kingston Cannabis",
-    description: "Main Kingston Cannabis is an East Toronto dispensary on Kingston Rd near Main St with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
-    images: ["https://mainkingstoncannabis.ca/wp-content/uploads/2026/04/46Oi5.jpg"],
+    description:
+      "Main Kingston Cannabis is an East Toronto dispensary on Kingston Rd near Main St with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
+    images: [
+      "https://mainkingstoncannabis.ca/wp-content/uploads/2026/04/46Oi5.jpg",
+    ],
   },
   robots: {
     index: true,
@@ -68,14 +71,15 @@ export const metadata: Metadata = {
   },
 };
 
-/* ── JSON-LD Structured Data ── */
+/* JSON-LD Structured Data */
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Store",
   additionalType: "https://schema.org/Store",
   "@id": "https://mainkingstoncannabis.ca",
   name: "Main Kingston Cannabis",
-  description: "Cannabis dispensary at 615 Kingston Rd in Toronto, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
+  description:
+    "Cannabis dispensary at 615 Kingston Rd in Toronto, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
   url: "https://mainkingstoncannabis.ca",
   telephone: "+19054670615",
   image: "https://mainkingstoncannabis.ca/wp-content/uploads/2026/04/7Clmh.jpg",
@@ -96,7 +100,15 @@ const jsonLd = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
       opens: "00:00",
       closes: "23:59",
     },
@@ -129,7 +141,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YP3LRJP4CD"></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-YP3LRJP4CD"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -137,7 +152,7 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-YP3LRJP4CD');
-            `
+            `,
           }}
         />
       </head>
