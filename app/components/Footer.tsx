@@ -8,19 +8,14 @@ export default function Footer() {
         <div className={styles.grid}>
           {/* Column 1 — Store Description */}
           <div className={styles.col}>
-            <div className={styles.brand}>
-              MAIN KINGSTON CANNABIS
-            </div>
+            <div className={styles.brand}>MAIN KINGSTON CANNABIS</div>
             <p className={styles.desc}>
               Your Local Cannabis Dispensary At 615 Kingston Rd, Toronto. Visit
-              Main Kingston Cannabis For Premium Flower, Edibles, Vapes &amp; More.
-              Open 24 Hours.
+              Main Kingston Cannabis For Premium Flower, Edibles, Vapes &amp;
+              More. Open 24 Hours.
             </p>
             <div className={styles.buttons}>
-              <a
-                href="tel:+19054670615"
-                className={styles.btnPrimary}
-              >
+              <a href="tel:+19054670615" className={styles.btnPrimary}>
                 Call Now
               </a>
             </div>
@@ -37,7 +32,11 @@ export default function Footer() {
             </div>
             <div className={styles.infoBlock}>
               <span className={styles.infoLabel}>Phone:</span>
-              <span><a href="tel:+19054670615" style={{color: "inherit"}}>(905) 467-0615</a></span>
+              <span>
+                <a href="tel:+19054670615" style={{ color: "inherit" }}>
+                  (905) 467-0615
+                </a>
+              </span>
             </div>
             <div className={styles.infoBlock}>
               <span className={styles.infoLabel}>Hours:</span>
@@ -61,21 +60,31 @@ export default function Footer() {
               <Link href="/faq">FAQ</Link>
               <Link href="/delivery">Delivery (Coming Soon)</Link>
               <Link href="/games">Games Arcade</Link>
-              <Link href="/info/york-weed-dispensary">Toronto Dispensary</Link>
-              <Link href="/info/cheap-weed-york">Cheap Weed Toronto</Link>
-              <Link href="/info/native-cigarettes-york">Native Cigarettes</Link>
-              <Link href="/info/weed-store-near-mississauga">Weed Store Near Mississauga</Link>
-              <Link href="/weed-dispensary-toronto/">Main Kingston Cannabis Weed Dispensary in Toronto</Link>
+              <Link href="/info/kingston-road-weed-dispensary">
+                Kingston Road Dispensary
+              </Link>
+              <Link href="/info/cheap-weed-kingston-road">
+                Cheap Weed Kingston Road
+              </Link>
+              <Link href="/info/native-cigarettes-kingston-road">
+                Native Cigarettes
+              </Link>
+              <Link href="/info/weed-store-near-main-street">
+                Weed Store Near Kingston Road
+              </Link>
+              <Link href="/weed-dispensary-toronto/">
+                Main Kingston Cannabis Weed Dispensary in Toronto
+              </Link>
               <Link href="/contact">Contact Us</Link>
-                          <Link href="/resources">Resources</Link>
+              <Link href="/resources">Resources</Link>
             </nav>
           </div>
         </div>
 
         <div className={styles.bottom}>
           <p>
-            © {new Date().getFullYear()} Main Kingston Cannabis. Must be 19+ to
-            enter. Please consume responsibly.
+            (c) {new Date().getFullYear()} Main Kingston Cannabis. Must be 19+
+            to enter. Please consume responsibly.
           </p>
         </div>
       </div>
