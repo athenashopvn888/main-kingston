@@ -28,7 +28,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     seoTitle: "Main Kingston Cannabis Resources | Main Street / Kingston Road / East Toronto Menu And Visit Guides",
     description: "Main Kingston Cannabis resource pages for Main Street / Kingston Road / East Toronto shoppers, with local visit planning, menu shortcuts, flower tier pricing, value shopping, pre-roll tips, and Native smokes prices.",
     eyebrow: "Kingston Road Resource Hub",
-    intro: "A practical resource hub for East Toronto and Kingston Road shoppers. Use it to move from local search intent to the right menu shelf: flower, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, Native smokes, Backwoods, and grabba.",
+    intro: "A practical resource hub for East Toronto and Kingston Road shoppers. Use it to find the relevant menu section for flower, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, Native smokes, Backwoods, and grabba.",
     cards: [
       { title: "Local Visit Guide", href: "/resources/kingston-road-east-toronto-visit-guide", text: "Plan the stop around Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes." },
       { title: "Menu Guide", href: "/resources/menu-guide", text: "Start with flower, pre-rolls, edibles, vapes, or smokes, then compare current products." },
@@ -170,7 +170,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       },
       {
         heading: "Useful For Local Quick Stops",
-        body: "For East Toronto and Kingston Road shoppers, pre-rolls can be the fastest shelf to check before heading through Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes. Use the current category page for live details."
+        body: "For East Toronto and Kingston Road shoppers, pre-rolls offer a direct category to check before heading through Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes. Use the current category page for current details."
       }
     ],
   },

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Frequently asked questions about Main Kingston Cannabis at 615 Kingston Rd, Toronto, ON M4E 1R3. Hours, location, products, category browsing, and visit planning.",
   alternates: {
-    canonical: "https://mainkingstoncannabis.ca/faq",
+    canonical: "https://www.mainkingstoncannabis.ca/faq",
   },
 };
 

@@ -11,55 +11,48 @@ export function getItemData(category: string, name: string): ItemEffects {
   if (cat === "EDIBLES") {
     return {
       effects: [
-        { emoji: "", label: "Long Lasting" },
-        { emoji: "", label: "Body High" },
-        { emoji: "", label: "Flavorful" },
+        { emoji: "", label: "Edible" },
+        { emoji: "", label: "Package Details" },
       ],
-      description: `${name} is an edible category item listed for Main Kingston Cannabis. Confirm current availability, package details, and THC information on the current menu or in store.`,
+      description: `${name} is an edible category item listed for Main Kingston Cannabis. Check the current menu and package for item details.`,
       metaDescription: `Browse ${name} cannabis edibles in Toronto at Main Kingston Cannabis. Confirm current menu details before visiting.`,
-      consume:
-        "Start low and go slow. Edibles can take 45 to 120 minutes to take full effect. Wait before consuming more.",
+      consume: "Review the product label and package details before purchase.",
     };
   }
 
   if (cat.includes("VAPE")) {
     return {
       effects: [
-        { emoji: "", label: "Fast Acting" },
-        { emoji: "", label: "Potent" },
-        { emoji: "", label: "Discreet" },
+        { emoji: "", label: "Vape" },
+        { emoji: "", label: "Compatibility" },
       ],
-      description: `${name} is a vape category item listed for Main Kingston Cannabis. Confirm current availability, compatibility, and product details before visiting.`,
+      description: `${name} is a vape category item listed for Main Kingston Cannabis. Check the current menu for compatibility and product details.`,
       metaDescription: `Browse ${name} vape products in Toronto at Main Kingston Cannabis. Confirm current menu details before visiting.`,
-      consume:
-        "Take small puffs and wait to gauge effects. Follow product packaging and store guidance.",
+      consume: "Review the product label and compatibility details before purchase.",
     };
   }
 
   if (cat === "CONCENTRATES") {
     return {
       effects: [
-        { emoji: "", label: "Highly Potent" },
-        { emoji: "", label: "Fast Acting" },
-        { emoji: "", label: "Concentrated" },
+        { emoji: "", label: "Concentrate" },
+        { emoji: "", label: "Product Format" },
       ],
-      description: `${name} is a concentrate category item listed for Main Kingston Cannabis. Concentrates can be strong, so confirm details and use carefully.`,
+      description: `${name} is a concentrate category item listed for Main Kingston Cannabis. Check the current menu and package for product details.`,
       metaDescription: `Browse ${name} cannabis concentrates in Toronto at Main Kingston Cannabis. Confirm current menu details before visiting.`,
-      consume:
-        "Use a small amount. Concentrates can be potent and should be consumed carefully.",
+      consume: "Review the product label and package details before purchase.",
     };
   }
 
   if (cat === "PREROLLS") {
     return {
       effects: [
-        { emoji: "", label: "Ready To Smoke" },
-        { emoji: "", label: "Quick Onset" },
-        { emoji: "", label: "Convenient" },
+        { emoji: "", label: "Pre-Roll" },
+        { emoji: "", label: "Pack Details" },
       ],
-      description: `${name} is a pre-roll category item listed for Main Kingston Cannabis. Confirm strain, package size, and availability on the current menu.`,
+      description: `${name} is a pre-roll category item listed for Main Kingston Cannabis. Check the current menu for strain and package-size details.`,
       metaDescription: `Browse ${name} pre-rolls in Toronto at Main Kingston Cannabis. Confirm current menu details before visiting.`,
-      consume: "Light evenly, take small puffs, and wait to gauge effects.",
+      consume: "Review the product label and package details before purchase.",
     };
   }
 

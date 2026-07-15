@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Visit Main Kingston Cannabis at 615 Kingston Rd, Toronto, ON M4E 1R3. Open 24 hours, 7 days a week. Walk-ins welcome.",
   alternates: {
-    canonical: "https://mainkingstoncannabis.ca/contact",
+    canonical: "https://www.mainkingstoncannabis.ca/contact",
   },
   openGraph: {
     title: "Contact Main Kingston Cannabis — Toronto Dispensary",
@@ -95,16 +95,16 @@ export default function ContactPage() {
                 <br />
                 Just walk in and our staff will
                 <br />
-                help you find the perfect strain.
+                help you compare current menu options.
               </p>
               <div className={styles.featureList}>
                 <div className={styles.featureItem}>
                   <span className={styles.featureCheck}>✓</span>
-                  200+ strains in stock
+                  Browse the current flower menu
                 </div>
                 <div className={styles.featureItem}>
                   <span className={styles.featureCheck}>✓</span>
-                  Lab-tested &amp; safe
+                  Ask staff about product labels
                 </div>
                 <div className={styles.featureItem}>
                   <span className={styles.featureCheck}>✓</span>

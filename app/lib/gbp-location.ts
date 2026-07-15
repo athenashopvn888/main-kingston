@@ -1,7 +1,6 @@
-// Auto-generated Google Business Profile Local SEO Location Configuration
 export const gbpLocation = {
   storeName: "Main Kingston Cannabis",
-  domain: "mainkingstoncannabis.ca",
+  domain: "www.mainkingstoncannabis.ca",
   city: "Toronto",
   province: "ON",
   country: "CA",
@@ -32,7 +31,7 @@ export const gbpLocation = {
   seoTitle: "Main Kingston Cannabis | Weed Dispensary in Toronto",
   metaDescription: "Main Kingston Cannabis is a local weed dispensary in Toronto offering flower, pre-rolls, edibles, vapes, concentrates, CBD, and service for adults 19+.",
   localLandmarks: ["Main Street", "Kingston Road", "East Toronto"],
-  introVariant: "Main Kingston Cannabis is a local weed dispensary in Toronto, located at 615 Kingston Rd. We serve adults 19+ looking for quality weed, cannabis flower, pre-rolls, edibles, THC vapes, concentrates, shatter, CBD oils, and accessories. Whether you are searching for a weed dispensary near Main Street / Kingston Road / East Toronto, a cannabis store in Toronto, or a local weed shop close to Kingston Road, our friendly team is here to help you find the right product.",
+  introVariant: "Main Kingston Cannabis is a local weed dispensary in Toronto, located at 615 Kingston Rd near Main Street. Adults 19+ can browse menu categories including flower, pre-rolls, edibles, THC vapes, concentrates, shatter, CBD oils, and accessories before visiting.",
   neighborhoodDescription: "Located in the vibrant Main Street / Kingston Road / East Toronto district, our cannabis store fits right into this active and historic community, surrounded by local retail shops and convenient transit links.",
   parkingNote: "Street parking is available along Kingston Road",
   transitNote: "A short walk from Main Street Station and accessible via local TTC streetcar routes.",

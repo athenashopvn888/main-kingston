@@ -672,7 +672,7 @@ function AddOnsCard({ items, hiIdx }: { items: Item[]; hiIdx: number }) {
    ============================================================ */
 const TICKER_SLIDES = [
   "🔥 Main Kingston Cannabis — 615 Kingston Rd, Toronto",
-  "200+ Strains In Stock",
+  "Browse Current Flower Menu",
   "Open 24 Hours",
   "ALL SALES ARE FINAL",
   "🎮 Play Games at mainkingstoncannabis.ca/games",

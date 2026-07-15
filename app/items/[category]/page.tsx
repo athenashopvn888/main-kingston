@@ -32,7 +32,7 @@ export async function generateMetadata({
     title: catInfo.config.seoTitle || `${catInfo.config.name} — ${items.length} Products`,
     description: catInfo.config.seoIntro || `Shop ${items.length} ${catInfo.config.name.toLowerCase()} at Main Kingston Cannabis.`,
     alternates: {
-      canonical: `https://mainkingstoncannabis.ca/items/${catSlug}`,
+      canonical: `https://www.mainkingstoncannabis.ca/items/${catSlug}`,
     },
   };
 }
