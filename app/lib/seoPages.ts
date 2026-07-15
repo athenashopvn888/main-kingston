@@ -25,10 +25,10 @@ export const SEO_PAGES: SeoPageData[] = [
     sections: [
       {
         heading: "A Local Cannabis Stop Near Kingston Road and Main Street",
-        body: "Main Kingston Cannabis is located at 615 Kingston Rd, Toronto, ON M4E 1R3. This page is built for shoppers around Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest who want clear store information and simple menu paths before visiting.",
+        body: "Main Kingston Cannabis is located at 615 Kingston Rd, Toronto, ON M4E 1R3. This page helps shoppers around Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest confirm store information and compare categories before visiting.",
       },
       {
-        heading: "Flower Tiers And Menu Paths",
+        heading: "Flower Tiers And Category Choices",
         body: "Main Kingston Cannabis organizes flower into clear tiers, from Exotic and Premium to AAA+, AA, and Budget. You can also browse edibles, vapes, concentrates, pre-rolls, cigarettes, and accessories through the live menu before stopping in.",
       },
       {
@@ -131,7 +131,7 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         q: "Can I browse cannabis and cigarettes together?",
-        a: "Yes. The site has category paths for cannabis products, cigarettes, and accessories.",
+        a: "Yes. The site has category guides for cannabis products, cigarettes, and accessories.",
       },
       { q: "Where is the store?", a: "615 Kingston Rd, Toronto, ON M4E 1R3." },
     ],
@@ -154,7 +154,7 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         heading: "Why Start With The Menu",
-        body: "The menu helps you compare flower tiers and category paths before visiting. It is a cleaner next step than a generic city page.",
+        body: "The menu helps you compare flower tiers and category guides before visiting. It is a cleaner next step than a generic city page.",
       },
       {
         heading: "Directions Context",

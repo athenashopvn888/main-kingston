@@ -31,7 +31,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     intro: "A practical resource hub for East Toronto and Kingston Road shoppers. Use it to move from local search intent to the right menu shelf: flower, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, Native smokes, Backwoods, and grabba.",
     cards: [
       { title: "Local Visit Guide", href: "/resources/kingston-road-east-toronto-visit-guide", text: "Plan the stop around Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes." },
-      { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the right category before jumping into product pages." },
+      { title: "Menu Guide", href: "/resources/menu-guide", text: "Start with flower, pre-rolls, edibles, vapes, or smokes, then compare current products." },
       { title: "Flower Tier Guide", href: "/resources/flower-guide", text: "Compare Exotic, Premium, AAA+, AA, and Budget with 3g and 6g deal math." },
       { title: "Value Guide", href: "/resources/value-guide", text: "A cleaner path for cheap weed, budget weed, and affordable flower searches." },
       { title: "Native Smokes Prices", href: "/resources/native-smokes", text: "Brand and price notes for cigarettes, Backwoods, grabba, and pouch listings." }
@@ -39,12 +39,12 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     sections: [
       {
         heading: "Local Search, Useful Next Step",
-        body: "Main Kingston Cannabis is listed at 615 Kingston Rd, Toronto, ON M4E 1R3. These resources support the protected GBP landing page, not replace it. Start with the local page for address and visit context, then use the resource guides for menu decisions.",
-        bullets: ["GBP landing page: /weed-dispensary-toronto", "Local areas: Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes", "Store hours shown in the site data: Open 24 Hours"]
+        body: "Main Kingston Cannabis is listed at 615 Kingston Rd, Toronto, ON M4E 1R3. These guides help shoppers plan the visit. Start with the local page for address and visit details, then use these guides to compare categories.",
+        bullets: ["Local store page: /weed-dispensary-toronto", "Local areas: Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes", "Listed store hours: Open 24 Hours"]
       },
       {
-        heading: "Built Around Real Menu Paths",
-        body: "The pages are organized around high-intent keywords shoppers actually use: weed dispensary near Main Street / Kingston Road / East Toronto, cannabis store Toronto, cheap weed, budget weed, pre-rolls, edibles, THC vapes, concentrates, Native cigarettes, Backwoods, and grabba."
+        heading: "Built Around Real Menu Choices",
+        body: "The guides stay focused on real visits: weed dispensary near Main Street / Kingston Road / East Toronto, cannabis store Toronto, cheap weed, budget weed, pre-rolls, edibles, THC vapes, concentrates, Native cigarettes, Backwoods, and grabba."
       }
     ],
   },
@@ -52,12 +52,12 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     slug: "kingston-road-east-toronto-visit-guide",
     title: "Kingston Road And East Toronto Weed Dispensary Visit Guide",
     seoTitle: "Kingston Road And East Toronto Weed Dispensary Visit Guide | Main Kingston Cannabis",
-    description: "Local visit planning for Main Kingston Cannabis at 615 Kingston Rd, with Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes context, menu shortcuts, hours, and category paths.",
+    description: "Local visit planning for Main Kingston Cannabis at 615 Kingston Rd, with Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes context, menu shortcuts, hours, and category guides.",
     eyebrow: "Visit Guide",
     intro: "Use this page when the search starts local: weed dispensary near Main Street / Kingston Road / East Toronto, cannabis store near 615 Kingston Rd, or a quick menu check before visiting from Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes.",
     cards: [
-      { title: "GBP Store Page", href: "/weed-dispensary-toronto", text: "Use the main local landing page for address, directions, hours, and NAP details." },
-      { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the product lane before opening deep menu pages." },
+      { title: "Local Store Page", href: "/weed-dispensary-toronto", text: "Use the local store page for address, directions, hours, and contact details." },
+      { title: "Menu Guide", href: "/resources/menu-guide", text: "Choose the product category before opening the menu." },
       { title: "Value Guide", href: "/resources/value-guide", text: "Fast help for affordable flower and budget weed searches." }
     ],
     sections: [
@@ -66,9 +66,9 @@ export const RESOURCE_PAGES: ResourcePage[] = [
         body: "Main Kingston Cannabis is listed at 615 Kingston Rd, Toronto, ON M4E 1R3. Keep that address as the local anchor, then use the resource pages to decide whether the trip is about flower, pre-rolls, edibles, THC vapes, concentrates, accessories, or cigarettes."
       },
       {
-        heading: "Neighborhood Search Paths",
-        body: "Main Street and Kingston Road searches often overlap with Upper Beaches, Danforth, Victoria Park, Birch Cliff, and Scarborough Southwest, so the resources give a clean East Toronto menu path.",
-        bullets: ["Main Street cannabis store search path", "Kingston Road cannabis store search path", "East Toronto cannabis store search path", "Upper Beaches cannabis store search path", "Danforth cannabis store search path", "Victoria Park cannabis store search path", "Birch Cliff cannabis store search path", "Scarborough Southwest cannabis store search path"]
+        heading: "Neighborhood Search Areas",
+        body: "Main Street and Kingston Road searches often overlap with Upper Beaches, Danforth, Victoria Park, Birch Cliff, and Scarborough Southwest, so the resources give a clean East Toronto menu category.",
+        bullets: ["Main Street cannabis store local search", "Kingston Road cannabis store local search", "East Toronto cannabis store local search", "Upper Beaches cannabis store local search", "Danforth cannabis store local search", "Victoria Park cannabis store local search", "Birch Cliff cannabis store local search", "Scarborough Southwest cannabis store local search"]
       },
       {
         heading: "Best First Click",
@@ -80,24 +80,24 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     slug: "menu-guide",
     title: "Main Kingston Cannabis Menu Guide",
     seoTitle: "Main Kingston Cannabis Menu Guide | Flower, Pre-Rolls, Edibles, Vapes And Cigarettes",
-    description: "A category-first menu guide for Main Kingston Cannabis, covering flower tiers, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, and Native smokes.",
+    description: "A practical menu guide for Main Kingston Cannabis, covering flower tiers, pre-rolls, edibles, THC vapes, concentrates, accessories, cigarettes, and Native smokes.",
     eyebrow: "Menu Guide",
-    intro: "The menu gets easier when you choose the lane first. Flower has tier math. Pre-rolls have format details. Edibles, THC vapes, concentrates, and accessories need category notes. Cigarettes need brand and price checks.",
+    intro: "The menu gets easier when you choose the category first. Flower has tier math. Pre-rolls have format details. Edibles, THC vapes, concentrates, and accessories each have different details to compare. Cigarettes need brand and price checks.",
     cards: [
       { title: "Flower Tiers", href: "/resources/flower-guide", text: "Start here for Exotic, Premium, AAA+, AA, and Budget flower." },
       { title: "Pre-Rolls", href: "/resources/pre-roll-guide", text: "Use this for ready-to-smoke singles, packs, and quick-trip browsing." },
       { title: "Cigarettes", href: "/items/cigarettes", text: "Open the cigarette category for current Native smokes listings." },
-      { title: "GBP Store Page", href: "/weed-dispensary-toronto", text: "Return to the protected local store page." }
+      { title: "Local Store Page", href: "/weed-dispensary-toronto", text: "Return to the local store page." }
     ],
     sections: [
       {
         heading: "Pick The Shelf First",
-        body: "For East Toronto and Kingston Road shoppers, the best menu path is simple: flower shoppers compare tiers, pre-roll shoppers compare format, edible and vape shoppers read product notes, and cigarette shoppers compare brand, full/light/menthol style, and price.",
-        bullets: ["Flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes each need their own pass.", "Use current category pages for live product details.", "Use resources for shopping logic and local planning."]
+        body: "For East Toronto and Kingston Road shoppers, the best first step is simple: flower shoppers compare tiers, pre-roll shoppers compare format, edible and vape shoppers compare current item details, and cigarette shoppers compare brand, full/light/menthol style, and price.",
+        bullets: ["Flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes are easier to compare one category at a time.", "Use current category pages for today's details.", "Use these guides for visit planning."]
       },
       {
-        heading: "Local Keywords Without The Mess",
-        body: "This page supports searches like weed dispensary near Main Street / Kingston Road / East Toronto, cannabis store Toronto, cheap weed near me, Native cigarettes, and THC vape menu while keeping the actual shopper path clear."
+        heading: "Local Shopping Cues",
+        body: "This page helps shoppers searching for weed dispensary near Main Street / Kingston Road / East Toronto, cannabis store Toronto, cheap weed near me, Native cigarettes, and THC vape menu while keeping the actual shopping step clear."
       }
     ],
   },
@@ -131,7 +131,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     slug: "value-guide",
     title: "Main Kingston Cannabis Value Weed Guide",
     seoTitle: "Main Kingston Cannabis Value Weed Guide | Cheap Weed Near Main Street / Kingston Road / East Toronto",
-    description: "A value shopping guide for Main Kingston Cannabis, covering cheap weed, budget weed, AA flower, AAA+ deals, 6g tier math, and affordable menu paths.",
+    description: "A value shopping guide for Main Kingston Cannabis, covering cheap weed, budget weed, AA flower, AAA+ deals, 6g tier math, and affordable menu choices.",
     eyebrow: "Value Guide",
     intro: "For Kingston Road and East Toronto value shopping, value shopping works best when the shelf is clear. Start with Budget, AA, and AAA+ before jumping into higher tiers or mixed categories.",
     cards: [
@@ -147,7 +147,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       },
       {
         heading: "Compare Inside The Category",
-        body: "Value means something different for flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes. Keep each comparison inside the right category so the decision does not get muddy."
+        body: "Value looks different across flower, pre-rolls, edibles, THC vapes, concentrates, accessories, and cigarettes. Compare one product type at a time so the choice stays clear."
       }
     ],
   },
@@ -166,7 +166,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     sections: [
       {
         heading: "Keep Pre-Rolls In Their Own Lane",
-        body: "Pre-rolls should be compared by format, pack size, posted notes, and current price. Do not force loose-flower tier logic onto pre-roll shopping unless the visit actually changes categories."
+        body: "Pre-rolls should be compared by format, pack size, posted details, and current price. Do not force loose-flower tier logic onto pre-roll shopping unless the visit actually changes categories."
       },
       {
         heading: "Useful For Local Quick Stops",
@@ -232,11 +232,11 @@ export const RESOURCE_PAGES: ResourcePage[] = [
   },
   {
     slug: "resource-centre-launch",
-    title: "Main Kingston Cannabis Resource Centre Update",
-    seoTitle: "Main Kingston Cannabis Resource Centre Update | Local Menu Guides",
-    description: "Main Kingston Cannabis resource centre update with local visit planning, menu guide pages, flower tier pricing, value shopping, pre-roll tips, and Native smokes prices.",
+    title: "Main Kingston Cannabis Resource Centre",
+    seoTitle: "Main Kingston Cannabis Resource Centre | Local Menu Guides",
+    description: "Main Kingston Cannabis resource centre with local visit planning, menu guides, flower tier pricing, value shopping, pre-roll tips, and Native smokes prices.",
     eyebrow: "Resource Update",
-    intro: "The resource centre has been rebuilt around real shopper paths: local visit planning, category-first browsing, flower tier math, value shopping, pre-roll shortcuts, and cigarette price notes.",
+    intro: "Use this page for local visit planning, menu guides, flower tier pricing, value shopping, pre-roll tips, and cigarette price notes.",
     cards: [
       { title: "Resource Home", href: "/resources", text: "Start at the main resource hub." },
       { title: "Local Visit Guide", href: "/resources/kingston-road-east-toronto-visit-guide", text: "Plan around Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes." },
@@ -246,11 +246,11 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     sections: [
       {
         heading: "What Changed",
-        body: "The resources now sound like Main Kingston Cannabis and Main Street / Kingston Road / East Toronto, not a copied store template. Each page supports a specific shopper task and points back to the right category or local landing page."
+        body: "The resource pages keep local shoppers oriented with visit planning, category guides, and quick links back to the menu."
       },
       {
         heading: "What Stayed Protected",
-        body: "The important SEO paths stay intact: /weed-dispensary-toronto, /resources, /resources/menu-guide, /resources/flower-guide, /resources/value-guide, /resources/pre-roll-guide, /resources/native-smokes, and /resources/native-smokes/native-cigarettes-guide."
+        body: "The main pages stay easy to find: /weed-dispensary-toronto, /resources, /resources/menu-guide, /resources/flower-guide, /resources/value-guide, /resources/pre-roll-guide, /resources/native-smokes, and /resources/native-smokes/native-cigarettes-guide."
       }
     ],
   }
