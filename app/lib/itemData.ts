@@ -62,9 +62,9 @@ export function getItemData(category: string, name: string): ItemEffects {
         { emoji: "", label: "Specialty" },
         { emoji: "", label: "Menu Varies" },
       ],
-      description: `${name} is a specialty category item listed for Main Kingston Cannabis. Availability and details may vary by menu update.`,
+      description: `${name} is a specialty category item listed for Main Kingston Cannabis. Listings and details may vary by menu update.`,
       metaDescription: `Browse ${name} specialty items in Toronto at Main Kingston Cannabis. Confirm current menu details before visiting.`,
-      consume: "Use as directed and confirm product details before purchase.",
+      consume: "Review the product label and package details before purchase.",
     };
   }
 
@@ -75,6 +75,6 @@ export function getItemData(category: string, name: string): ItemEffects {
     ],
     description: `${name} is listed as a category item at Main Kingston Cannabis. Confirm current details before visiting.`,
     metaDescription: `Browse ${name} in Toronto at Main Kingston Cannabis. Confirm current menu details before visiting.`,
-    consume: "Use as directed on the packaging.",
+    consume: "Review the product label and package details before purchase.",
   };
 }
