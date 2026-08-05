@@ -37,7 +37,7 @@ export const SEO_PAGES: SeoPageData[] = [
       },
       {
         heading: "Open 24 Hours Near Kingston Road",
-        body: "Main Kingston Cannabis is open 24 hours. Walk in when the shop is open, check the menu first, or call (905) 467-0615 if you need current in-store details.",
+        body: "Main Kingston Cannabis is open 24 hours. Walk in when the shop is open, check the menu first, or call +1 (289) 460-0130 if you need current in-store details.",
       },
     ],
     faqs: [

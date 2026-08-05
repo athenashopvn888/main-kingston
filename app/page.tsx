@@ -79,7 +79,7 @@ const LOCAL_FAQS = [
   },
   {
     q: "Where is Main Kingston Cannabis located?",
-    a: "We are located at 615 Kingston Rd, Toronto, ON M4E 1R3. Visit us in person or call us at (905) 467-0615. Free evening street parking is available.",
+    a: "We are located at 615 Kingston Rd, Toronto, ON M4E 1R3. Visit us in person or call us at +1 (289) 460-0130. Free evening street parking is available.",
   },
   {
     q: "What is the cheapest weed at Main Kingston Cannabis?",
