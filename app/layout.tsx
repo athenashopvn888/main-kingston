@@ -81,7 +81,7 @@ const jsonLd = {
   description:
     "Cannabis dispensary at 615 Kingston Rd in Toronto, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
   url: "https://www.mainkingstoncannabis.ca",
-  telephone: "+19054670615",
+  telephone: "+12894600130",
   image: "https://www.mainkingstoncannabis.ca/wp-content/uploads/2026/04/7Clmh.jpg",
   priceRange: "$3 - $12/g",
   address: {

@@ -113,7 +113,7 @@ export default function DeliveryContent() {
           <p className={styles.ctaText}>
             Can&apos;t wait? Visit us in-store at{" "}
             <strong>615 Kingston Rd, Toronto</strong>. We are{" "}
-            <strong>Open 24 Hours</strong>. Call <strong>(905) 467-0615</strong>
+            <strong>Open 24 Hours</strong>. Call <strong>+1 (289) 460-0130</strong>
             .
           </p>
         </div>

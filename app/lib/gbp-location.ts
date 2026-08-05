@@ -8,8 +8,8 @@ export const gbpLocation = {
   address: "615 Kingston Rd, Toronto, ON M4E 1R3",
   streetAddress: "615 Kingston Rd",
   postalCode: "M4E 1R3",
-  phone: "(905) 467-0615",
-  phoneIntl: "+19054670615",
+  phone: "+1 (289) 460-0130",
+  phoneIntl: "+12894600130",
   neighborhood: "Main Street / Kingston Road / East Toronto",
   nearbyAreas: ["Main Street", "Kingston Road", "East Toronto", "Upper Beaches", "Danforth", "Victoria Park", "Birch Cliff", "Scarborough Southwest", "TTC"],
   products: [

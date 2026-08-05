@@ -22,7 +22,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "What are your hours?",
-        a: "Main Kingston Cannabis is open 24 hours. Check the site or call (905) 467-0615 if you need current visit details.",
+        a: "Main Kingston Cannabis is open 24 hours. Check the site or call +1 (289) 460-0130 if you need current visit details.",
       },
       {
         q: "Is there parking nearby?",
@@ -147,7 +147,7 @@ export default function FAQPage() {
           <div className={styles.ctaSection}>
             <h2 className={styles.ctaTitle}>Still have questions?</h2>
             <p className={styles.ctaText}>
-              Call us at <strong>(905) 467-0615</strong> or visit us at 615
+              Call us at <strong>+1 (289) 460-0130</strong> or visit us at 615
               Kingston Rd, Toronto.
             </p>
           </div>
