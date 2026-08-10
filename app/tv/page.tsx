@@ -675,7 +675,7 @@ const TICKER_SLIDES = [
   "Browse Current Flower Menu",
   "Open 24 Hours",
   "ALL SALES ARE FINAL",
-  "🎮 Play Games at mainkingstoncannabis.ca/games",
+  "DELIVERY MENU at mainkingstoncannabis.ca/delivery",
 ];
 
 function VerticalTicker() {
