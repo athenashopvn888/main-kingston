@@ -226,12 +226,12 @@ export const SEO_PAGES: SeoPageData[] = [
     heroTagline: "Nicotine vape devices, flavours and prices from Main Kingston Cannabis.",
     sections: [
       { heading: "Nicotine Vape Selection", body: "Main Kingston Cannabis lists nicotine vape devices, flavours, formats, puff counts and prices." },
-      { heading: "Separate From THC Vapes", body: "Nicotine vapes and THC vapes have separate selections so each product group is clear." },
+      { heading: "Nicotine Vapes Near Main Street", body: "Compare listed formats, flavours, puff counts and prices on Kingston Road." },
       { heading: "Open 24 Hours", body: "Visit Main Kingston Cannabis at 615 Kingston Rd for cigarettes, nicotine vapes and other smoke-shop essentials." },
     ],
     faqs: [
       { q: "Does Main Kingston Cannabis list nicotine vapes?", a: "Yes. The nicotine vape selection includes listed devices, flavours, formats, puff counts and prices." },
-      { q: "Where are THC vapes?", a: "THC vapes have a separate category." },
+      { q: "Can I compare nicotine vape prices online?", a: "Yes. Current listings include product details and posted prices." },
       { q: "Where is Main Kingston Cannabis?", a: "Main Kingston Cannabis is at 615 Kingston Rd." },
     ],
   },

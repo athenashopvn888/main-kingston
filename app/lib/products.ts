@@ -217,10 +217,10 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     icon: "NV",
     seoTitle: "Nicotine Vape Menu Kingston Road",
     seoIntro: "Browse nicotine vape devices, formats, flavours, puff counts and listed prices at Main Kingston Cannabis.",
-    seoDescription: "The nicotine vape menu at Main Kingston Cannabis lists devices, formats and prices for Kingston Road shoppers. THC vapes have a separate category. Visit 615 Kingston Rd.",
+    seoDescription: "Compare nicotine vape devices, formats, flavours, puff counts and listed prices at Main Kingston Cannabis, 615 Kingston Rd.",
     faqs: [
       { q: "Is this the nicotine vape menu?", a: "Yes. This category lists nicotine vape devices and prices from Main Kingston Cannabis." },
-      { q: "Where are THC vapes?", a: "THC vapes are listed in a separate THC vape category." },
+      { q: "Can I compare nicotine vape prices online?", a: "Yes. Current listings show available product details and posted prices for Kingston Road shoppers." },
     ],
   },
   "VAPE DISPOSABLE": {
@@ -231,10 +231,10 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     icon: "V",
     seoTitle: "THC Vape Menu Kingston Road",
     seoIntro: "Browse THC vape products and listed prices at Main Kingston Cannabis.",
-    seoDescription: "The THC vape category at Main Kingston Cannabis lists cannabis vape products and prices for Kingston Road shoppers. Nicotine vapes have a separate category. Visit 615 Kingston Rd.",
+    seoDescription: "Compare listed THC vape products, formats and prices at Main Kingston Cannabis, 615 Kingston Rd near Main Street.",
     faqs: [
       { q: "Is this the THC vape menu?", a: "Yes. This category lists THC vape products and prices from Main Kingston Cannabis." },
-      { q: "Where are nicotine vapes?", a: "Nicotine vapes are listed in a separate nicotine vape category." },
+      { q: "Can I compare THC vape prices online?", a: "Yes. Current listings show available product details and posted prices for Kingston Road shoppers." },
     ],
   },
   CONCENTRATES: {

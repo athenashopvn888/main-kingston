@@ -20,7 +20,7 @@ export default function NicotineVapesPage() {
         storeName="Main Kingston Cannabis"
         locationLabel="Kingston Road"
         eyebrow="Nicotine Vapes · Kingston Road"
-        title="Nicotine Vapes in Kingston Road"
+        title="Nicotine Vapes on Kingston Road"
         intro="Shop nicotine vape devices from Elf Bar, OVNS, NEXA, Level X and other listed names at Main Kingston Cannabis near Kingston Road and Main Street. Compare formats, flavours, puff counts and prices."
         items={items}
         menuHref="/items/vapes"
@@ -30,12 +30,12 @@ export default function NicotineVapesPage() {
         crossLink={{ href: "/info/native-cigarettes-kingston-road", eyebrow: "Also at Main Kingston Cannabis", title: "Need Native cigarettes instead?", body: "Shop full, light and menthol cigarette styles alongside Backwoods, grabba and other smoke-shop essentials at Main Kingston Cannabis.", label: "Shop Native cigarettes" }}
         sections={[
           { heading: "Nicotine Vapes on Kingston Road", body: "Main Kingston Cannabis lists disposable nicotine vapes, pods and devices at 615 Kingston Rd near Main Street." },
-          { heading: "Flavours, Puff Counts and Device Formats", body: "Compare listed options from Elf Bar, OVNS, NEXA, Level X and Beast Mode by device format, flavour and puff count." },
+          { heading: "Nicotine Vapes Near Main Street", body: "Compare the current device selection by format, flavour, puff count and listed price at the corner of Kingston Road and Main Street." },
           { heading: "Open 24 Hours in East Toronto", body: "Main Kingston Cannabis lists 24-hour shopping for cigarettes, nicotine vapes and other smoke-shop essentials." },
         ]}
         faqs={[
           { q: "Does Main Kingston Cannabis sell nicotine vapes?", a: "Yes. Main Kingston Cannabis lists nicotine vape devices with formats, flavours, puff counts and prices." },
-          { q: "Are nicotine vapes different from THC vapes?", a: "Yes. Nicotine devices and THC vapes are different product groups, with separate selections for each." },
+          { q: "What nicotine vape details can I compare?", a: "Listings may include the device format, flavour, puff count and price. Selection can change, so check the current details before visiting." },
           { q: "Where is Main Kingston Cannabis?", a: "Main Kingston Cannabis is at 615 Kingston Rd, Toronto, ON M4E 1R3 and lists open 24 hours." },
         ]}
         address="615 Kingston Rd, Toronto"
