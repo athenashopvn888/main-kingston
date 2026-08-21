@@ -56,7 +56,7 @@ export default function Footer() {
               <Link href="/budget">Budget Flower</Link>
               <Link href="/items/edibles">Edibles</Link>
               <Link href="/items/cigarettes">Cigarettes</Link>
-              <Link href="/items/vapes">Vape Pens</Link>
+<Link href="/items/vapes">Nicotine Vapes</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/delivery">DELIVERY MENU</Link>
               <Link href="/info/kingston-road-weed-dispensary">
@@ -65,9 +65,10 @@ export default function Footer() {
               <Link href="/info/cheap-weed-kingston-road">
                 Cheap Weed Kingston Road
               </Link>
-              <Link href="/info/native-cigarettes-kingston-road">
+<Link href="/info/native-cigarettes-kingston-road">
                 Native Cigarettes
               </Link>
+              <Link href="/info/nicotine-vapes-kingston-road">Nicotine Vapes Kingston Road</Link>
               <Link href="/info/weed-store-near-main-street">
                 Weed Store Near Kingston Road
               </Link>

@@ -25,7 +25,7 @@ export const SEO_PAGES: SeoPageData[] = [
     sections: [
       {
         heading: "A Local Cannabis Stop Near Kingston Road and Main Street",
-        body: "Main Kingston Cannabis is located at 615 Kingston Rd, Toronto, ON M4E 1R3. This page helps shoppers around Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest confirm store information and compare categories before visiting.",
+        body: "Main Kingston Cannabis is at 615 Kingston Rd, close to Main Street, the Upper Beaches, Danforth, Victoria Park, Birch Cliff and Scarborough Southwest.",
       },
       {
         heading: "Flower Tiers And Category Choices",
@@ -214,6 +214,25 @@ export const SEO_PAGES: SeoPageData[] = [
         q: "What neighbourhoods does this page focus on?",
         a: "Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest",
       },
+    ],
+  },
+
+  {
+    slug: "nicotine-vapes-kingston-road",
+    title: "Nicotine Vapes Kingston Road | Main Kingston Cannabis",
+    metaDescription: "Browse nicotine vape devices, flavours, formats and listed prices at Main Kingston Cannabis, 615 Kingston Rd. Open 24 Hours.",
+    h1: "Nicotine Vapes Kingston Road",
+    icon: "NV",
+    heroTagline: "Nicotine vape devices, flavours and prices from Main Kingston Cannabis.",
+    sections: [
+      { heading: "Nicotine Vape Selection", body: "Main Kingston Cannabis lists nicotine vape devices, flavours, formats, puff counts and prices." },
+      { heading: "Separate From THC Vapes", body: "Nicotine vapes and THC vapes have separate selections so each product group is clear." },
+      { heading: "Open 24 Hours", body: "Visit Main Kingston Cannabis at 615 Kingston Rd for cigarettes, nicotine vapes and other smoke-shop essentials." },
+    ],
+    faqs: [
+      { q: "Does Main Kingston Cannabis list nicotine vapes?", a: "Yes. The nicotine vape selection includes listed devices, flavours, formats, puff counts and prices." },
+      { q: "Where are THC vapes?", a: "THC vapes have a separate category." },
+      { q: "Where is Main Kingston Cannabis?", a: "Main Kingston Cannabis is at 615 Kingston Rd." },
     ],
   },
 ];

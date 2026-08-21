@@ -211,50 +211,32 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
 
   "VAPE PENS": {
     banner: "/banners/01_Vape_Pens.webp",
-    name: "THC Vape",
+    name: "Nic Vape",
     slug: "vapes",
     color: "#8b5cf6",
-    icon: "",
-    seoTitle: "THC Vape Toronto | Main Kingston Cannabis",
-    seoIntro:
-      "Browse thc vape category information at Main Kingston Cannabis near Kingston Road and Main Street.",
-    seoDescription:
-      "Review thc vape category information for Main Kingston Cannabis in Toronto. Confirm current menu details before visiting 615 Kingston Rd. This page supports browsing and does not promise current product listings.",
+    icon: "NV",
+    seoTitle: "Nicotine Vape Menu Kingston Road",
+    seoIntro: "Browse nicotine vape devices, formats, flavours, puff counts and listed prices at Main Kingston Cannabis.",
+    seoDescription: "The nicotine vape menu at Main Kingston Cannabis lists devices, formats and prices for Kingston Road shoppers. THC vapes have a separate category. Visit 615 Kingston Rd.",
     faqs: [
-      {
-        q: "What thc vape information can shoppers review?",
-        a: "Customers can review thc vape category information and confirm current menu details before visiting Main Kingston Cannabis.",
-      },
-      {
-        q: "Does this page guarantee current listings?",
-        a: "No. Category details can change, so customers should confirm the current menu before visiting.",
-      },
+      { q: "Is this the nicotine vape menu?", a: "Yes. This category lists nicotine vape devices and prices from Main Kingston Cannabis." },
+      { q: "Where are THC vapes?", a: "THC vapes are listed in a separate THC vape category." },
     ],
   },
-
   "VAPE DISPOSABLE": {
     banner: "/banners/02_Vape_Disposable.webp",
-    name: "Nic Vape",
+    name: "THC Vape",
     slug: "vape-disposables",
     color: "#a78bfa",
-    icon: "",
-    seoTitle: "Nic Vape Toronto | Main Kingston Cannabis",
-    seoIntro:
-      "Browse nic vape category information at Main Kingston Cannabis near Kingston Road and Main Street.",
-    seoDescription:
-      "Review nic vape category information for Main Kingston Cannabis in Toronto. Confirm current menu details before visiting 615 Kingston Rd. This page supports browsing and does not promise current product listings.",
+    icon: "V",
+    seoTitle: "THC Vape Menu Kingston Road",
+    seoIntro: "Browse THC vape products and listed prices at Main Kingston Cannabis.",
+    seoDescription: "The THC vape category at Main Kingston Cannabis lists cannabis vape products and prices for Kingston Road shoppers. Nicotine vapes have a separate category. Visit 615 Kingston Rd.",
     faqs: [
-      {
-        q: "What nic vape information can shoppers review?",
-        a: "Customers can review nic vape category information and confirm current menu details before visiting Main Kingston Cannabis.",
-      },
-      {
-        q: "Does this page guarantee current listings?",
-        a: "No. Category details can change, so customers should confirm the current menu before visiting.",
-      },
+      { q: "Is this the THC vape menu?", a: "Yes. This category lists THC vape products and prices from Main Kingston Cannabis." },
+      { q: "Where are nicotine vapes?", a: "Nicotine vapes are listed in a separate nicotine vape category." },
     ],
   },
-
   CONCENTRATES: {
     banner: "/banners/03_Concentrates.webp",
     name: "Concentrates",
@@ -351,21 +333,14 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     name: "Cigarettes",
     slug: "cigarettes",
     color: "#78716c",
-    icon: "",
-    seoTitle: "Cigarettes Toronto | Main Kingston Cannabis",
-    seoIntro:
-      "Browse cigarettes category information at Main Kingston Cannabis near Kingston Road and Main Street.",
-    seoDescription:
-      "Review cigarettes category information for Main Kingston Cannabis in Toronto. Confirm current menu details before visiting 615 Kingston Rd. This page supports browsing and does not promise current product listings.",
+    icon: "CG",
+    seoTitle: "Native Cigarette Menu Kingston Road",
+    seoIntro: "Browse Native cigarette brands, pack styles and listed prices at Main Kingston Cannabis.",
+    seoDescription: "The cigarette menu at Main Kingston Cannabis lists cigarette brands, styles and prices for Kingston Road shoppers. Visit 615 Kingston Rd. Open 24 Hours.",
     faqs: [
-      {
-        q: "What cigarettes information can shoppers review?",
-        a: "Customers can review cigarettes category information and confirm current menu details before visiting Main Kingston Cannabis.",
-      },
-      {
-        q: "Does this page guarantee current listings?",
-        a: "No. Category details can change, so customers should confirm the current menu before visiting.",
-      },
+      { q: "Does Main Kingston Cannabis list Native cigarettes?", a: "Yes. This category lists Native cigarette brands, styles and prices from Main Kingston Cannabis." },
+      { q: "What cigarette styles are listed?", a: "The selection includes full, light and menthol styles across several listed brands." },
+      { q: "Where is Main Kingston Cannabis?", a: "Main Kingston Cannabis is at 615 Kingston Rd." },
     ],
   },
 };
