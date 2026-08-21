@@ -284,7 +284,7 @@ export default function HomePage() {
 
       <SmokePilotSpotlight
         storeName="Main Kingston Cannabis"
-        locationLabel="Kingston Road"
+        locationLabel="Kingston Road near Main Street"
         cigaretteHref="/info/native-cigarettes-kingston-road"
         nicotineHref="/info/nicotine-vapes-kingston-road"
       />

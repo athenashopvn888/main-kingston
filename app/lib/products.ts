@@ -219,7 +219,7 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     seoIntro: "Browse nicotine vape devices, formats, flavours, puff counts and listed prices at Main Kingston Cannabis.",
     seoDescription: "Compare nicotine vape devices, formats, flavours, puff counts and listed prices at Main Kingston Cannabis, 615 Kingston Rd.",
     faqs: [
-      { q: "Is this the nicotine vape menu?", a: "Yes. This category lists nicotine vape devices and prices from Main Kingston Cannabis." },
+      { q: "What nicotine vape details are available?", a: "Compare listed device formats, flavours, puff counts and prices before visiting Main Kingston Cannabis." },
       { q: "Can I compare nicotine vape prices online?", a: "Yes. Current listings show available product details and posted prices for Kingston Road shoppers." },
     ],
   },
@@ -233,7 +233,7 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     seoIntro: "Browse THC vape products and listed prices at Main Kingston Cannabis.",
     seoDescription: "Compare listed THC vape products, formats and prices at Main Kingston Cannabis, 615 Kingston Rd near Main Street.",
     faqs: [
-      { q: "Is this the THC vape menu?", a: "Yes. This category lists THC vape products and prices from Main Kingston Cannabis." },
+      { q: "What THC vape details are available?", a: "Compare listed product names, formats and prices before visiting Main Kingston Cannabis." },
       { q: "Can I compare THC vape prices online?", a: "Yes. Current listings show available product details and posted prices for Kingston Road shoppers." },
     ],
   },
@@ -338,7 +338,7 @@ export const CATEGORY_CONFIG: Record<string, CategoryInfo> = {
     seoIntro: "Browse Native cigarette brands, pack styles and listed prices at Main Kingston Cannabis.",
     seoDescription: "The cigarette menu at Main Kingston Cannabis lists cigarette brands, styles and prices for Kingston Road shoppers. Visit 615 Kingston Rd. Open 24 Hours.",
     faqs: [
-      { q: "Does Main Kingston Cannabis list Native cigarettes?", a: "Yes. This category lists Native cigarette brands, styles and prices from Main Kingston Cannabis." },
+      { q: "Does Main Kingston Cannabis list Native cigarettes?", a: "Yes. Compare listed Native cigarette brands, styles and prices from Main Kingston Cannabis." },
       { q: "What cigarette styles are listed?", a: "The selection includes full, light and menthol styles across several listed brands." },
       { q: "Where is Main Kingston Cannabis?", a: "Main Kingston Cannabis is at 615 Kingston Rd." },
     ],
