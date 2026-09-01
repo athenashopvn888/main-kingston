@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FlowerCard from "./components/FlowerCard";
+import { WeedDiscoveryModule } from "./components/WeedDiscoveryModule";
 import SmokePilotSpotlight from "./components/SmokePilotSpotlight";
 import { allFlowers } from "./lib/products";
 import Papa from "papaparse";
@@ -288,6 +289,8 @@ export default function HomePage() {
         cigaretteHref="/info/native-cigarettes-kingston-road"
         nicotineHref="/info/nicotine-vapes-kingston-road"
       />
+
+      <WeedDiscoveryModule />
 
       {/* -- FEATURED PRODUCTS -- */}
       <section className={styles.featuredSection}>

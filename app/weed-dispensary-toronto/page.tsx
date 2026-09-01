@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import { GBPLandingPage } from "@/app/components/GBPLandingPage";
-import { gbpLocation } from "@/app/lib/gbp-location";
+import { weedOwner } from "@/app/lib/weedDiscovery";
 
 export const metadata: Metadata = {
-  title: gbpLocation.seoTitle,
-  description: gbpLocation.metaDescription,
+  title: { absolute: weedOwner.seoTitle },
+  description: weedOwner.metaDescription,
   alternates: {
-    canonical: `https://${gbpLocation.domain}/${gbpLocation.slug}/`,
+    canonical: `https://${weedOwner.domain}${weedOwner.ownerPath}`,
   },
   robots: {
     index: true,
