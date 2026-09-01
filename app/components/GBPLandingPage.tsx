@@ -1,271 +1,71 @@
 import Link from "next/link";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 import styles from "./GBPLandingPage.module.css";
-import { gbpLocation } from "../lib/gbp-location";
+import { weedOwner as store } from "../lib/weedDiscovery";
 
-// Dictionary mapping category names to their respective paths
-const categoryLinks: { [key: string]: string } = {
-  "Flower": "/",
-  "Pre-rolls": "/items/prerolls",
-  "Edibles": "/items/edibles",
-  "THC vapes": "/items/vape-disposables",
-  "Concentrates": "/items/concentrates",
-  "Shatter": "/items/concentrates",
-  "CBD oils": "/items/concentrates",
-  "Accessories": "/items/add-ons"
+const storeSchema = {
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "@id": `https://${store.domain}${store.ownerPath}`,
+  name: store.storeName,
+  url: `https://${store.domain}${store.ownerPath}`,
+  telephone: store.phoneIntl,
+  address: { "@type": "PostalAddress", streetAddress: store.streetAddress, addressLocality: store.city, addressRegion: "ON", postalCode: store.postalCode, addressCountry: "CA" },
+  ...(store.openingHours ? { openingHours: store.openingHours } : {}),
 };
 
-
-type StoreSchemaMarkup = {
-  "@context": "https://schema.org";
-  "@type": "Store";
-  name: string;
-  url: string;
-  telephone: string;
-  address: {
-    "@type": "PostalAddress";
-    streetAddress: string;
-    addressLocality: string;
-    addressRegion: string;
-    postalCode: string;
-    addressCountry: string;
-  };
-  priceRange: string;
-  openingHours?: string[];
-  geo?: {
-    "@type": "GeoCoordinates";
-    latitude: number;
-    longitude: number;
-  };
-};
 export function GBPLandingPage() {
-  const landmarkList = gbpLocation.localLandmarks.join(", ");
-  const nearbyAreaList = gbpLocation.nearbyAreas.slice(0, 5).join(", ");
-
-  // Generate schema.org markup dynamically
-  const schemaMarkup: StoreSchemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": gbpLocation.storeName,
-    "url": `https://${gbpLocation.domain}/${gbpLocation.slug}/`,
-    "telephone": gbpLocation.phone,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": gbpLocation.streetAddress,
-      "addressLocality": gbpLocation.city,
-      "addressRegion": gbpLocation.province,
-      "postalCode": gbpLocation.postalCode,
-      "addressCountry": gbpLocation.country
-    },
-    "priceRange": "$$"
-  };
-
-  // Inject real opening hours and coordinates if they exist
-  if (gbpLocation.hours && gbpLocation.hours.length > 0) {
-    schemaMarkup.openingHours = gbpLocation.hours;
-  }
-
-  if (gbpLocation.latitude && gbpLocation.longitude) {
-    schemaMarkup.geo = {
-      "@type": "GeoCoordinates",
-      "latitude": Number(gbpLocation.latitude),
-      "longitude": Number(gbpLocation.longitude)
-    };
-  }
-
   return (
-    <div className={styles.container}>
-      {/* Schema Injection */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
+    <>
+      <Navbar />
+      <main className={styles.main}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(storeSchema) }} />
+        <section className={styles.hero}>
+          <p className={styles.eyebrow}>{store.hoursLabel ? `${store.hoursLabel} · Adults 19+` : "Adults 19+"}</p>
+          <h1>{store.h1}</h1>
+          <p className={styles.heroAddress}>{store.streetAddress}, {store.city}, ON {store.postalCode}</p>
+          <div className={styles.actions}><Link href="#find-your-weed" className={styles.primaryAction}>Find Your Weed</Link><Link href="#visit" className={styles.secondaryAction}>Visit {store.storeName}</Link></div>
+        </section>
 
-      {/* Hero Header */}
-      <header className={styles.hero}>
-        <h1 className={styles.h1}>{gbpLocation.storeName} — Weed Dispensary in {gbpLocation.city}</h1>
-        <p className={styles.heroTagline}>Serving {gbpLocation.city} & Nearby Neighborhoods</p>
-      </header>
+        <section className={styles.section}>
+          <h2>{store.introTitle}</h2>
+          {store.intro.map((text) => <p key={text}>{text}</p>)}
+        </section>
 
-      {/* Call to Actions */}
-      <div className={styles.btnRow}>
-        <a href={gbpLocation.menuUrl} className={`${styles.btn} ${styles.btnPrimary}`}>
-          View Menu
-        </a>
-        <a href={`tel:${gbpLocation.phoneIntl}`} className={`${styles.btn} ${styles.btnSecondary}`}>
-          Call Store
-        </a>
-      </div>
+        <section className={styles.section} id="find-your-weed">
+          <p className={styles.kicker}>{store.findTitle}</p>
+          <h2>Explore Verified Starting Points</h2>
+          <div className={styles.cardGrid}>{store.discoveryLinks.map((item) => <Link href={item.href} className={styles.card} key={item.href}><span>{item.label}</span><small>{item.description}</small></Link>)}</div>
+          <p className={styles.note}>These links do not confirm current stock, pricing, deals or promotions. Call <a href={`tel:${store.phoneIntl}`}><strong>{store.phoneDisplay}</strong></a> before making a special trip for one specific item.</p>
+        </section>
 
-      {/* Intro Section */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>A Local Weed Dispensary</h2>
-        <p className={styles.introText}>{gbpLocation.introVariant}</p>
-      </section>
-
-      {/* Local Visit Planning Section */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Plan a Visit Near {gbpLocation.neighborhood}</h2>
-        <p className={styles.infoText}>
-          Use this local page to confirm the store location, review menu categories, and plan a visit around {landmarkList}. {gbpLocation.transitNote} {gbpLocation.parkingNote}.
-        </p>
-        <p className={styles.infoText}>
-          Adult 19+ shoppers can use the category links below to orient themselves before visiting {gbpLocation.storeName}. For store-specific questions, call the store directly or review the menu categories on this site.
-        </p>
-        <div className={styles.btnRow}>
-          <Link href={gbpLocation.menuUrl} className={`${styles.btn} ${styles.btnPrimary}`}>
-            Review Menu Categories
-          </Link>
-          <a href={`tel:${gbpLocation.phoneIntl}`} className={`${styles.btn} ${styles.btnSecondary}`}>
-            Call Store
-          </a>
-        </div>
-      </section>
-
-      {/* Product Section */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Weed and Cannabis Menu Categories</h2>
-        <p className={styles.infoText}>
-          At {gbpLocation.storeName}, the menu is organized into adult-use cannabis categories for 19+ shoppers in {gbpLocation.city}. Use the links below to browse category pages before you visit:
-        </p>
-        <div className={styles.productGrid}>
-          {gbpLocation.products.map((p) => {
-            const href = categoryLinks[p] || "/";
-            return (
-              <Link key={p} href={href} className={styles.productCard} aria-label={`Browse ${p} at ${gbpLocation.storeName}`}>
-                {p}
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Location & NAP Section */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Visit {gbpLocation.storeName} in {gbpLocation.city}</h2>
-        <div className={styles.napGrid}>
-          <div className={styles.napDetails}>
-            <div className={styles.napItem}>
-              <span className={styles.napLabel}>Store Name</span>
-              <strong>{gbpLocation.storeName}</strong>
-            </div>
-            <div className={styles.napItem}>
-              <span className={styles.napLabel}>Address</span>
-              <span>{gbpLocation.address}</span>
-            </div>
-            <div className={styles.napItem}>
-              <span className={styles.napLabel}>Phone</span>
-              <span><a href={`tel:${gbpLocation.phoneIntl}`} style={{ color: "inherit" }}>{gbpLocation.phone}</a></span>
-            </div>
-            <div className={styles.napItem}>
-              <span className={styles.napLabel}>Website</span>
-              <span><a href={`https://${gbpLocation.domain}/`} style={{ color: "inherit" }}>https://{gbpLocation.domain}/</a></span>
-            </div>
-            {gbpLocation.hours && gbpLocation.hours.length > 0 && (
-              <div className={styles.napItem}>
-                <span className={styles.napLabel}>Store Hours</span>
-                {gbpLocation.hours.map((line) => (
-                  <span key={line} style={{ fontSize: "0.95rem" }}>{line}</span>
-                ))}
-              </div>
-            )}
-            <div className={styles.napItem} style={{ marginTop: "10px" }}>
-              <p className={styles.infoBlock} style={{ fontSize: "0.9rem", fontStyle: "italic", margin: 0 }}>
-                * {gbpLocation.parkingNote}.
-              </p>
-            </div>
+        <section className={styles.section}>
+          <h2>Weed, Cannabis, Bud and Flower</h2>
+          <p>Different shoppers use different words for cannabis. The terms overlap, but product format is usually the more useful distinction.</p>
+          <div className={styles.termGrid}>
+            <article><h3>Weed</h3><p>Weed is common everyday language for cannabis.</p></article>
+            <article><h3>Cannabis</h3><p>Cannabis is the broader term covering flower and other retail formats.</p></article>
+            <article><h3>Flower</h3><p>Flower refers specifically to dried cannabis flower.</p></article>
+            <article><h3>Bud</h3><p>Bud is a common informal term for cannabis flower.</p></article>
           </div>
-          <div className={styles.mapWrapper}>
-            {gbpLocation.mapEmbedUrl ? (
-              <iframe
-                title={`Map of ${gbpLocation.storeName}`}
-                src={gbpLocation.mapEmbedUrl}
-                className={styles.mapIframe}
-                allowFullScreen={true}
-                loading="lazy"
-              />
-            ) : (
-              <div style={{ padding: "40px", textAlign: "center", color: "var(--text-muted)" }}>
-                Map preview not available.
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
+          <p>Choosing the cannabis format you want to explore is more useful than worrying about which of these words you use.</p>
+        </section>
 
-      {/* Nearby Areas Section */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>{gbpLocation.sectionTitle}</h2>
-        <p className={styles.infoText}>
-          {gbpLocation.neighborhoodDescription} {gbpLocation.transitNote}. We proudly welcome customers from:
-        </p>
-        <div className={styles.areaList}>
-          {gbpLocation.nearbyAreas.map((area) => (
-            <span key={area} className={styles.areaTag}>
-              {area}
-            </span>
-          ))}
-        </div>
-      </section>
+        <section className={styles.visitSection} id="visit">
+          <div><p className={styles.kicker}>{store.hoursLabel || "Adults 19+"}</p><h2>{store.storeName}</h2><address>{store.streetAddress}<br />{store.city}, ON {store.postalCode}</address></div>
+          <div className={styles.visitFacts}>{store.hoursLabel && <strong>{store.hoursLabel}</strong>}<a href={`tel:${store.phoneIntl}`}>Phone: {store.phoneDisplay}</a><span>Adults 19+</span></div>
+          <p>Call ahead if one particular product is the reason for your trip. This page does not make a current inventory claim.</p>
+        </section>
 
-      {/* Store-Specific Guidance Section */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Helpful Local Shopper Notes</h2>
-        <p className={styles.infoText}>
-          {gbpLocation.storeName} serves adult 19+ shoppers near {nearbyAreaList}. Before heading over, review the address, store hours shown on this page, and the category links that match the type of visit you are planning.
-        </p>
-        <p className={styles.infoText}>
-          This local page is meant to help shoppers connect the store location with nearby transit, parking, and menu-category information without changing any business name, address, phone, or hour details.
-        </p>
-      </section>
+        <section className={styles.section}>
+          <h2>Helpful {store.storeName} Guides</h2>
+          <div className={styles.guideGrid}>{store.guides.map((guide) => <article className={styles.guideCard} key={guide.href}><h3>{guide.label}</h3><p>{guide.description}</p><Link href={guide.href}>Explore {guide.label}</Link></article>)}</div>
+        </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className={styles.section}>
-        <h2 className={styles.h2}>Frequently Asked Questions</h2>
-        <div className={styles.faqList}>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqQuestion}>Where is {gbpLocation.storeName} located?</h3>
-            <p className={styles.faqAnswer}>{gbpLocation.storeName} is located at {gbpLocation.address}.</p>
-          </div>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqQuestion}>Is {gbpLocation.storeName} a weed dispensary in {gbpLocation.city}?</h3>
-            <p className={styles.faqAnswer}>
-              Yes, {gbpLocation.storeName} is a fully licensed local weed dispensary in {gbpLocation.city} serving cannabis customers aged 19 and older with valid identification.
-            </p>
-          </div>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqQuestion}>What products does {gbpLocation.storeName} carry?</h3>
-            <p className={styles.faqAnswer}>
-              Menu categories include flower, pre-rolls, THC edibles, concentrates, shatter, THC vape cartridges, CBD oils, and accessories. Selection can change.
-            </p>
-          </div>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqQuestion}>Do I need to be 19+ to shop at {gbpLocation.storeName}?</h3>
-            <p className={styles.faqAnswer}>
-              Yes, to visit our cannabis store or order from our menu, you must be at least 19 years of age. Valid government-issued photo ID is required for verification.
-            </p>
-          </div>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqQuestion}>What should I check before visiting {gbpLocation.storeName}?</h3>
-            <p className={styles.faqAnswer}>
-              Review the address, store hours shown on this page, and the menu category links before you visit. If you have a store-specific question, call {gbpLocation.storeName} directly.
-            </p>
-          </div>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqQuestion}>Can I browse category pages before visiting?</h3>
-            <p className={styles.faqAnswer}>
-              Yes. Use the category links on this page to browse flower, pre-rolls, edibles, THC vapes, concentrates, shatter, CBD oils, and accessories before planning your visit.
-            </p>
-          </div>
-          {gbpLocation.neighborhood && (
-            <div className={styles.faqItem}>
-              <h3 className={styles.faqQuestion}>Is {gbpLocation.storeName} near {gbpLocation.neighborhood}?</h3>
-              <p className={styles.faqAnswer}>
-                Yes, {gbpLocation.storeName} is located near {gbpLocation.neighborhood} and serves customers from nearby landmarks like {gbpLocation.localLandmarks.join(", ")}.
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
-    </div>
+        <section className={styles.section} id="faq"><h2>Frequently Asked Questions</h2><div className={styles.faqList}>{store.faq.map((item) => <article className={styles.faqItem} key={item.question}><h3>{item.question}</h3><p>{item.answer}</p></article>)}</div></section>
+      </main>
+      <Footer />
+    </>
   );
 }

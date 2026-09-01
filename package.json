@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:weed-seo": "node --test tests/weed-seo-pilot.test.mjs",
     "test:staff-photo": "node --experimental-strip-types --experimental-specifier-resolution=node --test tests/staff-photo.test.ts",
     "test:nicotine-vapes": "node --test tests/nicotine-vape-landing.test.mjs"
   },
