@@ -16,35 +16,35 @@ const BENTO_TIERS = [
   {
     name: "EXOTIC WEED",
     slug: "exotic-weed",
-    price: "$10-$12/g",
+    price: "Explore collection",
     banner: "/banners/exotics_banner.webp",
     className: styles.bentoExotic,
   },
   {
     name: "PREMIUM WEED",
     slug: "premium-weed",
-    price: "$7-$10/g",
+    price: "Explore collection",
     banner: "/banners/premium_banner.webp",
     className: styles.bentoPremium,
   },
   {
     name: "AAA+ WEED",
     slug: "aaa-weed",
-    price: "$5-$6/g",
+    price: "Explore collection",
     banner: "/banners/aaa_plus_banner.webp",
     className: styles.bentoTile,
   },
   {
     name: "AA WEED",
     slug: "aa-weed",
-    price: "$4/g",
+    price: "Explore collection",
     banner: "/banners/aa_banner.webp",
     className: styles.bentoTile,
   },
   {
     name: "BUDGET WEED",
     slug: "budget-weed",
-    price: "$3/g",
+    price: "Explore collection",
     banner: "/banners/budget_banner.webp",
     className: styles.bentoTile,
   },
@@ -75,15 +75,15 @@ const LOCAL_FAQS = [
   },
   {
     q: "What cannabis products do you carry?",
-    a: "We carry five tiers of premium flower: Exotic ($10-$12/g), Premium ($7-$10/g), AAA+ ($5-$6/g), AA ($4/g), and Budget ($3/g), plus a wide variety of edibles, prerolls, vapes, and concentrates.",
+    a: "Explore five Weed flower collections: Exotic Weed, Premium Weed, AAA+ Weed, AA Weed and Budget Weed, alongside menu categories for edibles, pre-rolls, vapes and concentrates.",
   },
   {
     q: "Where is Main Kingston Cannabis located?",
-    a: "We are located at 615 Kingston Rd, Toronto, ON M4E 1R3. Visit us in person or call us at +1 (289) 460-0130. Free evening street parking is available.",
+    a: "We are located at 615 Kingston Rd, Toronto, ON M4E 1R3. Visit us in person or call us at +1 (289) 460-0130. Check current local parking signs and restrictions before your visit.",
   },
   {
-    q: "What is the cheapest weed at Main Kingston Cannabis?",
-    a: "Our budget flower starts at just $3/g. We also offer AA daily drivers from $4/g and AAA+ heavy hitters from $5-$6/g. View our budget menu for our latest deals.",
+    q: "What Weed flower collections can I explore at Main Kingston Cannabis?",
+    a: "Explore Exotic Weed, Premium Weed, AAA+ Weed, AA Weed and Budget Weed, with current product details presented as you browse.",
   },
 ];
 
@@ -318,10 +318,10 @@ export default function HomePage() {
           <div className={styles.seoPanel}>
             <h2 className={styles.seoPanelTitle}>Kingston Rd & Main St&apos;s Local Cannabis Dispensary - Open 24 Hours</h2>
             <p className={styles.seoPanelText}>
-              Welcome to <strong>Main Kingston Cannabis</strong>, a 24-hour cannabis destination at 615 Kingston Rd. Browse flower across several price tiers, from Exotic and Premium to everyday Budget options.
+              Welcome to <strong>Main Kingston Cannabis</strong>, a 24-hour cannabis destination at 615 Kingston Rd. Browse flower across several price tiers, from Exotic Weed and Premium Weed to everyday Budget Weed options.
             </p>
             <p className={styles.seoPanelText}>
-              Open 24 hours, 7 days a week - Main Kingston Cannabis never closes. Our live menu is constantly refreshed with the freshest drops, premium prerolls, artisan edibles, and everything in between. Whether you're winding down after a late shift or stocking up for the weekend, our knowledgeable staff can help during listed store hours.
+              Open 24 hours, 7 days a week - Main Kingston Cannabis never closes. Explore current Weed and Cannabis Flower selections from Main Kingston Cannabis. Whether you&apos;re winding down after a late shift or stocking up for the weekend, our knowledgeable staff can help during listed store hours.
             </p>
             <p className={styles.seoPanelText}>
               Searching for a cannabis dispensary in Toronto or the surrounding area? Main Kingston Cannabis is open 24 hours with flower, pre-rolls, edibles, vapes, and other menu categories. Clear flower tiers help shoppers compare prices before visiting.

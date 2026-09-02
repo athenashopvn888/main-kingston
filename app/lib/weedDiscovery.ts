@@ -4,7 +4,7 @@ export type WeedFaq = { question: string; answer: string };
 export const weedOwner = {
   storeName: "Main Kingston Cannabis",
   domain: "www.mainkingstoncannabis.ca",
-  ownerPath: "/weed-dispensary-toronto/",
+  ownerPath: "/weed-dispensary-toronto",
   city: "Toronto",
   streetAddress: "615 Kingston Rd",
   postalCode: "M4E 1R3",
