@@ -26,22 +26,22 @@ export const weedOwner = {
   {
     "label": "AAA+",
     "description": "Explore the verified AAA flower section.",
-    "href": "/aaa"
+    "href": "/aaa-weed"
   },
   {
     "label": "Premium Flower",
     "description": "Explore the verified Premium flower section.",
-    "href": "/premium"
+    "href": "/premium-weed"
   },
   {
     "label": "Flower Guide",
     "description": "Learn more about cannabis flower.",
-    "href": "/resources/flower-guide"
+    "href": "/resources/weed-flower-guide"
   },
   {
     "label": "Menu Guide",
     "description": "Compare common cannabis formats.",
-    "href": "/resources/menu-guide"
+    "href": "/resources/cannabis-menu-guide"
   },
   {
     "label": "Pre-Roll Guide",
@@ -51,29 +51,29 @@ export const weedOwner = {
   {
     "label": "Value Guide",
     "description": "Explore value-oriented cannabis shopping without current-price claims.",
-    "href": "/resources/value-guide"
+    "href": "/resources/weed-value-guide"
   }
 ] satisfies WeedDiscoveryLink[],
   guides: [
   {
     "label": "Kingston Road East Toronto Visit Guide",
     "description": "Store-specific visit information.",
-    "href": "/resources/kingston-road-east-toronto-visit-guide"
+    "href": "/resources/kingston-road-east-toronto-weed-visit-guide"
   },
   {
     "label": "Menu Guide",
     "description": "Compare common cannabis formats.",
-    "href": "/resources/menu-guide"
+    "href": "/resources/cannabis-menu-guide"
   },
   {
     "label": "Flower Guide",
     "description": "Learn more about cannabis flower.",
-    "href": "/resources/flower-guide"
+    "href": "/resources/weed-flower-guide"
   },
   {
     "label": "Value Guide",
     "description": "Explore value-oriented shopping.",
-    "href": "/resources/value-guide"
+    "href": "/resources/weed-value-guide"
   },
   {
     "label": "Pre-Roll Guide",
@@ -120,7 +120,6 @@ export const weedOwner = {
     text: "Main Kingston Cannabis is open 24 hours at 615 Kingston Rd. Adults 19+ can explore Weed, Cannabis and flower information before visiting.",
     primaryLabel: "Explore Weed at Main Kingston",
     secondaryLabel: "Explore the Flower Guide",
-    secondaryHref: "/resources/flower-guide",
+    secondaryHref: "/resources/weed-flower-guide",
   },
 };
-
