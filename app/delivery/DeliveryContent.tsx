@@ -103,7 +103,7 @@ export default function DeliveryContent() {
   return <main className={styles.main}>
     <Navbar />
     <section className={`${styles.hero} ${styles.heroPlain}`}>
-      <div><p>Main Kingston Cannabis</p><h1>Delivery Menu</h1><span>Browse the shared product catalog. The store confirms current availability and delivery details before an order is accepted.</span></div>
+       <div><p>Main Kingston cannabis · Weed Delivery</p><h1>Weed Delivery in Toronto</h1><span>Explore Weed Delivery from Main Kingston cannabis through the existing delivery experience.</span></div>
     </section>
     <section className={styles.deliveryDetails} aria-label="Main Kingston Cannabis delivery details">
       <strong>$60 PRODUCT MINIMUM</strong>
