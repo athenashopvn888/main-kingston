@@ -6,8 +6,10 @@ export interface ResourceCard {
 
 export interface ResourceSection {
   heading: string;
-  body: string;
+  body?: string;
+  paragraphs?: string[];
   bullets?: string[];
+  subsections?: { heading: string; paragraphs: string[]; bullets?: string[] }[];
 }
 
 export interface ResourcePage {
@@ -19,7 +21,11 @@ export interface ResourcePage {
   intro: string;
   cards: ResourceCard[];
   sections: ResourceSection[];
+  faqs?: { question: string; answer: string }[];
+  datePublished?: string;
 }
+
+import pinkyContent from "./pinkyResourceContent.json";
 
 export const RESOURCE_PAGES: ResourcePage[] = [
   {
@@ -256,7 +262,33 @@ export const RESOURCE_PAGES: ResourcePage[] = [
   }
 ];
 
-export const RESOURCE_HOME = RESOURCE_PAGES[0];
+const PINKY_MKC01_PAGES = pinkyContent.pages as ResourcePage[];
+const PINKY_MKC01_BY_SLUG = new Map(PINKY_MKC01_PAGES.map((page) => [page.slug, page]));
+for (const page of RESOURCE_PAGES) {
+  const approved = PINKY_MKC01_BY_SLUG.get(page.slug);
+  if (approved) Object.assign(page, approved);
+}
+for (const page of PINKY_MKC01_PAGES) {
+  if (!RESOURCE_PAGES.some((existing) => existing.slug === page.slug)) RESOURCE_PAGES.push(page);
+}
+
+export const RESOURCE_HOME = pinkyContent.hub as ResourcePage;
+export const RESOURCE_ALIAS: ResourcePage = {
+  ...RESOURCE_HOME,
+  title: "Main Kingston Cannabis Resources",
+  cards: [
+    { title: "Weed & Cannabis Resources", href: "/weed-resources", text: "Open the complete Main Kingston Cannabis education hub." },
+    { title: "First Visit to Main Kingston Cannabis", href: "/resources/kingston-road-east-toronto-weed-visit-guide", text: "Plan a Kingston Road and East Toronto visit." },
+    { title: "Cannabis 101", href: "/resources/cannabis-101", text: "Learn the main cannabis categories and everyday terms." },
+    { title: "Cannabis Dispensary vs Weed Dispensary", href: "/resources/cannabis-dispensary-vs-weed-dispensary", text: "Understand common local cannabis-store language." },
+    { title: "Weed & Flower Quality Guide", href: "/resources/weed-flower-guide", text: "Explore the five Weed categories and flower-quality language." },
+    { title: "Cannabis Menu Guide", href: "/resources/cannabis-menu-guide", text: "Choose a product category before checking current listings." },
+    { title: "Weed Value Guide", href: "/resources/weed-value-guide", text: "Compare value using categories and current product information." },
+    { title: "Pre-Roll Guide", href: "/resources/pre-roll-guide", text: "Understand pre-roll format and current listing details." },
+    { title: "Native Smokes Guide", href: "/resources/native-smokes", text: "Read commercial cigarette terminology without guesswork." },
+    { title: "Native Cigarettes in Ontario", href: "/resources/native-smokes/native-cigarettes-guide", text: "Understand Ontario Native-cigarette terminology and context." },
+  ],
+};
 
 export function getResourcePage(slug: string) {
   const cleanSlug = slug.replace(/^\/+|\/+$/g, "");

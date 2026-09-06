@@ -1,9 +1,11 @@
 export interface TierSeoData {
   seoTitle: string;
   seoIntro: string;
-  sections: { heading: string; body: string }[];
+  sections: { heading: string; body: string; links?: { title: string; href: string }[] }[];
   faqs: { q: string; a: string }[];
 }
+
+import pinkyTierAdditions from "./pinkyTierAdditions.json";
 
 export const TIER_SEO: Record<string, TierSeoData> = {
   EXOTIC: {
@@ -161,3 +163,40 @@ export const TIER_SEO: Record<string, TierSeoData> = {
     ],
   },
 };
+
+const PINKY_TIER_LINKS: Record<string, { title: string; href: string }[]> = {
+  EXOTIC: [
+    { title: "Weed & Flower Quality Guide", href: "/resources/weed-flower-guide" },
+    { title: "Top Shelf, Mids & Quads", href: "/resources/flower-guides/top-shelf-mids-quads" },
+    { title: "Gas, Loud & Terpy", href: "/resources/flower-guides/terpenes-gas-loud-aroma" },
+    { title: "THC vs Weed Quality", href: "/resources/flower-guides/thc-vs-weed-quality" },
+  ],
+  PREMIUM: [
+    { title: "Weed & Flower Quality Guide", href: "/resources/weed-flower-guide" },
+    { title: "What Does Good Weed Mean?", href: "/resources/flower-guides/what-does-good-weed-mean" },
+    { title: "THC vs Weed Quality", href: "/resources/flower-guides/thc-vs-weed-quality" },
+    { title: "Drying, Curing & Freshness", href: "/resources/flower-guides/drying-curing-freshness" },
+  ],
+  "AAA+": [
+    { title: "Top Shelf, Mids & Quads", href: "/resources/flower-guides/top-shelf-mids-quads" },
+    { title: "Weed & Flower Quality Guide", href: "/resources/weed-flower-guide" },
+    { title: "THC vs Weed Quality", href: "/resources/flower-guides/thc-vs-weed-quality" },
+    { title: "Weed Slang Explained", href: "/resources/cannabis-101/weed-slang-glossary" },
+  ],
+  AA: [
+    { title: "Weed Value Guide", href: "/resources/weed-value-guide" },
+    { title: "Weed & Flower Quality Guide", href: "/resources/weed-flower-guide" },
+    { title: "What Does Good Weed Mean?", href: "/resources/flower-guides/what-does-good-weed-mean" },
+    { title: "Smalls vs Big Buds", href: "/resources/flower-guides/smalls-vs-big-buds" },
+  ],
+  BUDGET: [
+    { title: "Weed Value Guide", href: "/resources/weed-value-guide" },
+    { title: "Weed & Flower Quality Guide", href: "/resources/weed-flower-guide" },
+    { title: "THC vs Weed Quality", href: "/resources/flower-guides/thc-vs-weed-quality" },
+    { title: "What Does Good Weed Mean?", href: "/resources/flower-guides/what-does-good-weed-mean" },
+  ],
+};
+for (const [tier, sections] of Object.entries(pinkyTierAdditions)) {
+  const additions = sections.map((section, index) => ({ heading: section.heading, body: section.body, links: index === 0 ? PINKY_TIER_LINKS[tier] : undefined }));
+  TIER_SEO[tier]?.sections.push(...additions);
+}
