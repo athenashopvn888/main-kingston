@@ -38,9 +38,25 @@ test("new resources use real first-publish date and expanded resources do not in
 
 test("public generated content has no Markdown or internal-process leakage", () => {
   const publicText = JSON.stringify({ content, tiers });
-  for (const forbidden of ["---", "**", "##", "PINKY", "Cody", "Agent X", "keyword strategy", "source truth", "content gate", "canonical evidence"]) {
+  for (const forbidden of [
+    "---", "**", "##", "PINKY", "Cody", "Agent X", "keyword strategy", "source truth", "content gate", "canonical evidence",
+    "supplied local evidence", "internal local context", "Do not invent extra neighbourhoods", "evergreen educational guide",
+    "evergreen informational guide", "evergreen guide", "current product surface", "retail/search phrase", "everyday search language",
+    "Native-smokes search language", "Brand Names Need Evidence", "separate evidence", "This educational section should not freeze",
+    "stale price claims",
+  ]) {
     assert.equal(publicText.includes(forbidden), false, forbidden);
   }
+  for (const malformed of ["Cannabis” is", "Weed” is", "Near me” adds", "Good weed” sounds", "Strain” is", "Pure” is", "Native cigarettes” is"]) {
+    const escaped = malformed.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    assert.doesNotMatch(publicText, new RegExp(`(?<!“|\\w)${escaped}`), malformed);
+  }
+});
+
+test("Native cigarettes guide includes the exact bounded health sentence once", () => {
+  const page = content.pages.find((item) => item.slug === "native-smokes/native-cigarettes-guide");
+  const sentence = "Commercial cigarette smoking is addictive and causes serious health risks, including cancer, heart disease and lung disease.";
+  assert.equal(JSON.stringify(page).split(sentence).length - 1, 1);
 });
 
 test("protected Weed routes remain exact and receive bounded education only", () => {
