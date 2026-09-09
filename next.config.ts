@@ -25,9 +25,12 @@ const nextConfig: NextConfig = {
       { source: "/resources/kingston-road-east-toronto-visit-guide", destination: "/resources/kingston-road-east-toronto-weed-visit-guide", permanent: true },
       {
         source: "/info/york-weed-dispensary",
-        destination: "/info/kingston-road-weed-dispensary",
+        destination: "/weed-dispensary-toronto",
         permanent: true,
       },
+      { source: "/info/kingston-road-weed-dispensary", destination: "/weed-dispensary-toronto", permanent: true },
+      { source: "/info/weed-store-near-main-street", destination: "/weed-dispensary-toronto", permanent: true },
+      { source: "/info/dispensary-near-me-kingston-road", destination: "/weed-dispensary-toronto", permanent: true },
       {
         source: "/info/cheap-weed-york",
         destination: "/info/cheap-weed-kingston-road",
