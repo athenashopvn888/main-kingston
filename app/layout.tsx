@@ -11,22 +11,6 @@ export const metadata: Metadata = {
   },
   description:
     "Main Kingston Cannabis is an East Toronto dispensary on Kingston Rd near Main St with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
-  keywords: [
-    "cannabis dispensary Toronto",
-    "weed store Toronto",
-    "exotic flower Toronto",
-    "premium cannabis",
-    "Main Kingston Cannabis",
-    "cheap weed Toronto",
-    "dispensary near me",
-    "THC flower",
-    "indica sativa hybrid",
-    "edibles Toronto",
-    "vapes",
-    "pre-rolls",
-    "native cigarettes Toronto",
-    "weed store Kingston Road",
-  ],
   openGraph: {
     type: "website",
     locale: "en_CA",
@@ -75,9 +59,10 @@ export const metadata: Metadata = {
 /* JSON-LD Structured Data */
 const jsonLd = {
   "@context": "https://schema.org",
+  "@graph": [
+  {
   "@type": "Store",
-  additionalType: "https://schema.org/Store",
-  "@id": "https://www.mainkingstoncannabis.ca",
+  "@id": "https://www.mainkingstoncannabis.ca/#store",
   name: "Main Kingston Cannabis",
   description:
     "Cannabis dispensary at 615 Kingston Rd in Toronto, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
@@ -118,6 +103,15 @@ const jsonLd = {
     "@type": "City",
     name: "Toronto",
   },
+  },
+  {
+    "@type": "WebSite",
+    "@id": "https://www.mainkingstoncannabis.ca/#website",
+    url: "https://www.mainkingstoncannabis.ca/",
+    name: "Main Kingston Cannabis",
+    publisher: { "@id": "https://www.mainkingstoncannabis.ca/#store" },
+  },
+  ],
 };
 
 export default function RootLayout({

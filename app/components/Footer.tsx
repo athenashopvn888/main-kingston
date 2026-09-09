@@ -59,9 +59,6 @@ export default function Footer() {
 <Link href="/items/vapes">Nicotine Vapes</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/weed-delivery-toronto">WEED DELIVERY</Link>
-              <Link href="/info/kingston-road-weed-dispensary">
-                Kingston Road Dispensary
-              </Link>
               <Link href="/info/cheap-weed-kingston-road">
                 Cheap Weed Kingston Road
               </Link>
@@ -69,9 +66,6 @@ export default function Footer() {
                 Native Cigarettes
               </Link>
               <Link href="/info/nicotine-vapes-kingston-road">Nicotine Vapes Kingston Road</Link>
-              <Link href="/info/weed-store-near-main-street">
-                Weed Store Near Kingston Road
-              </Link>
               <Link href="/weed-dispensary-toronto/">
                 Main Kingston Cannabis Weed Dispensary in Toronto
               </Link>

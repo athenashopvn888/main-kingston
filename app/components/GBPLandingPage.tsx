@@ -6,13 +6,12 @@ import { weedOwner as store } from "../lib/weedDiscovery";
 
 const storeSchema = {
   "@context": "https://schema.org",
-  "@type": "Store",
-  "@id": `https://${store.domain}${store.ownerPath}`,
-  name: store.storeName,
+  "@type": "WebPage",
+  "@id": `https://${store.domain}${store.ownerPath}#webpage`,
   url: `https://${store.domain}${store.ownerPath}`,
-  telephone: store.phoneIntl,
-  address: { "@type": "PostalAddress", streetAddress: store.streetAddress, addressLocality: store.city, addressRegion: "ON", postalCode: store.postalCode, addressCountry: "CA" },
-  ...(store.openingHours ? { openingHours: store.openingHours } : {}),
+  name: store.h1,
+  isPartOf: { "@id": `https://${store.domain}/#website` },
+  about: { "@id": `https://${store.domain}/#store` },
 };
 
 export function GBPLandingPage() {
@@ -35,7 +34,7 @@ export function GBPLandingPage() {
 
         <section className={styles.section} id="find-your-weed">
           <p className={styles.kicker}>{store.findTitle}</p>
-          <h2>Explore Verified Starting Points</h2>
+          <h2>Helpful Places to Start</h2>
           <div className={styles.cardGrid}>{store.discoveryLinks.map((item) => <Link href={item.href} className={styles.card} key={item.href}><span>{item.label}</span><small>{item.description}</small></Link>)}</div>
           <p className={styles.note}>These links do not confirm current stock, pricing, deals or promotions. Call <a href={`tel:${store.phoneIntl}`}><strong>{store.phoneDisplay}</strong></a> before making a special trip for one specific item.</p>
         </section>
