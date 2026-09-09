@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import styles from "./GBPLandingPage.module.css";
 import { weedOwner as store } from "../lib/weedDiscovery";
+import { DeliveryCoverage } from "./DeliveryCoverage";
 
 const storeSchema = {
   "@context": "https://schema.org",
@@ -64,6 +65,7 @@ export function GBPLandingPage() {
 
         <section className={styles.section} id="faq"><h2>Frequently Asked Questions</h2><div className={styles.faqList}>{store.faq.map((item) => <article className={styles.faqItem} key={item.question}><h3>{item.question}</h3><p>{item.answer}</p></article>)}</div></section>
       </main>
+      <DeliveryCoverage />
       <Footer />
     </>
   );
