@@ -55,8 +55,8 @@ export default function VisitPage() {
           <h2>TTC to Kingston Road &amp; Main Street</h2>
           <p>
             The shop sits on Kingston Road in the Upper Beaches, where Main
-            Street crosses the corridor. Line 2 (Bloor–Danforth) at Main Street
-            Station is the closest subway. Walk south on Main Street past
+            Street crosses the corridor. Line 2 (Bloor–Danforth) at Main Street Station
+            is the closest subway. Walk south on Main Street past
             Gerrard and you hit Kingston Road at 615.
           </p>
           <p>
