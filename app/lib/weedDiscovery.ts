@@ -8,18 +8,18 @@ export const weedOwner = {
   city: "Toronto",
   streetAddress: "615 Kingston Rd",
   postalCode: "M4E 1R3",
-  phoneDisplay: "+1 (289) 460-0130",
+  phoneDisplay: "+1 289 460 0130",
   phoneIntl: "+12894600130",
   hoursLabel: "Open 24 Hours · 7 Days a Week",
   openingHours: "Mo-Su 00:00-23:59",
   seoTitle: "Weed Dispensary in Toronto | Main Kingston Cannabis",
-  metaDescription: "Main Kingston Cannabis is open 24 hours at 615 Kingston Rd in Toronto. Adults 19+ can explore cannabis, flower and pre-roll shopping guides.",
+  metaDescription: "Main Kingston Cannabis is open 24 hours at 615 Kingston Rd in the Upper Beaches. Adults 19+ can explore cannabis, flower and pre-roll shopping guides.",
   h1: "Main Kingston Cannabis — Weed Dispensary in Toronto",
   introTitle: "Weed and Cannabis on Kingston Road",
   intro: [
-  "Main Kingston Cannabis is located at 615 Kingston Rd in Toronto and is open 24 hours a day, seven days a week.",
-  "The store name and street can sometimes make “Kingston” searches ambiguous, but the verified location is Toronto. Adults 19+ can explore flower information, cannabis-format guidance and pre-roll resources before visiting.",
-  "If you are making a special trip for one particular item, call +1 (289) 460-0130 first."
+  "Main Kingston Cannabis is located at 615 Kingston Rd in the Upper Beaches and is open 24 hours a day, seven days a week.",
+  "The shop sits where Kingston Road meets Main Street. Adults 19+ can explore flower information, cannabis-format guidance and pre-roll resources before visiting.",
+  "If you are making a special trip for one particular item, call +1 289 460 0130 first."
 ],
   findTitle: "Find Your Weed at Main Kingston",
   discoveryLinks: [
@@ -108,7 +108,7 @@ export const weedOwner = {
   },
   {
     "question": "How can I ask about a particular product?",
-    "answer": "Call +1 (289) 460-0130."
+    "answer": "Call +1 289 460 0130."
   },
   {
     "question": "Do I need to be 19+?",
@@ -116,8 +116,8 @@ export const weedOwner = {
   }
 ] satisfies WeedFaq[],
   home: {
-    title: "Weed in Toronto at Main Kingston Cannabis",
-    text: "Main Kingston Cannabis is open 24 hours at 615 Kingston Rd. Adults 19+ can explore Weed, Cannabis and flower information before visiting.",
+    title: "Weed on Kingston Road at Main Kingston Cannabis",
+    text: "Main Kingston Cannabis is open 24 hours at 615 Kingston Rd in the Upper Beaches. Adults 19+ can explore Weed, Cannabis and flower information before visiting.",
     primaryLabel: "Explore Weed at Main Kingston",
     secondaryLabel: "Explore the Flower Guide",
     secondaryHref: "/resources/weed-flower-guide",

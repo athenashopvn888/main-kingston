@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./Footer.module.css";
+import { STORE_NAP } from "../lib/storeNap";
 
 export default function Footer() {
   return (
@@ -15,7 +16,7 @@ export default function Footer() {
               More. Open 24 Hours.
             </p>
             <div className={styles.buttons}>
-              <a href="tel:+12894600130" className={styles.btnPrimary}>
+              <a href={`tel:${STORE_NAP.phoneIntl}`} className={styles.btnPrimary}>
                 Call Now
               </a>
             </div>
@@ -26,15 +27,15 @@ export default function Footer() {
             <h3 className={styles.colTitle}>Contact Info</h3>
             <div className={styles.infoBlock}>
               <span className={styles.infoLabel}>Address:</span>
-              <span>615 Kingston Rd</span>
-              <span>Toronto, ON M4E 1R3</span>
+              <span>{STORE_NAP.streetAddress}</span>
+              <span>Toronto, ON {STORE_NAP.postalCode}</span>
               <span>Canada</span>
             </div>
             <div className={styles.infoBlock}>
               <span className={styles.infoLabel}>Phone:</span>
               <span>
-                <a href="tel:+12894600130" style={{ color: "inherit" }}>
-                  +1 (289) 460-0130
+                <a href={`tel:${STORE_NAP.phoneIntl}`} style={{ color: "inherit" }}>
+                  {STORE_NAP.phoneDisplay}
                 </a>
               </span>
             </div>
@@ -58,6 +59,10 @@ export default function Footer() {
               <Link href="/items/cigarettes">Cigarettes</Link>
 <Link href="/items/vapes">Nicotine Vapes</Link>
               <Link href="/faq">FAQ</Link>
+              <Link href="/visit">Visit Kingston Road</Link>
+              <Link href="/info/kingston-road-weed-dispensary">
+                Kingston Road Dispensary
+              </Link>
               <Link href="/weed-delivery-toronto">WEED DELIVERY</Link>
               <Link href="/info/cheap-weed-kingston-road">
                 Cheap Weed Kingston Road

@@ -46,7 +46,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       {
         heading: "Local Search, Useful Next Step",
         body: "Main Kingston Cannabis is listed at 615 Kingston Rd, Toronto, ON M4E 1R3. These guides help shoppers plan the visit. Start with the local page for address and visit details, then use these guides to compare categories.",
-        bullets: ["Local store page: /weed-dispensary-toronto", "Local areas: Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes", "Listed store hours: Open 24 Hours"]
+        bullets: ["Homepage visit hub: /#visit-hub", "How to reach: /visit", "Local areas: Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes", "Listed store hours: Open 24 Hours"]
       },
       {
         heading: "Built Around Real Menu Choices",
@@ -62,7 +62,8 @@ export const RESOURCE_PAGES: ResourcePage[] = [
     eyebrow: "Visit Guide",
     intro: "Use this page when the search starts local: weed dispensary near Main Street / Kingston Road / East Toronto, cannabis store near 615 Kingston Rd, or a quick menu check before visiting from Main Street, Kingston Road, East Toronto, Upper Beaches, Danforth, Victoria Park, Birch Cliff, Scarborough Southwest, and TTC routes.",
     cards: [
-      { title: "Local Store Page", href: "/weed-dispensary-toronto", text: "Use the local store page for address, directions, hours, and contact details." },
+      { title: "Homepage Visit Hub", href: "/#visit-hub", text: "Use the homepage for address, hours, map, and directions." },
+      { title: "How to Reach Kingston Road", href: "/visit", text: "TTC, parking, and Upper Beaches landmark notes." },
       { title: "Cannabis Menu Guide", href: "/resources/cannabis-menu-guide", text: "Choose the product category before opening the menu." },
       { title: "Weed Value Guide", href: "/resources/weed-value-guide", text: "Explore value-oriented Weed flower collections." }
     ],
@@ -78,7 +79,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       },
       {
         heading: "Best First Click",
-        body: "If you need store details, start with /weed-dispensary-toronto. If you are comparing product types, start with the menu guide. If the trip is about Native smokes or cigarettes, start with the Native smokes page and then confirm the current category page."
+        body: "If you need store details, start with the homepage visit hub. If you need TTC or parking notes, use /visit. If you are comparing product types, start with the menu guide. If the trip is about Native smokes or cigarettes, start with the Native smokes page and then confirm the current category page."
       }
     ],
   },
@@ -93,7 +94,7 @@ export const RESOURCE_PAGES: ResourcePage[] = [
       { title: "Weed Flower Collections", href: "/resources/weed-flower-guide", text: "Start here for Exotic Weed, Premium Weed, AAA+ Weed, AA Weed, and Budget Weed." },
       { title: "Pre-Rolls", href: "/resources/pre-roll-guide", text: "Use this for ready-to-smoke singles, packs, and quick-trip browsing." },
       { title: "Cigarettes", href: "/items/cigarettes", text: "Open the cigarette category for current Native smokes listings." },
-      { title: "Local Store Page", href: "/weed-dispensary-toronto", text: "Return to the local store page." }
+      { title: "Homepage Visit Hub", href: "/#visit-hub", text: "Return to address, hours, and directions." }
     ],
     sections: [
       {

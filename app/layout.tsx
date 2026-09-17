@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import AgeGate from "./components/AgeGate";
+import { cannabisStoreJsonLd, STORE_NAP, toJsonLd } from "./lib/storeNap";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.mainkingstoncannabis.ca"),
+  metadataBase: new URL(STORE_NAP.homeUrl),
   title: {
     default: "24 Hour Kingston Road Dispensary | Main Kingston Cannabis",
     template: "%s | Main Kingston Cannabis",
@@ -14,17 +15,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://www.mainkingstoncannabis.ca",
+    url: STORE_NAP.homeUrl,
     siteName: "Main Kingston Cannabis",
     title: "24 Hour Kingston Road Dispensary | Main Kingston Cannabis",
     description:
       "Main Kingston Cannabis is an East Toronto dispensary on Kingston Rd near Main St with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
     images: [
       {
-        url: "https://www.mainkingstoncannabis.ca/wp-content/uploads/2026/04/46Oi5.jpg",
+        url: STORE_NAP.imageUrl,
         width: 1200,
         height: 630,
-        alt: "Main Kingston Cannabis — Main Kingston Cannabis Toronto",
+        alt: "Main Kingston Cannabis — Kingston Road dispensary",
       },
     ],
   },
@@ -33,9 +34,7 @@ export const metadata: Metadata = {
     title: "24 Hour Kingston Road Dispensary | Main Kingston Cannabis",
     description:
       "Main Kingston Cannabis is an East Toronto dispensary on Kingston Rd near Main St with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",
-    images: [
-      "https://www.mainkingstoncannabis.ca/wp-content/uploads/2026/04/46Oi5.jpg",
-    ],
+    images: [STORE_NAP.imageUrl],
   },
   robots: {
     index: true,
@@ -49,71 +48,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://www.mainkingstoncannabis.ca",
+    canonical: STORE_NAP.homeUrl,
   },
   verification: {
     // google: "your-google-verification-code",
   },
-};
-
-/* JSON-LD Structured Data */
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-  {
-  "@type": "Store",
-  "@id": "https://www.mainkingstoncannabis.ca/#store",
-  name: "Main Kingston Cannabis",
-  description:
-    "Cannabis dispensary at 615 Kingston Rd in Toronto, ON. Shop exotic, premium, AAA+, AA, and budget flower tiers plus edibles, prerolls, and vapes. Open 24 Hours.",
-  url: "https://www.mainkingstoncannabis.ca",
-  telephone: "+12894600130",
-  image: "https://www.mainkingstoncannabis.ca/wp-content/uploads/2026/04/7Clmh.jpg",
-  priceRange: "$3 - $12/g",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "615 Kingston Rd",
-    addressLocality: "Toronto",
-    addressRegion: "ON",
-    postalCode: "M4E 1R3",
-    addressCountry: "CA",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 43.6786661,
-    longitude: -79.298503,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
-    },
-  ],
-  areaServed: {
-    "@type": "City",
-    name: "Toronto",
-  },
-  sameAs: ["https://www.google.com/maps?cid=11938862976826082638"],
-  hasMap: "https://www.google.com/maps?cid=11938862976826082638",
-  },
-  {
-    "@type": "WebSite",
-    "@id": "https://www.mainkingstoncannabis.ca/#website",
-    url: "https://www.mainkingstoncannabis.ca/",
-    name: "Main Kingston Cannabis",
-    publisher: { "@id": "https://www.mainkingstoncannabis.ca/#store" },
-  },
-  ],
 };
 
 export default function RootLayout({
@@ -125,7 +64,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="geo.region" content="CA-ON" />
-        <meta name="geo.placename" content="Toronto" />
+        <meta name="geo.placename" content="Upper Beaches, Toronto" />
         <meta name="geo.position" content="43.6786661;-79.298503" />
         <meta name="ICBM" content="43.6786661, -79.298503" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -136,7 +75,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: toJsonLd(cannabisStoreJsonLd) }}
         />
         <script
           async
