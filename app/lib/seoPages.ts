@@ -17,27 +17,27 @@ export const SEO_PAGES: SeoPageData[] = [
       "Kingston Road Weed Dispensary Main Kingston Cannabis | Open 24 Hours",
     metaDescription:
       "Main Kingston Cannabis is a local cannabis dispensary at 615 Kingston Rd, Toronto, ON M4E 1R3. Browse flower tiers, edibles, vapes, concentrates, pre-rolls, cigarettes, and accessories before visiting.",
-    h1: "Kingston Road Weed Dispensary Main Kingston Cannabis",
+    h1: "Kingston Road Weed Dispensary at Main Street",
     icon: "",
     heroTagline:
-      "Local cannabis near Kingston Road and Main Street - Open 24 Hours - Walk-in welcome",
+      "Walk-in cannabis at 615 Kingston Rd in the Upper Beaches — Open 24 Hours",
     banner: "",
     sections: [
       {
-        heading: "A Local Cannabis Stop Near Kingston Road and Main Street",
-        body: "Main Kingston Cannabis is at 615 Kingston Rd, close to Main Street, the Upper Beaches, Danforth, Victoria Park, Birch Cliff and Scarborough Southwest.",
+        heading: "How to reach 615 Kingston Rd",
+        body: "Main Kingston Cannabis sits where Kingston Road meets Main Street in the Upper Beaches. Use Line 2 at Main Street Station, then walk south on Main past Gerrard to Kingston Road. The 64 Main bus and the 503 Kingston Rd streetcar also serve the strip. Address, hours, and the map live on the homepage visit hub; TTC, parking, and landmark notes are on /visit.",
+      },
+      {
+        heading: "Parking and the Upper Beaches block",
+        body: "Street parking lines Kingston Road around 615 Kingston Rd. Posted signs change by block and time of day, so read the curb before you leave the car. Kew Gardens and Woodbine Beach sit south toward Queen; the Danforth is north; Birch Cliff continues east along Kingston Road.",
       },
       {
         heading: "Flower Tiers And Category Choices",
-        body: "Main Kingston Cannabis organizes flower into clear tiers, from Exotic and Premium to AAA+, AA, and Budget. You can also browse edibles, vapes, concentrates, pre-rolls, cigarettes, and accessories through the live menu before stopping in.",
+        body: "Main Kingston Cannabis organizes flower into clear tiers, from Exotic and Premium to AAA+, AA, and Budget. You can also browse edibles, vapes, concentrates, pre-rolls, cigarettes, and accessories through the live menu before stopping in. Confirm current listings in store — this page does not invent inventory or prices.",
       },
       {
-        heading: "Useful Local Search Without The Template Noise",
-        body: "The store identity here is Kingston Road and Main Street, not a copied city page. Use this page for local context, then jump into the category pages or Resources hub for menu decisions.",
-      },
-      {
-        heading: "Open 24 Hours Near Kingston Road",
-        body: "Main Kingston Cannabis is open 24 hours. Walk in when the shop is open, check the menu first, or call +1 (289) 460-0130 if you need current in-store details.",
+        heading: "Open 24 Hours on Kingston Road",
+        body: "Main Kingston Cannabis is open 24 hours. Walk in with government photo ID if you are 19+, check the menu first, or call +1 289 460 0130 if you need current in-store details.",
       },
     ],
     faqs: [

@@ -103,7 +103,7 @@ export default function DeliveryContent() {
   return <main className={styles.main}>
     <Navbar />
     <section className={`${styles.hero} ${styles.heroPlain}`}>
-       <div><p>Main Kingston cannabis · Weed Delivery</p><h1>Weed Delivery in Toronto</h1><span>Explore Weed Delivery from Main Kingston cannabis through the existing delivery experience.</span></div>
+       <div><p>Main Kingston Cannabis · Kingston Road delivery</p><h1>Weed Delivery from Kingston Road</h1><span>Explore neighbourhood delivery from 615 Kingston Rd in the Upper Beaches. Confirm the destination with the dispatcher before you order.</span></div>
     </section>
     <section className={styles.deliveryDetails} aria-label="Main Kingston Cannabis delivery details">
       <strong>$60 PRODUCT MINIMUM</strong>
@@ -147,7 +147,7 @@ export default function DeliveryContent() {
       <form onSubmit={handleEmailSubmit}><input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="your@email.com" required disabled={emailStatus === "loading"} /><button type="submit" disabled={emailStatus === "loading"}>{emailStatus === "loading" ? "Sending..." : "Notify Me"}</button></form>
       {emailStatus === "success" && <p role="status">You&apos;re on the delivery update list.</p>}
     </section>
-    <div className={styles.ctaSection}><p>Visit us in-store at <strong>615 Kingston Rd, Toronto</strong>. We are <strong>Open 24 Hours</strong>. Call <strong>(905) 467-0615</strong>.</p></div>
+    <div className={styles.ctaSection}><p>Visit us in-store at <strong>615 Kingston Rd, Toronto, ON M4E 1R3</strong>. We are <strong>Open 24 Hours</strong>. Call <strong>+1 289 460 0130</strong>.</p></div>
     {selected && <div className={styles.backdrop} onMouseDown={(event) => { if (event.target === event.currentTarget) setSelected(null); }}><section className={styles.drawer} role="dialog" aria-modal="true" aria-labelledby="product-title"><header><strong>Product details</strong><button type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button></header><div className={styles.drawerContent}>{selected.images.map((src, index) => <div className={styles.drawerImage} key={src}><Image src={src} alt={`${selected.name}${index ? ` alternate ${index + 1}` : ""}`} fill sizes="(max-width: 720px) 100vw, 420px" unoptimized /></div>)}<h2 id="product-title">{selected.name}</h2><p>{selected.description || "Ask the store for current product details."}</p>{selected.effects.length > 0 && <div className={styles.effects}>{selected.effects.map((effect) => <span key={effect}>{effect}</span>)}</div>}<ProductPricing product={selected} /></div></section></div>}
     <MainKingstonWebChat />
     <Footer />

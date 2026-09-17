@@ -8,10 +8,10 @@ export const gbpLocation = {
   address: "615 Kingston Rd, Toronto, ON M4E 1R3",
   streetAddress: "615 Kingston Rd",
   postalCode: "M4E 1R3",
-  phone: "+1 (289) 460-0130",
+  phone: "+1 289 460 0130",
   phoneIntl: "+12894600130",
-  neighborhood: "Main Street / Kingston Road / East Toronto",
-  nearbyAreas: ["Main Street", "Kingston Road", "East Toronto", "Upper Beaches", "Danforth", "Victoria Park", "Birch Cliff", "Scarborough Southwest", "TTC"],
+  neighborhood: "Kingston Road / Upper Beaches",
+  nearbyAreas: ["Kingston Road", "Main Street", "Upper Beaches", "East Toronto", "Danforth", "Victoria Park", "Birch Cliff", "Scarborough Southwest", "TTC"],
   products: [
     "Flower",
     "Pre-rolls",
@@ -30,10 +30,10 @@ export const gbpLocation = {
   hours: ["Open 24 Hours"],
   seoTitle: "Main Kingston Cannabis | Weed Dispensary in Toronto",
   metaDescription: "Main Kingston Cannabis is a local weed dispensary in Toronto offering flower, pre-rolls, edibles, vapes, concentrates, CBD, and service for adults 19+.",
-  localLandmarks: ["Main Street", "Kingston Road", "East Toronto"],
-  introVariant: "Main Kingston Cannabis is a local weed dispensary in Toronto, located at 615 Kingston Rd near Main Street. Adults 19+ can browse menu categories including flower, pre-rolls, edibles, THC vapes, concentrates, shatter, CBD oils, and accessories before visiting.",
-  neighborhoodDescription: "Located in the vibrant Main Street / Kingston Road / East Toronto district, our cannabis store fits right into this active and historic community, surrounded by local retail shops and convenient transit links.",
-  parkingNote: "Street parking is available along Kingston Road",
-  transitNote: "A short walk from Main Street Station and accessible via local TTC streetcar routes.",
-  sectionTitle: "Serving Customers Near Main Street and Kingston Road"
+  localLandmarks: ["Kingston Road", "Main Street", "Upper Beaches"],
+  introVariant: "Main Kingston Cannabis is a local weed dispensary in the Upper Beaches, located at 615 Kingston Rd where Kingston Road meets Main Street. Adults 19+ can browse menu categories including flower, pre-rolls, edibles, THC vapes, concentrates, shatter, CBD oils, and accessories before visiting.",
+  neighborhoodDescription: "Located on the Kingston Road / Upper Beaches strip, the shop sits in the East End retail block around Main Street, with Woodbine Beach to the south and the Danforth to the north.",
+  parkingNote: "Street parking lines Kingston Road around 615 Kingston Rd. Check posted signs on the block before you leave the car.",
+  transitNote: "A short walk south of Main Street Station on Line 2. The 64 Main bus follows Main Street; the 503 Kingston Rd streetcar serves the corridor when in service.",
+  sectionTitle: "Serving Customers Near Kingston Road and Main Street"
 };

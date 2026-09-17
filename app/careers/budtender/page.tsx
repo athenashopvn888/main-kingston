@@ -90,7 +90,7 @@ export default function BudtenderCareersPage() {
               <span className={styles.eyebrow}>Apply Now</span>
               <h2>Tell Us About You</h2>
               <p>
-                This form sends your response to the shared Athena Store Applications sheet under MKC01.
+                This form sends your application for a role at Main Kingston Cannabis.
               </p>
               <p className={styles.onlineOnlyInline}>
                 Online applications only. Please do not call the store about hiring.
