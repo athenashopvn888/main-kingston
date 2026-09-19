@@ -60,17 +60,25 @@ export default function Footer() {
 <Link href="/items/vapes">Nicotine Vapes</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/visit">Visit Kingston Road</Link>
+              <Link href="/24-hour-kingston-road-dispensary">
+                24-Hour Kingston Road Dispensary
+              </Link>
               <Link href="/info/kingston-road-weed-dispensary">
                 Kingston Road Dispensary
               </Link>
+              <Link href="/weed-delivery-kingston-road">Weed Delivery Kingston Road</Link>
               <Link href="/weed-delivery-toronto">WEED DELIVERY</Link>
               <Link href="/info/cheap-weed-kingston-road">
                 Cheap Weed Kingston Road
               </Link>
-<Link href="/info/native-cigarettes-kingston-road">
-                Native Cigarettes
+              <Link href="/native-cigarettes-kingston-road">
+                Native Cigarettes Kingston Road
               </Link>
-              <Link href="/info/nicotine-vapes-kingston-road">Nicotine Vapes Kingston Road</Link>
+              <Link href="/nicotine-vape-kingston-road">Nicotine Vape Kingston Road</Link>
+              <Link href="/info/native-cigarettes-kingston-road">
+                Native Cigarettes Menu Preview
+              </Link>
+              <Link href="/info/nicotine-vapes-kingston-road">Nicotine Vapes Menu Preview</Link>
               <Link href="/weed-dispensary-toronto/">
                 Main Kingston Cannabis Weed Dispensary in Toronto
               </Link>

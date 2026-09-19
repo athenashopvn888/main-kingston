@@ -16,7 +16,7 @@ export default function NicotineVapesPage() {
     locationLabel="Main Street / Kingston Road / East Toronto"
     eyebrow="MAIN KINGSTON CANNABIS • MAIN STREET / KINGSTON ROAD • ADULTS 19+"
     title="Nicotine Vapes at Main Kingston Cannabis"
-    intro="Searching for nicotine vapes near Main Street, Kingston Road or East Toronto? Browse these categories to explore current store information and product options before you visit or order. Product details can change. Nicotine is addictive."
+    intro="Searching for nicotine vapes near Main Street, Kingston Road or East Toronto? The neighbourhood owner is /nicotine-vape-kingston-road. Browse these categories to explore current store information and product options before you visit or order. Product details can change. Nicotine is addictive."
     items={[]}
     menuHref="/items/vapes"
     menuLabel="Browse Nicotine Vapes"

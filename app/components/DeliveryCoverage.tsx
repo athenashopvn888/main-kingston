@@ -22,6 +22,6 @@ export function DeliveryCoverage() {
     <h2>Delivery Coverage from Kingston Road</h2>
     <p>Delivery is coordinated from 615 Kingston Rd for the Upper Beaches, East Toronto, and nearby East End streets. A practical planning area includes the Beaches, East York, and Scarborough Southwest when a driver can reach the destination.</p>
     <p>Coverage is confirmed when an order is placed. Longer trips outside the East End are not guaranteed, so confirm the destination and timing with the dispatcher before relying on delivery.</p>
-    <p><Link href="/weed-delivery-toronto">Check current Kingston Road delivery information</Link></p>
+    <p><Link href="/weed-delivery-kingston-road">Kingston Road / Beach corridor delivery page</Link>{" · "}<Link href="/weed-delivery-toronto">Check current Kingston Road delivery menu</Link></p>
   </section>;
 }

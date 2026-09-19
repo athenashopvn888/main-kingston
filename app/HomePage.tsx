@@ -10,6 +10,8 @@ import FlowerCard from "./components/FlowerCard";
 import { WeedDiscoveryModule } from "./components/WeedDiscoveryModule";
 import SmokePilotSpotlight from "./components/SmokePilotSpotlight";
 import { allFlowers } from "./lib/products";
+import { FourPillarHub } from "./components/FourPillarHub";
+import { CIGARETTES_LP_PATH, DELIVERY_LP_PATH, HOURS_LP_PATH, VAPE_LP_PATH } from "./lib/organicPaths";
 import { HOME_FAQS, STORE_NAP } from "./lib/storeNap";
 import Papa from "papaparse";
 
@@ -266,11 +268,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className={styles.seoSection} aria-label="Kingston Road neighbourhood hubs">
+        <FourPillarHub />
+      </section>
+
       <SmokePilotSpotlight
         storeName="Main Kingston Cannabis"
         locationLabel="Kingston Road near Main Street"
-        cigaretteHref="/info/native-cigarettes-kingston-road"
-        nicotineHref="/info/nicotine-vapes-kingston-road"
+        cigaretteHref={CIGARETTES_LP_PATH}
+        nicotineHref={VAPE_LP_PATH}
       />
 
       <WeedDiscoveryModule />
@@ -308,7 +314,15 @@ export default function HomePage() {
             </p>
             <p className={styles.seoPanelText}>
               Bring government photo ID if you are 19+. Call {STORE_NAP.phoneDisplay} for a pin to {STORE_NAP.addressLine}, or use the{" "}
-              <Link href="/visit">Kingston Road how-to-reach page</Link> for TTC, parking, and landmark notes. The homepage is the visit hub for address, hours, and directions.
+              <Link href="/visit">Kingston Road how-to-reach page</Link> for TTC, parking, and landmark notes. The homepage is the visit hub for address, hours, and directions.{" "}
+              <Link href={HOURS_LP_PATH}>Open now · 24-hour Kingston Road</Link>
+              {" · "}
+              <Link href={DELIVERY_LP_PATH}>Weed delivery Kingston Road</Link>
+              {" · "}
+              <Link href={CIGARETTES_LP_PATH}>Native cigarettes Kingston Road</Link>
+              {" · "}
+              <Link href={VAPE_LP_PATH}>Nicotine vape Kingston Road</Link>
+              .
             </p>
           </div>
         </div>
@@ -450,6 +464,18 @@ export default function HomePage() {
             </a>
             <Link className={styles.visitHubSecondary} href="/visit">
               How to get here
+            </Link>
+            <Link className={styles.visitHubSecondary} href={HOURS_LP_PATH}>
+              Open now · 24-hour Kingston Road
+            </Link>
+            <Link className={styles.visitHubSecondary} href={DELIVERY_LP_PATH}>
+              Weed delivery Kingston Road
+            </Link>
+            <Link className={styles.visitHubSecondary} href={CIGARETTES_LP_PATH}>
+              Native cigarettes
+            </Link>
+            <Link className={styles.visitHubSecondary} href={VAPE_LP_PATH}>
+              Nicotine vape
             </Link>
           </div>
 

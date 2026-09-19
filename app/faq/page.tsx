@@ -22,7 +22,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "What are your hours?",
-        a: "Main Kingston Cannabis is open 24 hours. Check the site or call +1 289 460 0130 if you need current visit details.",
+        a: "Main Kingston Cannabis is open 24 hours. Use the 24-hour Kingston Road dispensary page for open-now questions, or call +1 289 460 0130 if you need current visit details.",
       },
       {
         q: "Is there parking nearby?",
@@ -59,7 +59,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Do you list cigarette information?",
-        a: "Yes. Cigarette category information is listed, but current brands and pricing should be confirmed in store.",
+        a: "Yes. Use the Native cigarettes Kingston Road page for neighbourhood context, then the cigarette category for current brands and posted prices. Confirm in store.",
       },
     ],
   },
@@ -76,7 +76,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: "Do you offer delivery?",
-        a: "Delivery is marked coming soon unless the store announces that service is live. Use the delivery page to sign up for launch updates.",
+        a: "Yes. Weed delivery is coordinated from 615 Kingston Rd. Use the Kingston Road delivery page for neighbourhood context, then the delivery menu to start LIVE ORDER. The dispatcher confirms destination eligibility. Adults 19+.",
       },
       {
         q: "Can staff help me choose a strain?",
@@ -148,7 +148,14 @@ export default function FAQPage() {
             <h2 className={styles.ctaTitle}>Still have questions?</h2>
             <p className={styles.ctaText}>
               Call us at <strong>+1 289 460 0130</strong> or visit us at 615
-              Kingston Rd, Toronto.
+              Kingston Rd, Toronto. Neighbourhood pages:{" "}
+              <a href="/24-hour-kingston-road-dispensary">24-hour Kingston Road</a>
+              {", "}
+              <a href="/weed-delivery-kingston-road">weed delivery</a>
+              {", "}
+              <a href="/native-cigarettes-kingston-road">Native cigarettes</a>
+              {", "}
+              <a href="/nicotine-vape-kingston-road">nicotine vape</a>.
             </p>
           </div>
         </div>

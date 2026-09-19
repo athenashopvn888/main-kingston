@@ -30,7 +30,7 @@ export default function NativeCigarettesPage() {
         locationLabel="Kingston Road"
         eyebrow="Native Cigarettes · Kingston Road"
         title="Native Cigarettes on Kingston Road"
-        intro="Shop Native cigarette brands, full, light and menthol styles, plus Backwoods, grabba and nicotine pouches at Main Kingston Cannabis near Kingston Road and Main Street."
+        intro="Shop Native cigarette brands, full, light and menthol styles, plus Backwoods, grabba and nicotine pouches at Main Kingston Cannabis near Kingston Road and Main Street. The Kingston Road neighbourhood owner is /native-cigarettes-kingston-road."
         items={items}
         menuHref="/items/cigarettes"
         menuLabel="Shop the cigarette menu"
@@ -38,7 +38,7 @@ export default function NativeCigarettesPage() {
         menuIntro="Compare cigarette brands, styles and listed prices from Main Kingston Cannabis in East Toronto."
         crossLink={{ href: "/info/nicotine-vapes-kingston-road", eyebrow: "Also at Main Kingston Cannabis", title: "Prefer a nicotine vape?", body: "Shop nicotine vape devices with brand, flavour, puff-count and listed price details from Main Kingston Cannabis.", label: "Shop nicotine vapes" }}
         sections={[
-          { heading: "Native Cigarettes on Kingston Road", body: "Main Kingston Cannabis carries Native cigarettes and smoke-shop essentials at 615 Kingston Rd near Main Street in East Toronto." },
+          { heading: "Native Cigarettes on Kingston Road", body: "Main Kingston Cannabis carries Native cigarettes and smoke-shop essentials at 615 Kingston Rd near Main Street in East Toronto. Use /native-cigarettes-kingston-road for the neighbourhood landing page, then this preview and /items/cigarettes for listed brands." },
           { heading: "Cigarette Brands Near Main Street", body: "Compare listed full, light and menthol cigarette options at Main Kingston Cannabis, close to Kingston Road and Main Street." },
           { heading: "A Kingston Road Smoke-Shop Stop", body: "Listed smoke-shop extras include Backwoods, grabba, grabba shakers and nicotine pouches alongside cigarette options." },
         ]}

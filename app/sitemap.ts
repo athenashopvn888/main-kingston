@@ -16,6 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/weed-delivery-toronto`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/24-hour-kingston-road-dispensary`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/weed-delivery-kingston-road`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
+    { url: `${BASE}/native-cigarettes-kingston-road`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
+    { url: `${BASE}/nicotine-vape-kingston-road`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
   ];
 
   /* Tier pages */

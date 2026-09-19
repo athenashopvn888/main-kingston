@@ -1,0 +1,38 @@
+.mesh {
+  margin: 28px 0 8px;
+}
+
+.label {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.row a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid rgba(34, 211, 238, 0.28);
+  border-radius: 999px;
+  color: #ecfeff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  background: rgba(6, 182, 212, 0.08);
+}
+
+.row a:hover,
+.row a:focus-visible {
+  border-color: #22d3ee;
+}
