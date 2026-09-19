@@ -25,6 +25,9 @@ export default function VisitPage() {
           <Link className={styles.secondary} href="/#visit-hub">
             Homepage visit hub
           </Link>
+          <Link className={styles.secondary} href="/24-hour-kingston-road-dispensary">
+            Open now · 24-hour Kingston Road
+          </Link>
           <a className={styles.secondary} href={`tel:${STORE_NAP.phoneIntl}`}>
             Call {STORE_NAP.phoneDisplay}
           </a>
@@ -96,6 +99,16 @@ export default function VisitPage() {
             shifts still end at the same counter. Call {STORE_NAP.phoneDisplay}{" "}
             if you want the budtender to confirm a specific item before you walk
             south from the Danforth.
+          </p>
+          <p>
+            Neighbourhood pages for this corridor:{" "}
+            <Link href="/24-hour-kingston-road-dispensary">24-hour Kingston Road</Link>
+            {", "}
+            <Link href="/weed-delivery-kingston-road">weed delivery</Link>
+            {", "}
+            <Link href="/native-cigarettes-kingston-road">Native cigarettes</Link>
+            {", and "}
+            <Link href="/nicotine-vape-kingston-road">nicotine vape</Link>.
           </p>
         </article>
       </section>

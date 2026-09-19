@@ -52,6 +52,16 @@ export const weedOwner = {
     "label": "Value Guide",
     "description": "Explore value-oriented cannabis shopping without current-price claims.",
     "href": "/resources/weed-value-guide"
+  },
+  {
+    "label": "24-Hour Kingston Road",
+    "description": "Open-now walk-in hours at 615 Kingston Rd.",
+    "href": "/24-hour-kingston-road-dispensary"
+  },
+  {
+    "label": "Weed Delivery Kingston Road",
+    "description": "Neighbourhood delivery context from the Upper Beaches shop.",
+    "href": "/weed-delivery-kingston-road"
   }
 ] satisfies WeedDiscoveryLink[],
   guides: [

@@ -7,9 +7,97 @@
 .hero,
 .nap,
 .grid,
-.mapBlock {
+.mapBlock,
+.content {
   width: min(1100px, calc(100% - 2rem));
   margin: 0 auto;
+}
+
+.content {
+  max-width: 820px;
+  padding: 120px 0 80px;
+}
+
+.kicker {
+  margin: 0 0 10px;
+  color: #22d3ee;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pageTitle {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.sectionTitle {
+  margin: 36px 0 12px;
+  font-size: 1.4rem;
+}
+
+.content p {
+  margin: 0 0 16px;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.napList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 0 0 20px;
+}
+
+.napList dt {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.napList dd {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.napList a {
+  color: #67e8f9;
+}
+
+.faqItem {
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.faqQuestion {
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #f8fafc;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqAnswer {
+  padding: 0 20px 16px;
+  font-size: 15px;
+  color: #cbd5e1;
+  line-height: 1.6;
 }
 
 .hero {
@@ -144,6 +232,12 @@
   width: 100%;
   height: 320px;
   border: 0;
+}
+
+@media (min-width: 720px) {
+  .napList {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 720px) {

@@ -19,6 +19,7 @@ const ALL_LINKS: { href: string; label: string; featured?: boolean }[] = [
   { href: "/items/magic", label: "Magic Stuff" },
   { href: "/items/cigarettes", label: "Cigarettes" },
   { href: "/items/add-ons", label: "Accessories" },
+  { href: "/24-hour-kingston-road-dispensary", label: "24 HOURS" },
   { href: "/weed-delivery-toronto", label: "WEED DELIVERY" },
     { href: "/careers/budtender", label: "Join Team", featured: true },
 

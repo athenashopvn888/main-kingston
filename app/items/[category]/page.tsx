@@ -124,6 +124,16 @@ export default async function ItemsCategoryPage({
             <p className={styles.visitText}>
               615 Kingston Rd, Toronto, ON M4E 1R3 · Open 24 Hours
             </p>
+            {catSlug === "cigarettes" && (
+              <p className={styles.visitText}>
+                Neighbourhood guide: <Link href="/native-cigarettes-kingston-road">Native cigarettes Kingston Road</Link>
+              </p>
+            )}
+            {catSlug === "vapes" && (
+              <p className={styles.visitText}>
+                Neighbourhood guide: <Link href="/nicotine-vape-kingston-road">Nicotine vape Kingston Road</Link>
+              </p>
+            )}
           </div>
         </div>
       </section>

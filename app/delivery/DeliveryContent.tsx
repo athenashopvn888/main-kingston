@@ -103,7 +103,7 @@ export default function DeliveryContent() {
   return <main className={styles.main}>
     <Navbar />
     <section className={`${styles.hero} ${styles.heroPlain}`}>
-       <div><p>Main Kingston Cannabis · Kingston Road delivery</p><h1>Weed Delivery from Kingston Road</h1><span>Explore neighbourhood delivery from 615 Kingston Rd in the Upper Beaches. Confirm the destination with the dispatcher before you order.</span></div>
+       <div><p>Main Kingston Cannabis · Kingston Road delivery</p><h1>Weed Delivery from Kingston Road</h1><span>Explore neighbourhood delivery from 615 Kingston Rd in the Upper Beaches. The Kingston Road / Beach corridor owner is /weed-delivery-kingston-road. Confirm the destination with the dispatcher before you order.</span></div>
     </section>
     <section className={styles.deliveryDetails} aria-label="Main Kingston Cannabis delivery details">
       <strong>$60 PRODUCT MINIMUM</strong>
