@@ -26,7 +26,7 @@ export function GBPLandingPage() {
           <h1>{store.h1}</h1>
           <p className={styles.heroAddress}>{store.streetAddress}, {store.city}, ON {store.postalCode}</p>
           <div className={styles.actions}><Link href="#find-your-weed" className={styles.primaryAction}>Find Your Weed</Link><Link href="#visit" className={styles.secondaryAction}>Visit {store.storeName}</Link></div>
-          <p className={styles.heroAddress}><Link href="/24-hour-kingston-road-dispensary">24-hour Kingston Road</Link>{" · "}<Link href="/weed-delivery-kingston-road">Weed delivery</Link>{" · "}<Link href="/native-cigarettes-kingston-road">Native cigarettes</Link>{" · "}<Link href="/nicotine-vape-kingston-road">Nicotine vape</Link></p>
+          <p className={styles.heroAddress}><Link href="/24-hour-kingston-road-dispensary">24-hour Kingston Road</Link>{" · "}<Link href="/weed-dispensary-kingston-road">Weed dispensary Kingston Road</Link>{" · "}<Link href="/weed-delivery-kingston-road">Weed delivery</Link>{" · "}<Link href="/native-cigarettes-kingston-road">Native cigarettes</Link>{" · "}<Link href="/nicotine-vape-kingston-road">Nicotine vape</Link></p>
         </section>
 
         <section className={styles.section}>

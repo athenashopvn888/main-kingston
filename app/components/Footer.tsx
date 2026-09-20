@@ -63,6 +63,9 @@ export default function Footer() {
               <Link href="/24-hour-kingston-road-dispensary">
                 24-Hour Kingston Road Dispensary
               </Link>
+              <Link href="/weed-dispensary-kingston-road">
+                Weed Dispensary Kingston Road
+              </Link>
               <Link href="/info/kingston-road-weed-dispensary">
                 Kingston Road Dispensary
               </Link>

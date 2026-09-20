@@ -11,7 +11,7 @@ import { WeedDiscoveryModule } from "./components/WeedDiscoveryModule";
 import SmokePilotSpotlight from "./components/SmokePilotSpotlight";
 import { allFlowers } from "./lib/products";
 import { FourPillarHub } from "./components/FourPillarHub";
-import { CIGARETTES_LP_PATH, DELIVERY_LP_PATH, HOURS_LP_PATH, VAPE_LP_PATH } from "./lib/organicPaths";
+import { CIGARETTES_LP_PATH, DELIVERY_LP_PATH, DISPENSARY_LP_PATH, HOURS_LP_PATH, VAPE_LP_PATH } from "./lib/organicPaths";
 import { HOME_FAQS, STORE_NAP } from "./lib/storeNap";
 import Papa from "papaparse";
 
@@ -317,6 +317,8 @@ export default function HomePage() {
               <Link href="/visit">Kingston Road how-to-reach page</Link> for TTC, parking, and landmark notes. The homepage is the visit hub for address, hours, and directions.{" "}
               <Link href={HOURS_LP_PATH}>Open now · 24-hour Kingston Road</Link>
               {" · "}
+              <Link href={DISPENSARY_LP_PATH}>Weed dispensary Kingston Road</Link>
+              {" · "}
               <Link href={DELIVERY_LP_PATH}>Weed delivery Kingston Road</Link>
               {" · "}
               <Link href={CIGARETTES_LP_PATH}>Native cigarettes Kingston Road</Link>
@@ -467,6 +469,9 @@ export default function HomePage() {
             </Link>
             <Link className={styles.visitHubSecondary} href={HOURS_LP_PATH}>
               Open now · 24-hour Kingston Road
+            </Link>
+            <Link className={styles.visitHubSecondary} href={DISPENSARY_LP_PATH}>
+              Weed dispensary Kingston Road
             </Link>
             <Link className={styles.visitHubSecondary} href={DELIVERY_LP_PATH}>
               Weed delivery Kingston Road

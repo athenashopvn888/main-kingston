@@ -13,10 +13,11 @@ export function FourPillarHub({
         {heading}
       </h2>
       <p className={styles.intro}>
-        Four neighbourhood pages for this storefront at 615 Kingston Rd. Hours
+        Five neighbourhood pages for this storefront at 615 Kingston Rd. Hours
         and what is sold stay true: 24-hour walk-in, weed delivery, Native
-        cigarettes, and nicotine vapes. Adults 19+. The homepage remains the
-        address, phone, and map hub.
+        cigarettes, nicotine vapes, and the Kingston Road weed dispensary
+        owner. Adults 19+. The homepage remains the address, phone, and map
+        hub.
       </p>
       <div className={styles.grid}>
         {FOUR_PILLAR_HUBS.map((hub) => (
