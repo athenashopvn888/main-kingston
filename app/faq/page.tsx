@@ -151,6 +151,8 @@ export default function FAQPage() {
               Kingston Rd, Toronto. Neighbourhood pages:{" "}
               <a href="/24-hour-kingston-road-dispensary">24-hour Kingston Road</a>
               {", "}
+              <a href="/weed-dispensary-kingston-road">weed dispensary</a>
+              {", "}
               <a href="/weed-delivery-kingston-road">weed delivery</a>
               {", "}
               <a href="/native-cigarettes-kingston-road">Native cigarettes</a>

@@ -2,11 +2,12 @@ import { STORE_NAP } from "./storeNap";
 
 export type StoreFaq = { q: string; a: string };
 
-/** MKC01 four-pillar neighbourhood owners. Kingston Rd / Beach corridor only. */
+/** MKC01 neighbourhood owners. Kingston Rd / Beach corridor only. */
 export const PATHS = {
   home: "/",
   visit: "/visit",
   twentyFour: "/24-hour-kingston-road-dispensary",
+  weedDispensaryLp: "/weed-dispensary-kingston-road",
   deliveryLp: "/weed-delivery-kingston-road",
   nativeCigarettesLp: "/native-cigarettes-kingston-road",
   nicotineVapeLp: "/nicotine-vape-kingston-road",
@@ -17,6 +18,7 @@ export const PATHS = {
 } as const;
 
 export const HOURS_LP_PATH = PATHS.twentyFour;
+export const DISPENSARY_LP_PATH = PATHS.weedDispensaryLp;
 export const DELIVERY_LP_PATH = PATHS.deliveryLp;
 export const CIGARETTES_LP_PATH = PATHS.nativeCigarettesLp;
 export const VAPE_LP_PATH = PATHS.nicotineVapeLp;
@@ -42,6 +44,11 @@ export const FOUR_PILLAR_HUBS = [
     label: "Nicotine vape Kingston Road",
     blurb: "Nicotine vapes at 615 Kingston Rd. Current listings live on /items/vapes. Nicotine is addictive.",
   },
+  {
+    href: DISPENSARY_LP_PATH,
+    label: "Weed dispensary Kingston Road",
+    blurb: "The walk-in cannabis shop at 615 Kingston Rd on the Kingston Road / Beach corridor. Flower stays on the tier pages. Adults 19+.",
+  },
 ] as const;
 
 export const MESH_HUB_LINKS = [
@@ -51,6 +58,7 @@ export const MESH_HUB_LINKS = [
 ] as const;
 
 export const VERTICAL_MESH_LINKS = [
+  { label: "Weed dispensary Kingston Road", href: DISPENSARY_LP_PATH },
   { label: "Weed delivery Kingston Road", href: DELIVERY_LP_PATH },
   { label: "Native cigarettes Kingston Road", href: CIGARETTES_LP_PATH },
   { label: "Nicotine vape Kingston Road", href: VAPE_LP_PATH },
@@ -134,6 +142,29 @@ export const CIGARETTES_LP_FAQS: StoreFaq[] = [
   {
     q: "Can I buy Native cigarettes after midnight at this Upper Beaches shop?",
     a: "Walk-in retail is open 24 hours daily. Bring photo ID. Treat the website category as current information rather than a promise that one brand will still be on the shelf when you arrive.",
+  },
+];
+
+export const DISPENSARY_LP_FAQS: StoreFaq[] = [
+  {
+    q: "Is Main Kingston Cannabis a weed dispensary on Kingston Road at the Beach corridor?",
+    a: "Yes. The walk-in shop is at 615 Kingston Rd, where Kingston Road meets Main Street in the Upper Beaches. This page is the neighbourhood owner for that storefront. The homepage remains the name, address, phone, hours, and map hub.",
+  },
+  {
+    q: "Does this Kingston Road page list every Toronto dispensary?",
+    a: "No. It is one shop on the Kingston Road / Beach corridor. It is not a city-wide directory and it does not speak for other neighbourhoods.",
+  },
+  {
+    q: "Where do I browse flower from this Upper Beaches dispensary?",
+    a: "Flower is grouped as Exotic, Premium, AAA+, AA, and Budget Weed on dedicated collection pages. Confirm listings in store. This page does not invent inventory or prices.",
+  },
+  {
+    q: "How is the Kingston Road weed-dispensary page different from the 24-hour page?",
+    a: "Use this page when the question is which storefront sits on Kingston Road at the Beach corridor. Use the 24-hour Kingston Road page for open-now and overnight questions. Walk-in retail stays open 24 hours daily. Adults 19+.",
+  },
+  {
+    q: "Can I treat the city weed-dispensary URL as a second shop?",
+    a: "No. The city URL is not a second store. This Kingston Road page is the neighbourhood owner for 615 Kingston Rd. Delivery, Native cigarettes, and nicotine vapes have their own Kingston Road pages.",
   },
 ];
 

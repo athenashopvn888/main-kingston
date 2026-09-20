@@ -5,6 +5,7 @@ import test from "node:test";
 const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 
 const HOURS = "/24-hour-kingston-road-dispensary";
+const DISPENSARY = "/weed-dispensary-kingston-road";
 const DELIVERY = "/weed-delivery-kingston-road";
 const CIGARETTES = "/native-cigarettes-kingston-road";
 const VAPE = "/nicotine-vape-kingston-road";
@@ -15,6 +16,12 @@ const PILLAR_PAGES = [
     href: HOURS,
     h1: "24-hour dispensary on Kingston Road at 615 Kingston Rd — open now",
     title: "24-Hour Dispensary Open Now on Kingston Road | Main Kingston Cannabis",
+  },
+  {
+    path: "app/weed-dispensary-kingston-road/page.tsx",
+    href: DISPENSARY,
+    h1: "Weed dispensary on Kingston Road at Main Street in the Upper Beaches",
+    title: "Weed Dispensary on Kingston Road at the Beach | Main Kingston Cannabis",
   },
   {
     path: "app/weed-delivery-kingston-road/page.tsx",
@@ -42,7 +49,7 @@ const MENU_SWIMLANE = [
   "scripts/prebuild-stock.js",
 ];
 
-test("four-pillar neighbourhood LPs have unique H1, title, and FAQ schema", () => {
+test("neighbourhood LPs have unique H1, title, FAQ schema, and a fifth hub card", () => {
   const headings = new Set();
   const titles = new Set();
   const homeFaqs = read("app/lib/storeNap.ts");
@@ -50,7 +57,9 @@ test("four-pillar neighbourhood LPs have unique H1, title, and FAQ schema", () =
   const questions = [...homeFaqs.matchAll(/q: "([^"]+)"/g)].map((match) => match[1]);
 
   assert.match(organic, /FOUR_PILLAR_HUBS/);
-  assert.equal((organic.match(/FOUR_PILLAR_HUBS[\s\S]*?\] as const/) || [""])[0].split("href:").length - 1, 4);
+  assert.equal((organic.match(/FOUR_PILLAR_HUBS[\s\S]*?\] as const/) || [""])[0].split("href:").length - 1, 5);
+  assert.match(organic, /DISPENSARY_LP_PATH/);
+  assert.match(organic, /weed-dispensary-kingston-road/);
 
   for (const page of PILLAR_PAGES) {
     const source = read(page.path);
@@ -66,22 +75,24 @@ test("four-pillar neighbourhood LPs have unique H1, title, and FAQ schema", () =
   }
 
   const lpQuestions = [...organic.matchAll(/^\s+q: "([^"]+)"/gm)].map((match) => match[1]);
-  assert.ok(lpQuestions.length >= 20);
+  assert.ok(lpQuestions.length >= 25);
   for (const question of lpQuestions) {
     assert.equal(questions.includes(question), false, `duplicate FAQ: ${question}`);
     questions.push(question);
   }
 });
 
-test("homepage hub cards point at the four sold/true pillars", () => {
+test("homepage hub cards point at the five sold/true pillars", () => {
   const home = read("app/HomePage.tsx");
   const hub = read("app/components/FourPillarHub.tsx");
   assert.match(home, /FourPillarHub/);
   assert.match(home, /href=\{HOURS_LP_PATH\}/);
+  assert.match(home, /href=\{DISPENSARY_LP_PATH\}/);
   assert.match(home, /href=\{DELIVERY_LP_PATH\}/);
   assert.match(home, /href=\{CIGARETTES_LP_PATH\}/);
   assert.match(home, /href=\{VAPE_LP_PATH\}/);
-  for (const href of [HOURS, DELIVERY, CIGARETTES, VAPE]) {
+  assert.match(hub, /Five neighbourhood pages/);
+  for (const href of [HOURS, DISPENSARY, DELIVERY, CIGARETTES, VAPE]) {
     assert.match(hub, /FOUR_PILLAR_HUBS/);
     assert.match(read("app/lib/organicPaths.ts"), new RegExp(href.replaceAll("/", "\\/")));
   }
@@ -125,9 +136,10 @@ test("24h LP stays the open-now owner and does not add a second city 24h page", 
   assert.equal(fs.existsSync(new URL("../app/24-hour-toronto-dispensary/page.tsx", import.meta.url)), false);
 });
 
-test("four pillars stay 19+ retail voice, Kingston Rd / Beach corridor only, and skip the menu swimlane", () => {
+test("five pillars stay 19+ retail voice, Kingston Rd / Beach corridor only, and skip the menu swimlane", () => {
   const publicCopy = [
     "app/24-hour-kingston-road-dispensary/page.tsx",
+    "app/weed-dispensary-kingston-road/page.tsx",
     "app/weed-delivery-kingston-road/page.tsx",
     "app/native-cigarettes-kingston-road/page.tsx",
     "app/nicotine-vape-kingston-road/page.tsx",
@@ -143,14 +155,29 @@ test("four pillars stay 19+ retail voice, Kingston Rd / Beach corridor only, and
   }
 });
 
-test("sitemap, footer, and FAQ mesh the four neighbourhood owners", () => {
+test("sitemap, footer, and FAQ mesh the five neighbourhood owners", () => {
   const sitemap = read("app/sitemap.ts");
   const footer = read("app/components/Footer.tsx");
   const faq = read("app/faq/page.tsx");
-  for (const href of [HOURS, DELIVERY, CIGARETTES, VAPE]) {
+  for (const href of [HOURS, DISPENSARY, DELIVERY, CIGARETTES, VAPE]) {
     const escaped = href.replaceAll("/", "\\/");
     assert.match(sitemap, new RegExp(escaped));
     assert.match(footer, new RegExp(escaped));
     assert.match(faq, new RegExp(escaped));
   }
+});
+
+test("fifth pillar is the Kingston Road owner and does not add city-wide dispensary spam", () => {
+  const page = read("app/weed-dispensary-kingston-road/page.tsx");
+  const city = read("app/weed-dispensary-toronto/page.tsx");
+  const sitemap = read("app/sitemap.ts");
+  assert.match(page, /canonical: PAGE_URL/);
+  assert.doesNotMatch(page, /index: false/);
+  assert.match(page, /not a city-wide dispensary/);
+  assert.match(city, /index: false/);
+  assert.match(city, /weed-dispensary-kingston-road/);
+  assert.doesNotMatch(sitemap, /weed-dispensary-toronto/);
+  assert.equal(fs.existsSync(new URL("../app/weed-dispensary-danforth/page.tsx", import.meta.url)), false);
+  assert.equal(fs.existsSync(new URL("../app/weed-dispensary-scarborough/page.tsx", import.meta.url)), false);
+  assert.equal(fs.existsSync(new URL("../app/weed-dispensary-toronto-east/page.tsx", import.meta.url)), false);
 });

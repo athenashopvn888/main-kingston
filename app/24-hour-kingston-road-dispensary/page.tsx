@@ -8,6 +8,7 @@ import {
   HOURS_LP_PATH,
   HOURS_LP_FAQS,
   DELIVERY_LP_PATH,
+  DISPENSARY_LP_PATH,
   CIGARETTES_LP_PATH,
   VAPE_LP_PATH,
   lpFaqPageJsonLd,
@@ -154,11 +155,16 @@ export default function TwentyFourHourKingstonRoadPage() {
             <h2 className={styles.sectionTitle}>What this page owns — and what it does not</h2>
             <p>
               Use this URL when the question is whether the Kingston Road shop is
-              open now, open late, or open all night. Use the visit guide when the
-              question is which stop, which door, or where to park. Use the homepage
-              when you need the NAP block, the map, and the menu hubs in one place.
-              Flower is grouped as Exotic, Premium, AAA+, AA, and Budget Weed on
-              dedicated collection pages. This page does not invent inventory.
+              open now, open late, or open all night. Use the{" "}
+              <Link href={DISPENSARY_LP_PATH}>
+                weed dispensary Kingston Road
+              </Link>{" "}
+              page when the question is which storefront sits on this Beach
+              corridor. Use the visit guide when the question is which stop, which
+              door, or where to park. Use the homepage when you need the NAP
+              block, the map, and the menu hubs in one place. Flower is grouped as
+              Exotic, Premium, AAA+, AA, and Budget Weed on dedicated collection
+              pages. This page does not invent inventory.
             </p>
           </section>
 

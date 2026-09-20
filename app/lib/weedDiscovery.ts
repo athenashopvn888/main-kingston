@@ -59,6 +59,11 @@ export const weedOwner = {
     "href": "/24-hour-kingston-road-dispensary"
   },
   {
+    "label": "Weed Dispensary Kingston Road",
+    "description": "Neighbourhood walk-in owner on the Kingston Road / Beach corridor.",
+    "href": "/weed-dispensary-kingston-road"
+  },
+  {
     "label": "Weed Delivery Kingston Road",
     "description": "Neighbourhood delivery context from the Upper Beaches shop.",
     "href": "/weed-delivery-kingston-road"

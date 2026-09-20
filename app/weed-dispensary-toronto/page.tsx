@@ -28,6 +28,7 @@ export default function Page() {
       <p>New to Main Kingston Cannabis or want a clearer way to read the menu? Start with the Kingston Road visit hub on the homepage, the how-to-reach page, Cannabis 101 or the Weed &amp; Flower Quality Guide.</p>
       <p>
         <Link href="/#visit-hub">Homepage visit hub</Link>{" · "}
+        <Link href="/weed-dispensary-kingston-road">Kingston Road / Beach corridor dispensary owner</Link>{" · "}
         <Link href="/visit">How to reach Kingston Road</Link>{" · "}
         <Link href="/resources/kingston-road-east-toronto-weed-visit-guide">Kingston Road visit guide</Link>{" · "}
         <Link href="/resources/cannabis-101">Cannabis 101</Link>{" · "}

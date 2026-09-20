@@ -104,6 +104,8 @@ export default function VisitPage() {
             Neighbourhood pages for this corridor:{" "}
             <Link href="/24-hour-kingston-road-dispensary">24-hour Kingston Road</Link>
             {", "}
+            <Link href="/weed-dispensary-kingston-road">weed dispensary</Link>
+            {", "}
             <Link href="/weed-delivery-kingston-road">weed delivery</Link>
             {", "}
             <Link href="/native-cigarettes-kingston-road">Native cigarettes</Link>

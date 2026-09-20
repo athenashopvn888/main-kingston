@@ -25,7 +25,7 @@ export const SEO_PAGES: SeoPageData[] = [
     sections: [
       {
         heading: "How to reach 615 Kingston Rd",
-        body: "Main Kingston Cannabis sits where Kingston Road meets Main Street in the Upper Beaches. Use Line 2 at Main Street Station, then walk south on Main past Gerrard to Kingston Road. The 64 Main bus and the 503 Kingston Rd streetcar also serve the strip. Address, hours, and the map live on the homepage visit hub; TTC, parking, and landmark notes are on /visit.",
+        body: "Main Kingston Cannabis sits where Kingston Road meets Main Street in the Upper Beaches. Use Line 2 at Main Street Station, then walk south on Main past Gerrard to Kingston Road. The 64 Main bus and the 503 Kingston Rd streetcar also serve the strip. The neighbourhood owner is /weed-dispensary-kingston-road. Address, hours, and the map live on the homepage visit hub; TTC, parking, and landmark notes are on /visit.",
       },
       {
         heading: "Parking and the Upper Beaches block",
