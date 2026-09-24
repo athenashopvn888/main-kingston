@@ -12,6 +12,39 @@ assert(componentUrl, "delivery pricing component must exist");
 const source = fs.readFileSync(componentUrl, "utf8");
 const menu = JSON.parse(fs.readFileSync(new URL("delivery-menu.json", deliveryRoot), "utf8"));
 
+assert(/function pricedOptions/.test(source), "delivery chips must be built from priced options");
+assert(/const priced = pricedOptions\(product\)/.test(source), "product pricing must read priced options");
+assert(source.includes("price <= 0"), "a chip without a real price must be omitted");
+assert(!source.includes('["3g", "5g", "14g", "28g"]'), "delivery must not restrict weights to the store list");
+
+function pricedOptions(product) {
+  return product.priceOptions.flatMap((option) => {
+    const label = String(option.label ?? "").trim();
+    const price = Number(option.price);
+    if (!label || !Number.isFinite(price) || price <= 0) return [];
+    return [{ ...option, label, price }];
+  });
+}
+
+const storedPrices = menu.products.flatMap((product) => product.priceOptions.map((option) => Number(option.price)));
+assert(storedPrices.every((price) => Number.isFinite(price) && price > 0), "delivery menu must not store a chip without a real price");
+
+const compactChips = menu.products.flatMap((product) =>
+  pricedOptions(product).filter((option) => option.label !== "28g").map((option) => `${product.name} ${option.label} ${option.price}`)
+);
+assert(compactChips.every((chip) => / \d+(?:\.\d+)?$/.test(chip)), "every compact chip must carry a real price");
+assert.equal(compactChips.filter((chip) => / 0$/.test(chip)).length, 0, "a zero-price chip must not render");
+
+const renderedWeights = pricedOptions({
+  priceOptions: [
+    { key: "weight_7g", label: "7g", price: 60 },
+    { key: "weight_3g", label: "3g", price: 0 },
+    { key: "weight_5g", label: " 5g ", price: 20 },
+    { key: "weight_blank", label: " ", price: 15 },
+  ],
+});
+assert.deepEqual(renderedWeights.map((option) => `${option.label}:${option.price}`), ["7g:60", "5g:20"], "any weight with a real price renders, and a missing price is omitted");
+
 assert(source.includes("quantity === 3 && total === 95"), "3 x 28g / $95 must use the explicit $33 EACH display rule");
 assert(source.includes("get28gBundleEachDisplayPrice"), "bundle EACH prices must use the guarded display helper");
 assert(source.includes("formatCurrency"), "delivery currency must use the safe formatter");
@@ -58,9 +91,9 @@ assert(!renderedCurrency.some((value) => value.includes("31.666")), "raw 95 / 3 
 const appRoot = new URL("../app/", import.meta.url);
 const layoutSource = fs.readFileSync(new URL("layout.tsx", appRoot), "utf8");
 const stylesSource = fs.readFileSync(new URL("globals.css", appRoot), "utf8");
-const announcement = "NEW DELIVERY MENU IS HERE — CLICK TO EXPLORE";
+const announcement = "EXPLORE WEED DELIVERY";
 assert.equal(layoutSource.split(announcement).length - 1, 1, "delivery announcement must appear exactly once in the root layout");
-assert(/className="deliveryAnnouncement"\s+href="\/delivery"/.test(layoutSource), "delivery announcement must link to /delivery");
+assert(/className="deliveryAnnouncement"\s+href="\/weed-delivery-toronto"/.test(layoutSource), "delivery announcement must link to the Kingston Road delivery page");
 assert(stylesSource.includes(".deliveryAnnouncement"), "delivery announcement styles must exist");
 assert(/\.deliveryAnnouncement\s*\{[^}]*display:\s*flex;/s.test(stylesSource), "delivery announcement must render as a visible flex strip");
 assert(/--delivery-announcement-height:\s*42px;/.test(stylesSource), "delivery announcement height must have one shared 42px variable");
