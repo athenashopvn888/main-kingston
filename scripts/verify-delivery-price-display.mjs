@@ -11,6 +11,45 @@ assert(componentUrl, "delivery pricing component must exist");
 
 const source = fs.readFileSync(componentUrl, "utf8");
 const menu = JSON.parse(fs.readFileSync(new URL("delivery-menu.json", deliveryRoot), "utf8"));
+const DISPLAY_WEIGHTS = ["3g", "5g", "14g", "28g"];
+const LEGACY_CHIP = /^(?:7g|3\.5g)$/i;
+
+assert(source.includes('["3g", "5g", "14g", "28g"]'), "delivery chips must allowlist 3g, 5g, 14g, and 28g");
+assert(/const priced = displayPriceOptions\(product\)/.test(source), "product pricing must read the weight allowlist");
+assert(/const compact = priced\.filter\(\(option\) => option\.label !== "28g"\)/.test(source), "compact chips must come from allowlisted prices");
+assert(!/const compact = product\.priceOptions\.filter\(\(option\) => option\.label !== "28g"\)/.test(source), "non-28g price options must not render without the weight allowlist");
+
+function displayPriceOptions(product) {
+  return product.priceOptions.flatMap((option) => {
+    const label = String(option.label ?? "").replace(/\s+/g, "");
+    const price = Number(option.price);
+    if (!DISPLAY_WEIGHTS.includes(label) || !Number.isFinite(price) || price <= 0) return [];
+    return [{ ...option, label, price }];
+  });
+}
+
+const legacyOptions = menu.products.flatMap((product) =>
+  product.priceOptions.filter((option) => LEGACY_CHIP.test(String(option.label ?? "").replace(/\s+/g, "")) || /weight_7g|3\.5g|weight_3_?5g/i.test(String(option.key ?? "")))
+    .map((option) => `${product.name} ${option.key} ${option.label}`)
+);
+assert.deepEqual(legacyOptions, [], "delivery menu must not store 7g or 3.5g price options");
+
+const compactChips = menu.products.flatMap((product) =>
+  displayPriceOptions(product).filter((option) => option.label !== "28g").map((option) => `${product.name} ${option.label}`)
+);
+assert(compactChips.every((chip) => / (?:3g|5g|14g)$/.test(chip)), "compact chips must be real 3g, 5g, or 14g prices");
+assert(!compactChips.some((chip) => / (?:7g|3\.5g)$/i.test(chip)), "7g and 3.5g chips must not render");
+assert.equal(compactChips.filter((chip) => / (?:7g|3\.5g)$/i.test(chip)).length, 0, "rendered 7g and 3.5g chip count must be zero");
+
+const omittedLegacy = displayPriceOptions({
+  priceOptions: [
+    { key: "weight_7g", label: "7g", price: 60 },
+    { key: "weight_3_5g", label: "3.5g", price: 40 },
+    { key: "weight_3g", label: "3g", price: 0 },
+    { key: "weight_5g", label: " 5g ", price: 20 },
+  ],
+});
+assert.deepEqual(omittedLegacy.map((option) => option.label), ["5g"], "missing or legacy weights must be omitted instead of replaced");
 
 assert(source.includes("quantity === 3 && total === 95"), "3 x 28g / $95 must use the explicit $33 EACH display rule");
 assert(source.includes("get28gBundleEachDisplayPrice"), "bundle EACH prices must use the guarded display helper");
@@ -58,9 +97,9 @@ assert(!renderedCurrency.some((value) => value.includes("31.666")), "raw 95 / 3 
 const appRoot = new URL("../app/", import.meta.url);
 const layoutSource = fs.readFileSync(new URL("layout.tsx", appRoot), "utf8");
 const stylesSource = fs.readFileSync(new URL("globals.css", appRoot), "utf8");
-const announcement = "NEW DELIVERY MENU IS HERE — CLICK TO EXPLORE";
+const announcement = "EXPLORE WEED DELIVERY";
 assert.equal(layoutSource.split(announcement).length - 1, 1, "delivery announcement must appear exactly once in the root layout");
-assert(/className="deliveryAnnouncement"\s+href="\/delivery"/.test(layoutSource), "delivery announcement must link to /delivery");
+assert(/className="deliveryAnnouncement"\s+href="\/weed-delivery-toronto"/.test(layoutSource), "delivery announcement must link to the Kingston Road delivery page");
 assert(stylesSource.includes(".deliveryAnnouncement"), "delivery announcement styles must exist");
 assert(/\.deliveryAnnouncement\s*\{[^}]*display:\s*flex;/s.test(stylesSource), "delivery announcement must render as a visible flex strip");
 assert(/--delivery-announcement-height:\s*42px;/.test(stylesSource), "delivery announcement height must have one shared 42px variable");
