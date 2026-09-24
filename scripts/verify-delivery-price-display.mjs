@@ -11,45 +11,39 @@ assert(componentUrl, "delivery pricing component must exist");
 
 const source = fs.readFileSync(componentUrl, "utf8");
 const menu = JSON.parse(fs.readFileSync(new URL("delivery-menu.json", deliveryRoot), "utf8"));
-const DISPLAY_WEIGHTS = ["3g", "5g", "14g", "28g"];
-const LEGACY_CHIP = /^(?:7g|3\.5g)$/i;
 
-assert(source.includes('["3g", "5g", "14g", "28g"]'), "delivery chips must allowlist 3g, 5g, 14g, and 28g");
-assert(/const priced = displayPriceOptions\(product\)/.test(source), "product pricing must read the weight allowlist");
-assert(/const compact = priced\.filter\(\(option\) => option\.label !== "28g"\)/.test(source), "compact chips must come from allowlisted prices");
-assert(!/const compact = product\.priceOptions\.filter\(\(option\) => option\.label !== "28g"\)/.test(source), "non-28g price options must not render without the weight allowlist");
+assert(/function pricedOptions/.test(source), "delivery chips must be built from priced options");
+assert(/const priced = pricedOptions\(product\)/.test(source), "product pricing must read priced options");
+assert(source.includes("price <= 0"), "a chip without a real price must be omitted");
+assert(!source.includes('["3g", "5g", "14g", "28g"]'), "delivery must not restrict weights to the store list");
 
-function displayPriceOptions(product) {
+function pricedOptions(product) {
   return product.priceOptions.flatMap((option) => {
-    const label = String(option.label ?? "").replace(/\s+/g, "");
+    const label = String(option.label ?? "").trim();
     const price = Number(option.price);
-    if (!DISPLAY_WEIGHTS.includes(label) || !Number.isFinite(price) || price <= 0) return [];
+    if (!label || !Number.isFinite(price) || price <= 0) return [];
     return [{ ...option, label, price }];
   });
 }
 
-const legacyOptions = menu.products.flatMap((product) =>
-  product.priceOptions.filter((option) => LEGACY_CHIP.test(String(option.label ?? "").replace(/\s+/g, "")) || /weight_7g|3\.5g|weight_3_?5g/i.test(String(option.key ?? "")))
-    .map((option) => `${product.name} ${option.key} ${option.label}`)
-);
-assert.deepEqual(legacyOptions, [], "delivery menu must not store 7g or 3.5g price options");
+const storedPrices = menu.products.flatMap((product) => product.priceOptions.map((option) => Number(option.price)));
+assert(storedPrices.every((price) => Number.isFinite(price) && price > 0), "delivery menu must not store a chip without a real price");
 
 const compactChips = menu.products.flatMap((product) =>
-  displayPriceOptions(product).filter((option) => option.label !== "28g").map((option) => `${product.name} ${option.label}`)
+  pricedOptions(product).filter((option) => option.label !== "28g").map((option) => `${product.name} ${option.label} ${option.price}`)
 );
-assert(compactChips.every((chip) => / (?:3g|5g|14g)$/.test(chip)), "compact chips must be real 3g, 5g, or 14g prices");
-assert(!compactChips.some((chip) => / (?:7g|3\.5g)$/i.test(chip)), "7g and 3.5g chips must not render");
-assert.equal(compactChips.filter((chip) => / (?:7g|3\.5g)$/i.test(chip)).length, 0, "rendered 7g and 3.5g chip count must be zero");
+assert(compactChips.every((chip) => / \d+(?:\.\d+)?$/.test(chip)), "every compact chip must carry a real price");
+assert.equal(compactChips.filter((chip) => / 0$/.test(chip)).length, 0, "a zero-price chip must not render");
 
-const omittedLegacy = displayPriceOptions({
+const renderedWeights = pricedOptions({
   priceOptions: [
     { key: "weight_7g", label: "7g", price: 60 },
-    { key: "weight_3_5g", label: "3.5g", price: 40 },
     { key: "weight_3g", label: "3g", price: 0 },
     { key: "weight_5g", label: " 5g ", price: 20 },
+    { key: "weight_blank", label: " ", price: 15 },
   ],
 });
-assert.deepEqual(omittedLegacy.map((option) => option.label), ["5g"], "missing or legacy weights must be omitted instead of replaced");
+assert.deepEqual(renderedWeights.map((option) => `${option.label}:${option.price}`), ["7g:60", "5g:20"], "any weight with a real price renders, and a missing price is omitted");
 
 assert(source.includes("quantity === 3 && total === 95"), "3 x 28g / $95 must use the explicit $33 EACH display rule");
 assert(source.includes("get28gBundleEachDisplayPrice"), "bundle EACH prices must use the guarded display helper");

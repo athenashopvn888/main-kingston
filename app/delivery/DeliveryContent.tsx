@@ -17,18 +17,17 @@ type Filter = "ALL" | Tier;
 const fallbackProducts = menu.products as Product[];
 const filters: Filter[] = ["ALL", "Exotics", "CRAFTS", "BC Premium", "Budget", "SHREDS"];
 const tierOrder: Tier[] = ["Exotics", "CRAFTS", "BC Premium", "Budget", "SHREDS"];
-const DISPLAY_WEIGHTS = ["3g", "5g", "14g", "28g"] as const;
 
-function displayPriceOptions(product: Product) {
+function pricedOptions(product: Product) {
   return product.priceOptions.flatMap((option) => {
-    const label = option.label.replace(/\s+/g, "");
+    const label = String(option.label ?? "").trim();
     const price = Number(option.price);
-    if (!(DISPLAY_WEIGHTS as readonly string[]).includes(label) || !Number.isFinite(price) || price <= 0) return [];
+    if (!label || !Number.isFinite(price) || price <= 0) return [];
     return [{ ...option, label, price }];
   });
 }
 function entryPrice(product: Product) {
-  const prices = displayPriceOptions(product).map((option) => option.price);
+  const prices = pricedOptions(product).map((option) => option.price);
   return prices.length ? Math.min(...prices) : Number.POSITIVE_INFINITY;
 }
 function formatCurrency(value: number) {
@@ -42,7 +41,7 @@ function get28gBundleEachDisplayPrice(quantity: number, total: number, perUnitPr
   return Number.isFinite(supplied) && supplied > 0 ? supplied : total / quantity;
 }
 function ProductPricing({ product }: { product: Product }) {
-  const priced = displayPriceOptions(product);
+  const priced = pricedOptions(product);
   const standard28 = priced.find((option) => option.label === "28g");
   const compact = priced.filter((option) => option.label !== "28g");
   const explicit = product.offers?.find((offer) => offer.kind === "prime_time");
