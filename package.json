@@ -15,7 +15,8 @@
     "test:staff-photo": "node --experimental-strip-types --experimental-specifier-resolution=node --test tests/staff-photo.test.ts",
     "test:nicotine-vapes": "node --test tests/nicotine-vape-landing.test.mjs",
     "test:weed-seo-v2": "node --test tests/weed-seo-v2.test.mjs",
-    "test:four-pillar": "node --test tests/mkc01-four-pillar.test.mjs"
+    "test:four-pillar": "node --test tests/mkc01-four-pillar.test.mjs",
+    "test:aggsix-parity": "node --experimental-strip-types --experimental-specifier-resolution=node --test tests/mkc01-aggsix-parity.test.ts"
   },
   "dependencies": {
     "@vercel/blob": "^2.6.1",

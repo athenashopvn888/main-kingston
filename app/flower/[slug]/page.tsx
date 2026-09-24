@@ -7,6 +7,7 @@ import { allFlowers, TIER_CONFIG, type FlowerProduct, type PricePoint } from "..
 import { getStrainData } from "../../lib/strainData";
 import RelatedScroll from "./RelatedScroll";
 import Magnifier from "../../components/Magnifier";
+import { resolveDocumentTitle } from "../../lib/storeNap";
 import styles from "./flower.module.css";
 
 /* -- Pre-generate all flower pages -- */
@@ -28,7 +29,7 @@ export async function generateMetadata({
   const strainData = getStrainData(flower.name, flower.type, flower.tier, flower.thc);
 
   return {
-    title: `${flower.name} | ${tierName} ${flower.type === "indica" ? "Indica" : flower.type === "sativa" ? "Sativa" : "Hybrid"} | THC ${flower.thc} | Main Kingston Cannabis Toronto`,
+    title: resolveDocumentTitle(`${flower.name} | ${tierName} ${flower.type === "indica" ? "Indica" : flower.type === "sativa" ? "Sativa" : "Hybrid"} | THC ${flower.thc} | Main Kingston Cannabis`),
     description: strainData.metaDescription,
     alternates: {
       canonical: `https://www.mainkingstoncannabis.ca/flower/${slug}`,

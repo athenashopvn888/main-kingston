@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import DeliveryContent from "./DeliveryContent";
 import menu from "./delivery-menu.json";
+import { resolveDocumentTitle } from "../lib/storeNap";
 
 export const metadata: Metadata = {
-  title: "Delivery Menu | Main Kingston Cannabis",
+  title: resolveDocumentTitle("Delivery Menu | Main Kingston Cannabis"),
   description: "Browse the Main Kingston Cannabis delivery product catalog and compare flower tiers and prices.",
   alternates: { canonical: "https://www.mainkingstoncannabis.ca/delivery" },
 };

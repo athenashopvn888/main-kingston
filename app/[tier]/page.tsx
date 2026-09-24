@@ -10,6 +10,9 @@ import {
   TIER_CONFIG,
 } from "../lib/products";
 import { TIER_SEO } from "../lib/tierSeoContent";
+import { JsonLd } from "../lib/jsonLd";
+import { lpFaqPageJsonLd } from "../lib/organicPaths";
+import { STORE_NAP } from "../lib/storeNap";
 import styles from "./tier.module.css";
 
 /* -- Generate all tier pages at build -- */
@@ -30,8 +33,10 @@ export async function generateMetadata({
   const seo = TIER_SEO[tierInfo.key];
 
   return {
-    title: seo?.seoTitle || `${tierInfo.config.name} Cannabis Flower — ${flowers.length} Strains`,
-    description: seo?.seoIntro || `Shop ${flowers.length} ${tierInfo.config.name.toLowerCase()} cannabis strains at Main Kingston Cannabis.`,
+    title: seo?.seoTitle
+      ? { absolute: seo.seoTitle }
+      : `${tierInfo.config.name} on Kingston Road in the Upper Beaches | Main Kingston Cannabis`,
+    description: seo?.seoIntro || `Shop ${flowers.length} ${tierInfo.config.name.toLowerCase()} cannabis strains at Main Kingston Cannabis on Kingston Road.`,
     alternates: {
       canonical: `https://www.mainkingstoncannabis.ca/${tierSlug}`,
     },
@@ -59,9 +64,33 @@ export default async function TierPage({
   const saleFlowers = flowers.filter((f) => f.isSale);
   const regularFlowers = flowers.filter((f) => !f.isSale);
   const hotFlowers = flowers.filter((f) => f.isHot);
+  const pageUrl = `${STORE_NAP.homeUrl}/${tierSlug}`;
+  const corridorH1 = seo?.h1 || `${config.name} on Kingston Road in the Upper Beaches`;
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: corridorH1,
+    description: seo?.seoIntro || `${config.name} flower at Main Kingston Cannabis on Kingston Road in the Upper Beaches.`,
+    isPartOf: { "@type": "WebSite", "@id": `${STORE_NAP.homeUrl}/#website` },
+    about: { "@id": `${STORE_NAP.homeUrl}/#store` },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: flowers.length,
+      itemListElement: flowers.map((flower, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: flower.name,
+        url: `${STORE_NAP.homeUrl}/flower/${flower.slug}`,
+      })),
+    },
+  };
 
   return (
     <main className={styles.main}>
+      <JsonLd data={collectionJsonLd} />
+      {seo?.faqs?.length ? <JsonLd data={lpFaqPageJsonLd(seo.faqs, pageUrl)} /> : null}
       <Navbar />
 
       {/* ── Banner Image (standalone, no overlay text) ── */}
@@ -83,7 +112,7 @@ export default async function TierPage({
             <div className={styles.heroTitleRow}>
               <span className={styles.heroIcon}>{config.icon}</span>
               <h1 className={styles.heroTitle}>
-                <span style={{ color: config.color }}>{config.name} &amp; Cannabis Flower in Toronto</span>
+                <span style={{ color: config.color }}>{corridorH1}</span>
               </h1>
             </div>
             <p className={styles.heroTagline}>{config.tagline}</p>

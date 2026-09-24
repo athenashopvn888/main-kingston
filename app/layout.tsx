@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import AgeGate from "./components/AgeGate";
-import { cannabisStoreJsonLd, STORE_NAP, toJsonLd } from "./lib/storeNap";
+import { cannabisStoreJsonLd, renderedDocumentTitle, STORE_NAP, toJsonLd } from "./lib/storeNap";
+
+const HOME_DOCUMENT_TITLE = renderedDocumentTitle("24 Hour Kingston Road Dispensary");
 
 export const metadata: Metadata = {
   metadataBase: new URL(STORE_NAP.homeUrl),
   title: {
-    default: "24 Hour Kingston Road Dispensary | Main Kingston Cannabis",
-    template: "%s | Main Kingston Cannabis",
+    default: HOME_DOCUMENT_TITLE,
+    template: `%s | ${STORE_NAP.name}`,
   },
   description:
     "Main Kingston Cannabis is an East Toronto dispensary on Kingston Rd near Main St with flower, pre-rolls, vapes, edibles, concentrates, accessories, and adult 19+ info. Open 24 Hours.",

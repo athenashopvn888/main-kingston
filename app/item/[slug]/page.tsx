@@ -7,6 +7,7 @@ import { allItems, CATEGORY_CONFIG, type ItemProduct } from "../../lib/products"
 import { getItemData } from "../../lib/itemData";
 import { getItemPriceDisplay } from "../../lib/itemPricing";
 import Magnifier from "../../components/Magnifier";
+import { resolveDocumentTitle } from "../../lib/storeNap";
 import styles from "../../flower/[slug]/flower.module.css";
 
 /* -- Pre-generate all item pages -- */
@@ -27,7 +28,7 @@ export async function generateMetadata({
   const itemData = getItemData(item.category, item.name);
 
   return {
-    title: `${item.name} | ${item.category} | Main Kingston Cannabis Toronto`,
+    title: resolveDocumentTitle(`${item.name} | ${item.category} | Main Kingston Cannabis`),
     description: itemData.metaDescription,
     alternates: {
       canonical: `https://www.mainkingstoncannabis.ca/item/${slug}`,

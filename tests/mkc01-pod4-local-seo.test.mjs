@@ -43,9 +43,10 @@ test("homepage schema is CannabisStore with FAQPage and a unique local image", (
   assert.doesNotMatch(home, /7Clmh\.jpg|46Oi5\.jpg/);
 });
 
-test("/visit is a supporting reach page that canonicalizes to the homepage", () => {
-  assert.match(visit, /canonical: STORE_NAP\.homeUrl/);
-  assert.match(visit, /openGraph:[\s\S]*url: STORE_NAP\.homeUrl/);
+test("/visit is a supporting reach page with a self-canonical", () => {
+  assert.match(visit, /VISIT_URL = `\$\{STORE_NAP\.homeUrl\}\/visit`/);
+  assert.match(visit, /canonical: VISIT_URL/);
+  assert.match(visit, /openGraph:[\s\S]*url: VISIT_URL/);
   assert.match(visitContent, /Main Street Station/);
   assert.match(visitContent, /Street parking lines Kingston Road/);
   assert.match(visitContent, /615 Kingston Rd/);
