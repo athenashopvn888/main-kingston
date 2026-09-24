@@ -60,6 +60,7 @@ export default function Footer() {
 <Link href="/items/vapes">Nicotine Vapes</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/visit">Visit Kingston Road</Link>
+              <Link href="/hours">Store Hours</Link>
               <Link href="/24-hour-kingston-road-dispensary">
                 24-Hour Kingston Road Dispensary
               </Link>

@@ -24,6 +24,7 @@ const ALL_LINKS: { href: string; label: string; featured?: boolean }[] = [
     { href: "/careers/budtender", label: "Join Team", featured: true },
 
   { href: "/visit", label: "Visit" },
+  { href: "/hours", label: "Hours" },
   { href: "/faq", label: "FAQ" },
   { href: "/weed-resources", label: "Weed Resources" },
 ];
