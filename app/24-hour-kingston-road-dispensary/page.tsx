@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -14,7 +15,7 @@ import {
   lpFaqPageJsonLd,
   pageUrl,
 } from "../lib/organicPaths";
-import { STORE_NAP } from "../lib/storeNap";
+import { STORE_NAP, storeClaimsOpen24Hours } from "../lib/storeNap";
 import styles from "../visit/visit.module.css";
 
 const PAGE_URL = pageUrl(HOURS_LP_PATH);
@@ -35,6 +36,7 @@ export const metadata: Metadata = {
 };
 
 export default function TwentyFourHourKingstonRoadPage() {
+  if (!storeClaimsOpen24Hours()) notFound();
   return (
     <>
       <JsonLd data={lpFaqPageJsonLd(HOURS_LP_FAQS, PAGE_URL)} />

@@ -8,6 +8,18 @@ export default function AgeGate() {
   const [underage, setUnderage] = useState(false);
 
   useEffect(() => {
+    if (!show) return;
+    const previousBody = document.body.style.overflow;
+    const previousHtml = document.documentElement.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousBody;
+      document.documentElement.style.overflow = previousHtml;
+    };
+  }, [show]);
+
+  useEffect(() => {
     // Skip age verification for TV menu retail displays
     const path = window.location.pathname;
     if (path === "/tv" || path === "/tv2" || path.startsWith("/tv/") || path.startsWith("/tv2/") || path.startsWith("/staff-photo")) {

@@ -57,7 +57,8 @@ test("neighbourhood LPs have unique H1, title, FAQ schema, and a fifth hub card"
   const questions = [...homeFaqs.matchAll(/q: "([^"]+)"/g)].map((match) => match[1]);
 
   assert.match(organic, /FOUR_PILLAR_HUBS/);
-  assert.equal((organic.match(/FOUR_PILLAR_HUBS[\s\S]*?\] as const/) || [""])[0].split("href:").length - 1, 5);
+  assert.equal((organic.match(/FOUR_PILLAR_HUBS[\s\S]*?\] as const/) || [""])[0].split("href:").length - 1, 6);
+  assert.match(organic, /href: PATHS\.visit/);
   assert.match(organic, /DISPENSARY_LP_PATH/);
   assert.match(organic, /weed-dispensary-kingston-road/);
 

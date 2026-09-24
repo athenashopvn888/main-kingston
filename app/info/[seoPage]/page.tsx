@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { SEO_PAGES, getSeoPageBySlug } from "../../lib/seoPages";
 import { TIER_CONFIG } from "../../lib/products";
+import { resolveDocumentTitle } from "../../lib/storeNap";
 import styles from "./seo.module.css";
 
 /* ── Generate all SEO pages ── */
@@ -23,7 +24,7 @@ export async function generateMetadata({
   if (!page) return {};
 
   return {
-    title: page.title,
+    title: resolveDocumentTitle(page.title),
     description: page.metaDescription,
     alternates: {
       canonical: `https://www.mainkingstoncannabis.ca/info/${slug}`,

@@ -32,12 +32,14 @@ export default function Navbar() {
   const pathname = usePathname();
   const scrollBarRef = useRef<HTMLDivElement>(null);
   const [canAdvance, setCanAdvance] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const updateScrollState = useCallback(() => { const scrollBar = scrollBarRef.current; if (!scrollBar) return; setCanAdvance(scrollBar.scrollWidth - scrollBar.clientWidth - scrollBar.scrollLeft > 2); }, []);
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
   useEffect(() => { const scrollBar = scrollBarRef.current; if (!scrollBar) return; updateScrollState(); scrollBar.addEventListener("scroll", updateScrollState, { passive: true }); window.addEventListener("resize", updateScrollState); const resizeObserver = new ResizeObserver(updateScrollState); resizeObserver.observe(scrollBar); if (scrollBar.firstElementChild) resizeObserver.observe(scrollBar.firstElementChild); return () => { scrollBar.removeEventListener("scroll", updateScrollState); window.removeEventListener("resize", updateScrollState); resizeObserver.disconnect(); }; }, [pathname, updateScrollState]);
   const advanceScrollBar = () => { const scrollBar = scrollBarRef.current; if (!scrollBar) return; const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches; scrollBar.scrollBy({ left: Math.max(180, scrollBar.clientWidth * 0.75), behavior: reduceMotion ? "auto" : "smooth" }); };
 
   return (
-    <nav className={styles.navbar} id="main-nav">
+    <nav className={styles.navbar} id="main-nav" aria-label="Site menu">
       {/* Top bar — logo + open now */}
       <div className={styles.topBar}>
         <Link href="/" className={styles.logo} aria-label="MAIN KINGSTON CANNABIS" style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}>
@@ -53,6 +55,18 @@ export default function Navbar() {
             MAIN KINGSTON CANNABIS
           </span>
         </Link>
+        <button
+          type="button"
+          className={styles.menuToggle}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-store-menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <svg className={styles.menuToggleIcon} viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+            <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </button>
         <div className={styles.topBarRight}>
           <Link href="/weed-delivery-toronto" className={styles.gamesBtn}>
             WEED DELIVERY
@@ -83,6 +97,13 @@ export default function Navbar() {
           </div>
         </div>
         {canAdvance && <button type="button" className={styles.scrollAdvance} aria-label="Show more navigation links" aria-controls="store-menu-scrollbar" onClick={advanceScrollBar}><span aria-hidden="true">›</span></button>}
+      </div>
+      <div id="mobile-store-menu" className={`${styles.mobilePanel} ${menuOpen ? styles.mobilePanelOpen : ""}`} hidden={!menuOpen}>
+        {ALL_LINKS.map((link) => (
+          <Link key={link.href} href={link.href} className={styles.mobileLink} aria-current={pathname === link.href ? "page" : undefined}>
+            {link.label}
+          </Link>
+        ))}
       </div>
     </nav>
   );

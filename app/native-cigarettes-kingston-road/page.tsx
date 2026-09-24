@@ -21,14 +21,14 @@ const PAGE_URL = pageUrl(CIGARETTES_LP_PATH);
 export const metadata: Metadata = {
   title: { absolute: "Native Cigarettes on the Kingston Road Beach Corridor | Main Kingston Cannabis" },
   description:
-    "Native cigarettes at Main Kingston Cannabis, 615 Kingston Rd on Kingston Road at Main Street in the Upper Beaches. Check the current cigarette category for brand, unit, and posted price. Adults 19+.",
+    "Adults 19+ can walk the Upper Beaches cigarette counter at 615 Kingston Rd, south of Main Street Station. Posted carton and pack rows stay on the cigarette category. Tobacco is addictive.",
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
     title: "Native Cigarettes on the Kingston Road Beach Corridor | Main Kingston Cannabis",
     description:
-      "Retail cigarette category at 615 Kingston Rd. Compare pack or carton listings on the current menu. Walk-in open 24 hours daily.",
+      "Upper Beaches cigarette counter at 615 Kingston Rd. Read each pack or carton row on the category, then walk in. The door is Open 24 Hours.",
     url: PAGE_URL,
   },
 };
@@ -43,12 +43,12 @@ export default function NativeCigarettesKingstonRoadPage() {
           <p className={styles.kicker}>Kingston Road · Retail cigarettes · Adults 19+</p>
           <h1 className={styles.pageTitle}>Native cigarettes at Main Kingston Cannabis on Kingston Road</h1>
           <p className={styles.lede}>
-            Main Kingston Cannabis sells Native cigarettes at the walk-in shop on
-            Kingston Road at 615, where Main Street meets the Upper Beaches strip.
-            This page is the neighbourhood owner for that category. The current
-            listed brands, pack or carton units, and posted prices live on the
-            cigarette menu. The homepage remains the name, address, phone, hours,
-            and map hub.
+            The cigarette counter at 615 Kingston Rd sits on the Upper Beaches
+            face of Kingston Road, a few steps from the Main Street corner.
+            Riders who get off Line 2 at Main Street Station and walk south past
+            Gerrard are looking for this door, not a city-wide smoke directory.
+            Adults 19+ only. Tobacco is addictive. Whatever carton or pack lines
+            are posted today stay on the cigarette category.
           </p>
 
           <section className={styles.nap} aria-labelledby="cigarettes-nap-title">
@@ -87,44 +87,42 @@ export default function NativeCigarettesKingstonRoadPage() {
           </section>
 
           <section>
-            <h2 className={styles.sectionTitle}>How to read the Kingston Road cigarette listings</h2>
+            <h2 className={styles.sectionTitle}>Reading a row on this Upper Beaches shelf</h2>
             <p>
-              Use the cigarette category as a current snapshot. Compare brand,
-              variety, pack or carton unit, quantity, and the posted price on the
-              same line. A carton is a different sales unit from a pack — do not
-              compare a pack price with a carton price as if they were the same
-              item.
-            </p>
-            <p>
-              This page does not name a locked-in brand list or invent a price. If
-              one brand or unit matters, check{" "}
-              <Link href={PATHS.itemsCigarettes}>/items/cigarettes</Link> or call{" "}
+              Open the cigarette category and stay on one row: the name, whether
+              that row is a single pack or a carton, and the figure printed beside
+              it. Mixing a single-pack figure with a carton figure will not tell
+              you what the Kingston Road shelf costs. If a name you want is
+              missing, call{" "}
               <a href={`tel:${STORE_NAP.phoneIntl}`}>{STORE_NAP.phoneDisplay}</a>{" "}
-              before you leave. Listings can change. A product-style preview also
-              lives on the{" "}
+              before you leave the Danforth, or open{" "}
+              <Link href={PATHS.itemsCigarettes}>/items/cigarettes</Link>. A
+              picture preview also sits on the{" "}
               <Link href="/info/native-cigarettes-kingston-road">
                 Kingston Road cigarette information page
               </Link>
-              .
+              . This page does not invent a price.
             </p>
           </section>
 
           <section>
-            <h2 className={styles.sectionTitle}>Walk in on the Beach corridor</h2>
+            <h2 className={styles.sectionTitle}>From the station to the Kingston Road counter</h2>
             <p>
-              Adults 19+ show government-issued photo ID at the Kingston Road door.
-              The shop is open 24 hours daily, including overnight. There is no
-              appointment desk. Staff can help you read the current cigarette shelf
-              the same way they help with flower, vapes, and other in-store
-              categories.
+              Curb parking is the stretch of Kingston Road in front of 615. Signs
+              change by block, so read the Upper Beaches curb before you lock the
+              car. The 64 Main bus runs along Main Street. When the 503 Kingston
+              Rd streetcar is in service it follows the corridor itself. Woodbine
+              Beach and Kew Gardens sit south, toward Queen — they are landmarks,
+              not the pin for this door. Adults 19+ show government photo ID at
+              every hour, including overnight. The shop already publishes Open 24
+              Hours.
             </p>
             <p>
-              Arrival notes — Main Street Station, the 64 Main bus, curb parking,
-              and Woodbine Beach / Kew Gardens landmarks — live on the{" "}
-              <Link href="/visit">visit guide</Link>. Open-now questions live on
-              the <Link href={HOURS_LP_PATH}>24-hour Kingston Road dispensary</Link>{" "}
-              page. Nicotine vapes are a separate category — use{" "}
-              <Link href={VAPE_LP_PATH}>nicotine vape Kingston Road</Link>.
+              Arrival notes live on the <Link href="/visit">visit guide</Link>.
+              Open-now questions live on the{" "}
+              <Link href={HOURS_LP_PATH}>24-hour Kingston Road dispensary</Link>{" "}
+              page. Nicotine devices are a different list — use{" "}
+              <Link href={VAPE_LP_PATH}>nicotine vape on the Kingston Road Beach corridor</Link>.
             </p>
           </section>
 

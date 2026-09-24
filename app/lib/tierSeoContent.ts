@@ -1,5 +1,6 @@
 export interface TierSeoData {
   seoTitle: string;
+  h1: string;
   seoIntro: string;
   sections: { heading: string; body: string; links?: { title: string; href: string }[] }[];
   faqs: { q: string; a: string }[];
@@ -9,7 +10,8 @@ import pinkyTierAdditions from "./pinkyTierAdditions.json";
 
 export const TIER_SEO: Record<string, TierSeoData> = {
   EXOTIC: {
-    seoTitle: "Exotic Weed & Cannabis Flower Toronto | Main Kingston cannabis",
+    seoTitle: "Exotic Weed on Kingston Road in the Upper Beaches | Main Kingston Cannabis",
+    h1: "Exotic Weed on Kingston Road in the Upper Beaches",
     seoIntro:
       "Browse the Exotic flower category at Main Kingston Cannabis near Kingston Road and Main Street. Check the current menu for listed names, prices, and package details before visiting.",
     sections: [
@@ -40,7 +42,8 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   },
 
   PREMIUM: {
-    seoTitle: "Premium Weed & Cannabis Flower Toronto | Main Kingston cannabis",
+    seoTitle: "Premium Weed at Kingston Rd and Main Street | Main Kingston Cannabis",
+    h1: "Premium Weed at Kingston Rd and Main Street",
     seoIntro:
       "Browse premium flower category browsing at Main Kingston Cannabis near Kingston Road and Main Street. Confirm current strains, prices, and listings before visiting.",
     sections: [
@@ -71,7 +74,8 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   },
 
   "AAA+": {
-    seoTitle: "AAA+ Weed & Cannabis Flower Toronto | Main Kingston cannabis",
+    seoTitle: "AAA+ Weed on the Upper Beaches Kingston Road strip | Main Kingston Cannabis",
+    h1: "AAA+ Weed on the Upper Beaches Kingston Road strip",
     seoIntro:
       "Browse the AAA+ flower tier at Main Kingston Cannabis near Kingston Road and Main Street. Check current menu items and prices before visiting.",
     sections: [
@@ -102,7 +106,8 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   },
 
   AA: {
-    seoTitle: "AA Weed & Cannabis Flower Toronto | Main Kingston cannabis",
+    seoTitle: "AA Weed on Kingston Road near Main Street | Main Kingston Cannabis",
+    h1: "AA Weed on Kingston Road near Main Street",
     seoIntro:
       "Browse daily-driver flower category browsing at Main Kingston Cannabis near Kingston Road and Main Street. Confirm current strains, prices, and listings before visiting.",
     sections: [
@@ -133,7 +138,8 @@ export const TIER_SEO: Record<string, TierSeoData> = {
   },
 
   BUDGET: {
-    seoTitle: "Budget Weed & Cannabis Flower Toronto | Main Kingston cannabis",
+    seoTitle: "Budget Weed at 615 Kingston Rd in the Upper Beaches | Main Kingston Cannabis",
+    h1: "Budget Weed at 615 Kingston Rd in the Upper Beaches",
     seoIntro:
       "Browse value flower category browsing at Main Kingston Cannabis near Kingston Road and Main Street. Confirm current strains, prices, and listings before visiting.",
     sections: [

@@ -49,6 +49,11 @@ export const FOUR_PILLAR_HUBS = [
     label: "Weed dispensary Kingston Road",
     blurb: "The walk-in cannabis shop at 615 Kingston Rd on the Kingston Road / Beach corridor. Flower stays on the tier pages. Adults 19+.",
   },
+  {
+    href: PATHS.visit,
+    label: "Visit Kingston Road",
+    blurb: "Parking on Kingston Road, the 64 Main bus, and the walk south from Main Street Station to 615 Kingston Rd.",
+  },
 ] as const;
 
 export const MESH_HUB_LINKS = [
@@ -124,24 +129,24 @@ export const DELIVERY_LP_FAQS: StoreFaq[] = [
 
 export const CIGARETTES_LP_FAQS: StoreFaq[] = [
   {
-    q: "Does the Kingston Road shop sell Native cigarettes?",
-    a: "Yes. Main Kingston Cannabis lists Native cigarettes in the in-store cigarette category at 615 Kingston Rd. Use the current cigarette menu for brand, variety, pack or carton unit, and posted price. Selection can change.",
+    q: "Is the Native cigarette shelf at 615 Kingston Rd a separate shop from the flower counter?",
+    a: "No. It is the same Upper Beaches walk-in at 615 Kingston Rd. Flower tiers and the cigarette category share one door where Kingston Road meets Main Street. Adults 19+.",
   },
   {
-    q: "Where do I check current cigarette brands at 615 Kingston Rd?",
-    a: "Open the cigarette category for the listed selection. This Kingston Road page explains the storefront. It does not replace the current menu or lock in a brand, pack count, or price.",
+    q: "How do I tell a Kingston Road pack row from a carton row?",
+    a: "On the cigarette category, read the unit written beside that row's price. A carton row and a single-pack row are different purchases. Match the unit before you compare two numbers from the Upper Beaches shelf.",
   },
   {
-    q: "What should I compare on a pack versus a carton listing?",
-    a: "A pack and a carton are different sales units. Read the listed unit beside the posted price, then compare the same unit, brand, and variety. Ask staff in store if the unit is unclear.",
+    q: "Will this page freeze tonight's cigarette brands for the Upper Beaches shop?",
+    a: "No. The category is a live list for 615 Kingston Rd. Call +1 289 460 0130 if one variety matters before you leave the Danforth. This page does not publish a locked roster or a made-up price.",
   },
   {
-    q: "Do I need ID to buy cigarettes on Kingston Road?",
-    a: "Yes. The store serves adults 19+ only. Government-issued photo ID is required before purchase, including overnight walk-ins.",
+    q: "Can I stop for cigarettes after the 503 Kingston Rd streetcar has stopped running?",
+    a: "The door at 615 Kingston Rd stays open 24 hours. The streetcar timetable is not the store clock. Line 2 to Main Street Station, then a walk south on Main Street, still reaches the corner. Bring government photo ID. Adults 19+.",
   },
   {
-    q: "Can I buy Native cigarettes after midnight at this Upper Beaches shop?",
-    a: "Walk-in retail is open 24 hours daily. Bring photo ID. Treat the website category as current information rather than a promise that one brand will still be on the shelf when you arrive.",
+    q: "Where do nicotine devices sit relative to this Kingston Road cigarette page?",
+    a: "Nicotine vapes have their own Upper Beaches page and the /items/vapes list. This page is only the retail cigarette category at the Kingston Road storefront. Tobacco and nicotine products are addictive.",
   },
 ];
 
@@ -170,24 +175,24 @@ export const DISPENSARY_LP_FAQS: StoreFaq[] = [
 
 export const VAPE_LP_FAQS: StoreFaq[] = [
   {
-    q: "Where is the current nicotine vape menu for Main Kingston Cannabis?",
-    a: "Use the nicotine vape category at /items/vapes. This Kingston Road page is neighbourhood context. It does not list SKUs or prices, and it does not promise that a named device is in stock.",
+    q: "Which URL is the nicotine list for the Upper Beaches shop?",
+    a: "Use /items/vapes. This Kingston Road page explains the storefront at 615 Kingston Rd, a short walk south of Main Street Station. It is not a second inventory and it does not quote device prices. Nicotine is addictive.",
   },
   {
-    q: "Are nicotine vapes the same as THC vapes at this Kingston Road shop?",
-    a: "No. Nicotine vapes are listed under /items/vapes. THC or cannabis vapes are a separate category under /items/vape-disposables. Read the category label before you travel for one format.",
+    q: "If I want a cannabis vape on Kingston Road, is this the right page?",
+    a: "No. Cannabis and THC disposables live under /items/vape-disposables. Stay on this Upper Beaches page only when the product is a nicotine vape.",
   },
   {
-    q: "Does this Kingston Road page publish nicotine vape prices?",
-    a: "No. Open the current nicotine vape category, then the individual item page for posted details. Confirm the listing in store. Nicotine is addictive.",
+    q: "Does a puff number in a product name mean the Upper Beaches shop guarantees that many draws?",
+    a: "No. A number in a name is a label you can use to tell two rows apart on the Kingston Road nicotine list. It is not a lifespan, strength, or quality claim from this page.",
   },
   {
-    q: "Who can buy a nicotine vape at 615 Kingston Rd?",
-    a: "Adults 19+ with government-issued photo ID. The walk-in shop is open 24 hours daily. Delivery, when used, is a separate path confirmed by the dispatcher.",
+    q: "Who can purchase a nicotine vape at 615 Kingston Rd?",
+    a: "Adults 19 and older with government photo ID. The walk-in hours already published for this shop are Open 24 Hours, including after the 64 Main bus thins out. Nicotine is addictive.",
   },
   {
-    q: "Should I treat puff counts on a listing as a performance promise?",
-    a: "No. When a product name includes a puff count, use it only to tell listings apart. This page does not present puff counts as lifespan, strength, or superiority claims.",
+    q: "Is weed delivery the way to get a nicotine vape from this Kingston Road door?",
+    a: "Delivery is a separate dispatcher path. This page does not describe a nicotine-vape service area or a drop-off map. For a device in hand, use the walk-in at 615 Kingston Rd or ask the dispatcher before you assume a run down to the Beach corridor.",
   },
 ];
 

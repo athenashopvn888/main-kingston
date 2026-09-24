@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { resolveDocumentTitle } from "../lib/storeNap";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Main Kingston Cannabis | 615 Kingston Rd, Toronto",
+  title: resolveDocumentTitle("Contact Us — Main Kingston Cannabis | 615 Kingston Rd, Toronto"),
   description:
     "Visit Main Kingston Cannabis at 615 Kingston Rd, Toronto, ON M4E 1R3. Open 24 hours, 7 days a week. Walk-ins welcome.",
   alternates: {
