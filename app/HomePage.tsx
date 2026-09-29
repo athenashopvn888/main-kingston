@@ -1,4 +1,9 @@
-﻿"use client";
+"use client";
+
+import { HOME_TITLE } from "./lib/homeDelivery";
+import CohortDeliveryActions from "./components/CohortDeliveryActions";
+import HomeDeliverySection from "./components/HomeDeliverySection";
+import HomepageTopNotices from "./components/HomepageTopNotices";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -169,9 +174,11 @@ export default function HomePage() {
 
   return (
     <main className={styles.main}>
+      <Navbar />
+      <HomepageTopNotices />
       <FleetAnnouncementBanner />
       {/* -- NAVBAR -- */}
-      <Navbar />
+
 
       {/* -- WELCOME BANNER -- */}
       <section className={styles.welcomeBannerSection}>
@@ -207,7 +214,8 @@ export default function HomePage() {
           {/* Brand branding */}
           <div className={styles.brandBlock}>
             <img src="/storeFavicon.webp" alt="Main Kingston Cannabis Icon" style={{ height: "60px", width: "60px", objectFit: "contain", borderRadius: "8px", marginBottom: "8px" }} />
-            <h1 className={styles.brandTitle}>MAIN KINGSTON CANNABIS</h1>
+            <h1 className={styles.brandTitle}>{HOME_TITLE}</h1>
+            <CohortDeliveryActions variant="hero" />
             <p className={styles.brandSub}>Kingston Road &amp; Main Street · Upper Beaches</p>
             <div className={styles.brandBadge}>Open 24 Hours</div>
           </div>
@@ -234,6 +242,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <HomeDeliverySection />
 
       {/* -- EXPLORE CATEGORIES -- */}
       <section className={styles.categoriesSection} id="menu">
