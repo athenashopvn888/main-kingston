@@ -70,7 +70,8 @@ test("canonical and indexability contracts are explicit", () => {
   assert.match(resources, /canonical: "https:\/\/www\.mainkingstoncannabis\.ca\/weed-resources"/);
   assert.match(resources, /robots: \{ index: true, follow: true \}/);
   assert.match(route, /robots: \{ index: true, follow: true \}/);
-  assert.match(sitemap, /`\$\{BASE\}\/resources`/);
+  assert.doesNotMatch(sitemap, /`\$\{BASE\}\/resources`/);
+  assert.match(sitemap, /`\$\{BASE\}\/weed-resources`/);
 });
 
 test("canonical hub exposes the complete grouped guide set", () => {
