@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import {
   renderedDocumentTitle,
   storeClaimsOpen24Hours,
@@ -206,7 +207,7 @@ test("G6 mobile age gate stays inside the viewport and the menu has a hamburger 
 });
 
 test("G7 flower copy does not use 3.5g or 7g", () => {
-  const root = new URL("../app", import.meta.url);
+  const root = fileURLToPath(new URL("../app", import.meta.url));
   const files: string[] = [];
   const walk = (directory: string) => {
     for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -220,7 +221,7 @@ test("G7 flower copy does not use 3.5g or 7g", () => {
       files.push(fullPath);
     }
   };
-  walk(root.pathname);
+  walk(root);
   assert.ok(files.length > 20);
   for (const file of files) {
     const source = fs.readFileSync(file, "utf8");
@@ -255,19 +256,18 @@ test("G8 apex redirects to www and visit canonical plus NAP stay on the current 
   assert.equal(storeClaimsOpen24Hours(), true);
 });
 
-test("G9 generic Toronto dispensary URL is noindex with a canonical away from itself", () => {
+test("G9 existing Toronto dispensary URL is indexable and self-canonical", () => {
   const city = read("app/weed-dispensary-toronto/page.tsx");
   const robots = read("app/robots.ts");
   const sitemap = read("app/sitemap.ts");
-  assert.match(city, /index:\s*false/);
+  assert.match(city, /index:\s*true/);
   assert.match(city, /follow:\s*true/);
-  assert.match(city, /canonical: STORE_NAP\.homeUrl/);
-  assert.doesNotMatch(city, /canonical: STORE_NAP\.homeUrl \+ "\/weed-dispensary-toronto"/);
+  assert.match(city, /canonical: `\$\{STORE_NAP\.homeUrl\}\/weed-dispensary-toronto`/);
   assert.match(robots, /allow: "\/"/);
   assert.match(robots, /disallow: \["\/api\/", "\/staff-photo", "\/staff-photo\/"\]/);
   assert.match(robots, /sitemap: "https:\/\/www\.mainkingstoncannabis\.ca\/sitemap\.xml"/);
   assert.match(sitemap, /mainkingstoncannabis\.ca/);
-  assert.doesNotMatch(sitemap, /weed-dispensary-toronto/);
+  assert.match(sitemap, /weed-dispensary-toronto/);
 });
 
 test("public pages do not use sister-store, fleet, Athena, or invented Nation language", () => {
