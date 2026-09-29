@@ -55,6 +55,15 @@ export default function VisitPage() {
 
       <section className={styles.grid}>
         <article className={styles.card}>
+          <h2>Open 24/7</h2>
+          <p>
+            Main Kingston Cannabis is open 24 hours, 7 days a week at 615 Kingston Rd in East Toronto. The same walk-in counter is open during the day, overnight, and after midnight. Adults 19+ should bring government photo ID.
+          </p>
+        </article>
+      </section>
+
+      <section className={styles.grid}>
+        <article className={styles.card}>
           <h2>TTC to Kingston Road &amp; Main Street</h2>
           <p>
             The shop sits on Kingston Road in the Upper Beaches, where Main

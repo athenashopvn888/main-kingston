@@ -168,16 +168,17 @@ test("sitemap, footer, and FAQ mesh the five neighbourhood owners", () => {
   }
 });
 
-test("fifth pillar is the Kingston Road owner and does not add city-wide dispensary spam", () => {
+test("fifth pillar stays Kingston Road-specific while the existing city page remains indexable", () => {
   const page = read("app/weed-dispensary-kingston-road/page.tsx");
   const city = read("app/weed-dispensary-toronto/page.tsx");
   const sitemap = read("app/sitemap.ts");
   assert.match(page, /canonical: PAGE_URL/);
   assert.doesNotMatch(page, /index: false/);
   assert.match(page, /not a city-wide dispensary/);
-  assert.match(city, /index: false/);
+  assert.match(city, /index: true/);
+  assert.match(city, /canonical: `\$\{STORE_NAP\.homeUrl\}\/weed-dispensary-toronto`/);
   assert.match(city, /weed-dispensary-kingston-road/);
-  assert.doesNotMatch(sitemap, /weed-dispensary-toronto/);
+  assert.match(sitemap, /weed-dispensary-toronto/);
   assert.equal(fs.existsSync(new URL("../app/weed-dispensary-danforth/page.tsx", import.meta.url)), false);
   assert.equal(fs.existsSync(new URL("../app/weed-dispensary-scarborough/page.tsx", import.meta.url)), false);
   assert.equal(fs.existsSync(new URL("../app/weed-dispensary-toronto-east/page.tsx", import.meta.url)), false);

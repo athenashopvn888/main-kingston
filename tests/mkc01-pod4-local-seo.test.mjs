@@ -41,6 +41,8 @@ test("homepage schema is CannabisStore with FAQPage and a unique local image", (
   assert.match(nap, /imageUrl: "https:\/\/www\.mainkingstoncannabis\.ca\/banners\/welcome_banner\.webp"/);
   assert.doesNotMatch(layout, /7Clmh\.jpg|46Oi5\.jpg/);
   assert.doesNotMatch(home, /7Clmh\.jpg|46Oi5\.jpg/);
+  assert.match(layout, /Open 24 Hours on Kingston Rd/);
+  assert.match(layout, /Open 24 hours, 7 days a week/);
 });
 
 test("/visit is a supporting reach page with a self-canonical", () => {
@@ -53,13 +55,15 @@ test("/visit is a supporting reach page with a self-canonical", () => {
   assert.match(visitContent, /Toronto, ON M4E 1R3/);
   assert.match(visitContent, /STORE_NAP\.phoneDisplay/);
   assert.match(visitContent, /STORE_NAP\.hoursLabel/);
+  assert.match(visitContent, /<h2>Open 24\/7<\/h2>/);
+  assert.match(visitContent, /open 24 hours, 7 days a week/);
 });
 
-test("city weed-dispensary URL is noindexed and canonicalized to the homepage", () => {
-  assert.match(city, /index: false/);
-  assert.match(city, /canonical: STORE_NAP\.homeUrl/);
+test("city weed-dispensary URL remains indexable and self-canonical", () => {
+  assert.match(city, /index: true/);
+  assert.match(city, /canonical: `\$\{STORE_NAP\.homeUrl\}\/weed-dispensary-toronto`/);
   assert.match(sitemap, /\$\{BASE\}\/visit/);
-  assert.doesNotMatch(sitemap, /weed-dispensary-toronto/);
+  assert.match(sitemap, /\$\{BASE\}\/weed-dispensary-toronto/);
 });
 
 test("homepage is the visit hub with Kingston Road copy", () => {
