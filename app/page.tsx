@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HomePage from "./HomePage";
+import FleetAnnouncementBanner from "./components/FleetAnnouncementBanner";
 import { HOME_TITLE } from "./lib/homeDelivery";
 import { faqPageJsonLd, toJsonLd } from "./lib/storeNap";
 
@@ -16,6 +17,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: toJsonLd(faqPageJsonLd) }}
       />
+      <FleetAnnouncementBanner holidayOnly />
       <HomePage />
     </>
   );
