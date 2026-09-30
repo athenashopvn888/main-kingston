@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
-import AgeGate from "./components/AgeGate";
 import { cannabisStoreJsonLd, renderedDocumentTitle, STORE_NAP, toJsonLd } from "./lib/storeNap";
 
 const HOME_DOCUMENT_TITLE = renderedDocumentTitle("Open 24 Hours on Kingston Rd");
@@ -99,7 +98,6 @@ export default function RootLayout({
           EXPLORE WEED DELIVERY
         </Link>
         {children}
-        <AgeGate />
       </body>
     </html>
   );
