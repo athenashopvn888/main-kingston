@@ -14,6 +14,8 @@ import { JsonLd } from "../lib/jsonLd";
 import { lpFaqPageJsonLd } from "../lib/organicPaths";
 import { STORE_NAP } from "../lib/storeNap";
 import styles from "./tier.module.css";
+import { getTierGuideLinks } from "../lib/guideRegistry";
+import guideStyles from "../guides/[slug]/guide.module.css";
 
 /* -- Generate all tier pages at build -- */
 export function generateStaticParams() {
@@ -64,6 +66,7 @@ export default async function TierPage({
   const saleFlowers = flowers.filter((f) => f.isSale);
   const regularFlowers = flowers.filter((f) => !f.isSale);
   const hotFlowers = flowers.filter((f) => f.isHot);
+  const guideLinks = getTierGuideLinks(`/${config.slug}`);
   const pageUrl = `${STORE_NAP.homeUrl}/${tierSlug}`;
   const corridorH1 = seo?.h1 || `${config.name} on Kingston Road in the Upper Beaches`;
   const collectionJsonLd = {
@@ -199,6 +202,8 @@ export default async function TierPage({
           </div>
         </div>
       </section>
+
+      {guideLinks.length > 0 && <section className={`${styles.container} ${guideStyles.guideStrip}`} aria-label="Popular strain guides"><h2>Popular strain guides</h2><div className={guideStyles.guideLinks}>{guideLinks.map((guide) => <Link key={guide.slug} href={`/guides/${guide.slug}`}>{guide.name}</Link>)}</div></section>}
 
       {/* ── SEO Content ── */}
       {seo && (
