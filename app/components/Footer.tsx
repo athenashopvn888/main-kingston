@@ -88,6 +88,7 @@ export default function Footer() {
               </Link>
               <Link href="/contact">Contact Us</Link>
               <Link href="/weed-resources">Weed Resources</Link>
+              <Link href="/guides">Guides</Link>
             </nav>
           </div>
         </div>

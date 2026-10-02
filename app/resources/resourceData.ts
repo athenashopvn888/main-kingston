@@ -273,11 +273,21 @@ for (const page of PINKY_MKC01_PAGES) {
   if (!RESOURCE_PAGES.some((existing) => existing.slug === page.slug)) RESOURCE_PAGES.push(page);
 }
 
-export const RESOURCE_HOME = pinkyContent.hub as ResourcePage;
+const NAME_GUIDES_CARD: ResourceCard = {
+  title: "Name Guides",
+  href: "/guides",
+  text: "Browse all strain, Native Cigarettes, Nicotine Vape, and THC Vape name guides in one directory.",
+};
+
+export const RESOURCE_HOME: ResourcePage = {
+  ...(pinkyContent.hub as ResourcePage),
+  cards: [NAME_GUIDES_CARD, ...(pinkyContent.hub as ResourcePage).cards],
+};
 export const RESOURCE_ALIAS: ResourcePage = {
   ...RESOURCE_HOME,
   title: "Main Kingston Cannabis Resources",
   cards: [
+    NAME_GUIDES_CARD,
     { title: "Weed & Cannabis Resources", href: "/weed-resources", text: "Open the complete Main Kingston Cannabis education hub." },
     { title: "First Visit to Main Kingston Cannabis", href: "/resources/kingston-road-east-toronto-weed-visit-guide", text: "Plan a Kingston Road and East Toronto visit." },
     { title: "Cannabis 101", href: "/resources/cannabis-101", text: "Learn the main cannabis categories and everyday terms." },

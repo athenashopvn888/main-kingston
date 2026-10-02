@@ -28,6 +28,7 @@ const ALL_LINKS: { href: string; label: string; featured?: boolean }[] = [
   { href: "/hours", label: "Hours" },
   { href: "/faq", label: "FAQ" },
   { href: "/weed-resources", label: "Weed Resources" },
+  { href: "/guides", label: "Guides" },
 ];
 
 export default function Navbar() {
