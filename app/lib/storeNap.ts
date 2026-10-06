@@ -120,7 +120,7 @@ export const cannabisStoreJsonLd = {
     {
       "@type": "CannabisStore",
       "@id": `${STORE_NAP.homeUrl}/#store`,
-      name: STORE_NAP.name,
+      name: "Main Kingston Cannabis Dispensary Weed Delivery",
       description:
         "Walk-in cannabis dispensary at 615 Kingston Rd in the Upper Beaches. Flower, pre-rolls, vapes, edibles, and accessories on Kingston Road at Main Street. Open 24 Hours.",
       url: STORE_NAP.homeUrl,
@@ -168,7 +168,7 @@ export const cannabisStoreJsonLd = {
       "@type": "WebSite",
       "@id": `${STORE_NAP.homeUrl}/#website`,
       url: `${STORE_NAP.homeUrl}/`,
-      name: STORE_NAP.name,
+      name: "Main Kingston Cannabis Dispensary Weed Delivery",
       publisher: { "@id": `${STORE_NAP.homeUrl}/#store` },
     },
   ],
