@@ -8,6 +8,7 @@ const page = fs.readFileSync("app/page.tsx", "utf8");
 const nap = fs.readFileSync("app/lib/storeNap.ts", "utf8");
 const navbar = fs.readFileSync("app/components/Navbar.tsx", "utf8");
 const navbarCss = fs.readFileSync("app/components/Navbar.module.css", "utf8");
+const globals = fs.readFileSync("app/globals.css", "utf8");
 
 test("locked Cohort B title and paths", () => {
   assert.equal(HOME_TITLE, "Main Kingston Cannabis Dispensary Weed Delivery");
@@ -26,6 +27,8 @@ test("sticky order and gold actions", () => {
   assert.ok(home.indexOf("<Navbar />") < home.indexOf("<FleetAnnouncementBanner />"));
   assert.match(navbar, /<CohortDeliveryActions \/>/);
   assert.match(navbarCss, /\.navbar\s*\{[\s\S]*?position:\s*sticky/);
+  assert.match(globals, /\[data-fleet-homepage-announcement\]\s*\{[\s\S]*?height:\s*auto/);
+  assert.match(globals, /\[data-fleet-homepage-announcement\]\s*>\s*a\s*>\s*img\s*\{[\s\S]*?height:\s*auto/);
 });
 
 test("delivery body contract", () => {
