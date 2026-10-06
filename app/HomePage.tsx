@@ -185,7 +185,7 @@ export default function HomePage() {
         <div className={styles.welcomeBannerContainer}>
           <img
             src="/banners/welcome_banner.webp"
-            alt="Welcome to Main Kingston Cannabis - Premium Toronto Cannabis Dispensary"
+            alt="Main Kingston Cannabis Dispensary Weed Delivery"
             className={styles.welcomeBannerImg}
           />
         </div>
