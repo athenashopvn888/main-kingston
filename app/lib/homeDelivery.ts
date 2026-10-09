@@ -25,3 +25,6 @@ export const HOME_DELIVERY_FAQS = [
   { q: "Does the homepage promise live inventory?", a: "No. Use the linked menu or delivery page for current details and confirm a specific item before relying on availability." },
   { q: "Is the delivery information limited to Kingston Road?", a: "This homepage describes the Kingston Road delivery context only. The current delivery page confirms whether a specific address can be served." },
 ] as const;
+
+// Document <title> only (exact Google name | area). H1 keeps HOME_TITLE.
+export const HOME_DOC_TITLE = "Main Kingston Cannabis Dispensary Weed Delivery | Kingston Rd, Upper Beaches";
