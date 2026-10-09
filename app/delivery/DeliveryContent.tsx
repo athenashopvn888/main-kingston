@@ -118,7 +118,6 @@ export default function DeliveryContent() {
     </section>
     <section className={styles.deliveryDetails} aria-label="Main Kingston Cannabis delivery details">
       <strong>$60 PRODUCT MINIMUM</strong>
-      <a href="sms:+12892171484"><span>DELIVERY TEXT NUMBER</span> +1 (289) 217-1484</a>
     </section>
     <section className={styles.loyalty} aria-labelledby="loyalty-title">
       <div><p>SAVE ON A LATER ORDER</p><h2 id="loyalty-title">Member Loyalty Savings</h2></div>
