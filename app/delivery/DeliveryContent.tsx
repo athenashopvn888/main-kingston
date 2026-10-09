@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import menu from "./delivery-menu.json";
+import imageMap from "./delivery-image-map.json";
 import styles from "./delivery.module.css";
 import MainKingstonWebChat from "./MainKingstonWebChat";
 
@@ -86,7 +87,7 @@ export default function DeliveryContent() {
     fetch("https://milestone-1-demo.vercel.app/api/catalog?store=MK", { signal: controller.signal })
       .then((response) => response.ok ? response.json() : Promise.reject())
       .then((payload) => {
-        if (Array.isArray(payload.products) && payload.products.length >= 50 && payload.products.every((product: Product) => product.publicProductId && product.tier && Array.isArray(product.images))) setProducts(payload.products);
+        if (Array.isArray(payload.products) && payload.products.length >= 50 && payload.products.every((product: Product) => product.publicProductId && product.tier && Array.isArray(product.images))) setProducts((payload.products as Product[]).map((product) => ({ ...product, images: product.images.map((src) => (imageMap as Record<string, string>)[src] || src) })));
       })
       .catch(() => {});
     return () => controller.abort();
