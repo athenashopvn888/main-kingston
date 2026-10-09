@@ -17,6 +17,9 @@ import styles from "./tier.module.css";
 import { getTierGuideLinks } from "../lib/guideRegistry";
 import guideStyles from "../guides/[slug]/guide.module.css";
 
+// Read the live menu feed on every request (never a build-time snapshot).
+export const dynamic = "force-dynamic";
+
 /* -- Generate all tier pages at build -- */
 export function generateStaticParams() {
   return Object.values(TIER_CONFIG).map((t) => ({ tier: t.slug }));
