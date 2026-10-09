@@ -6,7 +6,7 @@ assert.equal(menu.products.length, 60, "delivery fallback must contain the 60 pr
 const images = menu.products.flatMap((product) => product.images);
 assert.equal(images.length, 61, "delivery fallback must preserve 61 image slots");
 const athenaImage = /^https:\/\/athena-cannabis-images\.vercel\.app\/products\/delivery\/v1\/delivery-v1-[a-f0-9]{24}\.webp$/;
-const farmersLinkImage = /^https:\/\/farmerslink\.ca\/wp-content\/uploads\/.+\.(?:webp|png)$/;
+const farmersLinkImage = /^\/delivery-img\/d-[a-f0-9]{20}\.(?:webp|png)$/;
 assert(!JSON.stringify(menu).includes("/api/catalog-image"), "delivery fallback must not store the catalog image proxy");
 assert(images.every((url) => athenaImage.test(url) || farmersLinkImage.test(url)), "every image must be an Athena asset or a Farmers Link product image");
 const source = fs.readFileSync(new URL("../app/delivery/DeliveryContent.tsx", import.meta.url), "utf8");
@@ -14,6 +14,7 @@ assert(source.includes("unoptimized"), "catalog images must bypass the storefron
 assert(!source.includes("/api/catalog-image"), "legacy SOD image proxy must not appear");
 assert(!source.includes("__SOD_"), "placeholders must not ship");
 for (const url of [...new Set(images)]) {
+  if (url.startsWith("/")) { assert(fs.existsSync(new URL(`../public${url}`, import.meta.url)), `${url} must exist in public/`); continue; }
   const response = await fetch(url);
   assert.equal(response.status, 200, `${url} must return 200`);
   assert.match(response.headers.get("content-type") || "", /^image\//, `${url} must be an image`);
