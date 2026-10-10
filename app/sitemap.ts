@@ -36,6 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/weed-delivery-kingston-road`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
     { url: `${BASE}/native-cigarettes-kingston-road`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
     { url: `${BASE}/nicotine-vape-kingston-road`, lastModified: now, changeFrequency: "weekly", priority: 0.75 },
+    { url: `${BASE}/vape-shop-kingston-road`, lastModified: now, changeFrequency: "daily", priority: 0.85 },
     { url: `${BASE}/guides`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
   ];
 

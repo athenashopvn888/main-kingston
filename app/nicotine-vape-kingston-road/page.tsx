@@ -15,6 +15,7 @@ import {
 } from "../lib/organicPaths";
 import { STORE_NAP } from "../lib/storeNap";
 import styles from "../visit/visit.module.css";
+import VapeActionPanel from "../components/VapeActionPanel";
 
 const PAGE_URL = pageUrl(VAPE_LP_PATH);
 
@@ -50,6 +51,8 @@ export default function NicotineVapeKingstonRoadPage() {
             posted today. Nothing here assigns a price or a draw-count promise to
             a device. Nicotine is addictive. Adults 19+.
           </p>
+
+          <VapeActionPanel compact />
 
           <section className={styles.nap} aria-labelledby="vape-nap-title">
             <h2 id="vape-nap-title" className={styles.sectionTitle}>Same NAP as the homepage hub</h2>
