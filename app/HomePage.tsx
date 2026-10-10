@@ -289,6 +289,7 @@ export default function HomePage() {
         cigaretteHref={CIGARETTES_LP_PATH}
         nicotineHref={VAPE_LP_PATH}
       />
+      <p className={styles.sectionSubtitle}><Link href="/vape-shop-kingston-road">Current Kingston Road nicotine vape listings and contact options</Link></p>
 
       <WeedDiscoveryModule />
 
