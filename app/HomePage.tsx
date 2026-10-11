@@ -101,7 +101,7 @@ interface ReviewStats {
   avg: number;
 }
 
-export default function HomePage() {
+export default function HomePage({ initialFlowers }: { initialFlowers: Parameters<typeof storeTierRange>[0] }) {
     const __liveFlowers = useLiveFlowers();
   const [featuredStrains, setFeaturedStrains] = useState<any[]>([]);
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -251,7 +251,7 @@ export default function HomePage() {
                 <div className={styles.bentoTileOverlay} />
                 <div className={styles.bentoTileContent}>
                   <span className={styles.bentoLabel}>{tier.name}</span>
-                  {TIER_KEY_BY_SLUG[tier.slug] ? (() => { const line = tierRangeText(storeTierRange(__liveFlowers, TIER_KEY_BY_SLUG[tier.slug])); return line ? <span className={styles.bentoPrice}><small className="price-scope-label">In-store price</small>{line}</span> : null; })() : <span className={styles.bentoPrice}>{tier.price}</span>}
+                  {TIER_KEY_BY_SLUG[tier.slug] ? (() => { const line = tierRangeText(storeTierRange(initialFlowers, TIER_KEY_BY_SLUG[tier.slug])); return line ? <span className={styles.bentoPrice}><small className="price-scope-label">In-store price</small>{line}</span> : null; })() : <span className={styles.bentoPrice}>{tier.price}</span>}
                 </div>
               </Link>
             ))}
