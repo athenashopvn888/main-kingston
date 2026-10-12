@@ -63,10 +63,7 @@ export default function FleetAnnouncementBanner() {
           Thanksgiving Monday (Oct 12): We are open regular hours.
         </p>
       ) : null}
-      <p style={{ ...lineStyle, background: "#b91c1c" }}>
-        CIGARETTE DEAL ! 2 PACK $5 MIX AND MATCH
-      </p>
-      <Link href="/items/cigarettes" data-cig-mix-banner="" aria-label="Shop the 2 packs for $5 mix and match cigarette offer">
+<Link href="/items/cigarettes" data-cig-mix-banner="" aria-label="Shop the 2 packs for $5 mix and match cigarette offer">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/banners/native-cigarette-offer-20260822.webp"
@@ -74,20 +71,6 @@ export default function FleetAnnouncementBanner() {
           style={{ display: "block", width: "100%", height: "auto" }}
         />
       </Link>
-      <p style={{ ...lineStyle, background: "#c2410c" }}>
-        EXCLUSIVE SPECIAL PREMIUM GRADE BB FULL, BB LIGHT &amp; BELMONT KING SIZE!
-      </p>
-      <Link href="/items/cigarettes" data-bb-premium-banner="" aria-label="Shop BB and Belmont Premium Grade cigarettes">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/banners/BB_Belmont_Premium_Grade.webp"
-          alt="Exclusive Premium Grade BB Full Flavor, BB Lights, and Belmont King Size cigarettes at Main Kingston Cannabis."
-        />
-      </Link>
-      <Link href="/items/cigarettes" data-belmont-mix-match-banner="" aria-label="BELMONT KING SIZE $10 - 2PACK BB $5 MIX & MATCH">
-        <span data-belmont-offer-lead="">BELMONT KING SIZE $10 -</span>
-        <span data-belmont-offer-tail=""> 2PACK BB $5 MIX &amp; MATCH</span>
-      </Link>
-    </aside>
+</aside>
   );
 }
