@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 import FleetAnnouncementBanner from "./components/FleetAnnouncementBanner";
+import HomeTitleBlock from "./components/HomeTitleBlock";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FlowerCard from "./components/FlowerCard";
@@ -191,6 +192,7 @@ export default function HomePage({ initialFlowers }: { initialFlowers: Parameter
     <main className={styles.main}>
       <Navbar />
       <HomepageTopNotices />
+      <HomeTitleBlock title={HOME_TITLE} />
       <FleetAnnouncementBanner />
       {/* -- NAVBAR -- */}
 
@@ -229,7 +231,7 @@ export default function HomePage({ initialFlowers }: { initialFlowers: Parameter
           {/* Brand branding */}
           <div className={styles.brandBlock}>
             <img src="/storeFavicon.webp" alt="Main Kingston Cannabis Icon" style={{ height: "60px", width: "60px", objectFit: "contain", borderRadius: "8px", marginBottom: "8px" }} />
-            <h1 className={styles.brandTitle}>{HOME_TITLE}</h1>
+            <p className={styles.brandTitle}>{HOME_TITLE}</p>
             <CohortDeliveryActions variant="hero" />
             <p className={styles.brandSub}>Kingston Road &amp; Main Street · Upper Beaches</p>
             <div className={styles.brandBadge}>Open 24 Hours</div>
