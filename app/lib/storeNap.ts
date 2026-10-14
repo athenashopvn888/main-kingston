@@ -85,6 +85,10 @@ export function storeClaimsOpen24Hours(): boolean {
 
 export const HOME_FAQS = [
   {
+    q: "Looking for a weed dispensary near me in the Upper Beaches?",
+    a: "Main Kingston Cannabis is at 615 Kingston Rd, Toronto, on the Kingston Road strip near Main Street. We're open 24 hours, adults 19+ with valid photo ID.",
+  },
+  {
     q: "What are the hours for Main Kingston Cannabis?",
     a: "Main Kingston Cannabis at 615 Kingston Rd, Toronto is Open 24 Hours a day, 7 days a week. Walk in anytime — no appointment needed.",
   },
