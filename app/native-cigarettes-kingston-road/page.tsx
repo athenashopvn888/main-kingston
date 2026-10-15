@@ -1,3 +1,4 @@
+import CigaretteSeasonalNotice from "../components/CigaretteSeasonalNotice";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
@@ -39,6 +40,7 @@ export default function NativeCigarettesKingstonRoadPage() {
       <JsonLd data={lpFaqPageJsonLd(CIGARETTES_LP_FAQS, PAGE_URL)} />
       <main className={styles.main}>
         <Navbar />
+        <CigaretteSeasonalNotice sticky />
         <article className={styles.content}>
           <p className={styles.kicker}>Kingston Road · Retail cigarettes · Adults 19+</p>
           <h1 className={styles.pageTitle}>Native cigarettes at Main Kingston Cannabis on Kingston Road</h1>
