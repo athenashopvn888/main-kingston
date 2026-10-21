@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { STORE_NAP } from "../lib/storeNap";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 import styles from "./visit.module.css";
 
 export default function VisitPage() {
@@ -116,8 +117,12 @@ export default function VisitPage() {
             <Link href="/weed-dispensary-kingston-road">weed dispensary</Link>
             {", "}
             <Link href="/weed-delivery-kingston-road">weed delivery</Link>
+            {SHOW_CIGARETTES ? (
+              <>
             {", "}
             <Link href="/native-cigarettes-kingston-road">Native cigarettes</Link>
+              </>
+            ) : null}
             {", and "}
             <Link href="/nicotine-vape-kingston-road">nicotine vape</Link>.
           </p>

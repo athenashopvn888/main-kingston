@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./Footer.module.css";
 import { STORE_NAP } from "../lib/storeNap";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 
 export default function Footer() {
   return (
@@ -56,7 +57,7 @@ export default function Footer() {
               <Link href="/aa-weed">AA Weed</Link>
               <Link href="/budget-weed">Budget Weed</Link>
               <Link href="/items/edibles">Edibles</Link>
-              <Link href="/items/cigarettes">Cigarettes</Link>
+              {SHOW_CIGARETTES && <Link href="/items/cigarettes">Cigarettes</Link>}
 <Link href="/items/vapes">Nicotine Vapes</Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/visit">Visit Kingston Road</Link>
@@ -75,13 +76,17 @@ export default function Footer() {
               <Link href="/info/cheap-weed-kingston-road">
                 Cheap Weed Kingston Road
               </Link>
+              {SHOW_CIGARETTES && (
               <Link href="/native-cigarettes-kingston-road">
                 Native Cigarettes Kingston Road
               </Link>
+              )}
               <Link href="/nicotine-vape-kingston-road">Nicotine Vape Kingston Road</Link>
+              {SHOW_CIGARETTES && (
               <Link href="/info/native-cigarettes-kingston-road">
                 Native Cigarettes Menu Preview
               </Link>
+              )}
               <Link href="/info/nicotine-vapes-kingston-road">Nicotine Vapes Menu Preview</Link>
               <Link href="/weed-dispensary-toronto/">
                 Main Kingston Cannabis Weed Dispensary in Toronto

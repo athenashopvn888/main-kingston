@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./SmokePilot.module.css";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 
 interface SmokePilotSpotlightProps {
   storeName: string;
@@ -19,21 +20,32 @@ export default function SmokePilotSpotlight({
       <div className={styles.spotlightInner}>
         <div className={styles.spotlightCopy}>
           <span className={styles.kicker}>Smoke Shop Spotlight</span>
+          {SHOW_CIGARETTES ? (
+            <>
           <h2 id="smoke-spotlight-title">Cigarettes &amp; Nicotine Vapes</h2>
           <p>
             Find Native cigarette brands, nicotine vape devices, flavours and listed
             prices at {storeName} on {locationLabel}.
           </p>
+            </>
+          ) : (
+            <>
+          <h2 id="smoke-spotlight-title">Nicotine Vapes</h2>
+          <p>
+            Find nicotine vape devices, flavours and listed prices at {storeName} on {locationLabel}.
+          </p>
+            </>
+          )}
         </div>
         <div className={styles.spotlightCards}>
-          <Link href={cigaretteHref} className={`${styles.spotlightCard} ${styles.cigaretteCard}`}>
+          {SHOW_CIGARETTES && <Link href={cigaretteHref} className={`${styles.spotlightCard} ${styles.cigaretteCard}`}>
             <span className={styles.cardCode}>CG</span>
             <span>
               <strong>Native Cigarettes</strong>
               <small>Brands, pack styles and menu prices</small>
             </span>
             <b aria-hidden="true">→</b>
-          </Link>
+          </Link>}
           <Link href={nicotineHref} className={`${styles.spotlightCard} ${styles.nicotineCard}`}>
             <span className={styles.cardCode}>NV</span>
             <span>

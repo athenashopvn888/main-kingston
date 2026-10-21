@@ -13,6 +13,7 @@ import {
   pageUrl,
 } from "../lib/organicPaths";
 import { STORE_NAP } from "../lib/storeNap";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 import styles from "../visit/visit.module.css";
 
 const PAGE_URL = pageUrl(DELIVERY_LP_PATH);
@@ -118,10 +119,21 @@ export default function WeedDeliveryKingstonRoadPage() {
               Station, curb parking, and Beach corridor landmarks.
             </p>
             <p>
+              {SHOW_CIGARETTES ? (
+                <>
               Flower collections stay on Exotic, Premium, AAA+, AA, and Budget
               Weed. Native cigarettes and nicotine vapes are sold in store — use
               those Kingston Road pages, then the current category listings,
               rather than treating delivery as the only path.
+                </>
+              ) : (
+                <>
+              Flower collections stay on Exotic, Premium, AAA+, AA, and Budget
+              Weed. Nicotine vapes are sold in store — use
+              that Kingston Road page, then the current category listings,
+              rather than treating delivery as the only path.
+                </>
+              )}
             </p>
           </section>
 

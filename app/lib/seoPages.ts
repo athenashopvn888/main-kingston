@@ -1,3 +1,6 @@
+import { SHOW_CIGARETTES } from "./siteConfig";
+import { mentionsHiddenSmoke, scrubCigaretteCopy } from "./cigaretteGate";
+
 export interface SeoPageData {
   slug: string;
   title: string;
@@ -238,5 +241,20 @@ export const SEO_PAGES: SeoPageData[] = [
 ];
 
 export function getSeoPageBySlug(slug: string): SeoPageData | undefined {
-  return SEO_PAGES.find((p) => p.slug === slug);
+  const page = SEO_PAGES.find((p) => p.slug === slug);
+  if (!page || SHOW_CIGARETTES) return page;
+  return {
+    ...page,
+    title: scrubCigaretteCopy(page.title),
+    metaDescription: scrubCigaretteCopy(page.metaDescription),
+    h1: scrubCigaretteCopy(page.h1),
+    heroTagline: scrubCigaretteCopy(page.heroTagline),
+    sections: page.sections
+      .filter((section) => !mentionsHiddenSmoke(section.heading))
+      .map((section) => ({ ...section, body: scrubCigaretteCopy(section.body) }))
+      .filter((section) => section.body.trim().length > 0),
+    faqs: page.faqs
+      .filter((faq) => !mentionsHiddenSmoke(faq.q))
+      .map((faq) => ({ ...faq, a: scrubCigaretteCopy(faq.a) })),
+  };
 }

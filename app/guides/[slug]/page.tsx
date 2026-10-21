@@ -5,6 +5,8 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import { DELIVERY_GUIDE_REGISTRY, getDeliveryGuide } from "../../lib/deliveryGuideRegistry";
 import { GUIDE_REGISTRY, GUIDE_STORE, getGuide, resolveGuideProduct, type GuideEntry } from "../../lib/guideRegistry";
+import { SHOW_CIGARETTES } from "../../lib/siteConfig";
+import { isCigaretteGuideSlug } from "../../lib/cigaretteGate";
 import GuideBody, { stripMarkdown } from "./GuideBody";
 import DeliveryGuidePage from "./DeliveryGuidePage";
 import styles from "./guide.module.css";
@@ -91,7 +93,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
         <section className={styles.section} aria-label={`${guide.name} guide`}><GuideBody markdown={guide.bodyMd} /></section>
         <section className={styles.section} aria-labelledby="related-guides-heading">
           <h2 id="related-guides-heading">Related {lane.label} guides</h2>
-          <div className={styles.related}>{relatedEntries(guide).map((entry) => <Link key={entry.slug} href={`/guides/${entry.slug}`}>{entry.name}<span>{laneCopy[entry.lane].label}</span></Link>)}</div>
+          <div className={styles.related}>{relatedEntries(guide).filter((entry) => SHOW_CIGARETTES || !isCigaretteGuideSlug(entry.slug)).map((entry) => <Link key={entry.slug} href={`/guides/${entry.slug}`}>{entry.name}<span>{laneCopy[entry.lane].label}</span></Link>)}</div>
         </section>
         <aside className={styles.finalCta}>
           <h2>Check today&apos;s board</h2>
