@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { resolveDocumentTitle } from "../lib/storeNap";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
+import { mentionsHiddenSmoke, scrubCigaretteCopy } from "../lib/cigaretteGate";
 import styles from "./faq.module.css";
 
 export const metadata: Metadata = {
@@ -93,12 +95,17 @@ const FAQ_CATEGORIES = [
   },
 ];
 
+function visibleFaqs<T extends { q: string; a: string }>(faqs: readonly T[]): T[] {
+  if (SHOW_CIGARETTES) return [...faqs];
+  return faqs.filter((faq) => !mentionsHiddenSmoke(faq.q)).map((faq) => ({ ...faq, a: scrubCigaretteCopy(faq.a) }));
+}
+
 export default function FAQPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: FAQ_CATEGORIES.flatMap((cat) =>
-      cat.faqs.map((faq) => ({
+      visibleFaqs(cat.faqs).map((faq) => ({
         "@type": "Question",
         name: faq.q,
         acceptedAnswer: {
@@ -139,17 +146,20 @@ export default function FAQPage() {
             Main Street.
           </p>
 
-          {FAQ_CATEGORIES.map((cat) => (
+          {FAQ_CATEGORIES.map((cat) => {
+            const faqs = visibleFaqs(cat.faqs);
+            return (
             <div key={cat.title} className={styles.category}>
               <h2 className={styles.categoryTitle}>{cat.title}</h2>
-              {cat.faqs.map((faq) => (
+              {faqs.map((faq) => (
                 <details key={faq.q} id={faq.q === "Can I get the store price on a delivery order?" ? "delivery-price-rule" : undefined} open={faq.q === "Can I get the store price on a delivery order?"} className={styles.faqItem}>
                   <summary className={styles.faqQuestion}>{faq.q}</summary>
                   <p className={styles.faqAnswer}>{faq.a}</p>
                 </details>
               ))}
             </div>
-          ))}
+            );
+          })}
 
           <div className={styles.ctaSection}>
             <h2 className={styles.ctaTitle}>Still have questions?</h2>
@@ -161,8 +171,12 @@ export default function FAQPage() {
               <a href="/weed-dispensary-kingston-road">weed dispensary</a>
               {", "}
               <a href="/weed-delivery-kingston-road">weed delivery</a>
+              {SHOW_CIGARETTES ? (
+                <>
               {", "}
               <a href="/native-cigarettes-kingston-road">Native cigarettes</a>
+                </>
+              ) : null}
               {", "}
               <a href="/nicotine-vape-kingston-road">nicotine vape</a>.
             </p>

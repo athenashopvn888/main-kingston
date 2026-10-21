@@ -15,6 +15,8 @@ import {
   pageUrl,
 } from "../lib/organicPaths";
 import { STORE_NAP } from "../lib/storeNap";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
+import { scrubCigaretteCopy } from "../lib/cigaretteGate";
 import styles from "../visit/visit.module.css";
 
 const PAGE_URL = pageUrl(DISPENSARY_LP_PATH);
@@ -35,9 +37,10 @@ export const metadata: Metadata = {
 };
 
 export default function WeedDispensaryKingstonRoadPage() {
+  const faqs = SHOW_CIGARETTES ? DISPENSARY_LP_FAQS : DISPENSARY_LP_FAQS.map((faq) => ({ ...faq, a: scrubCigaretteCopy(faq.a) }));
   return (
     <>
-      <JsonLd data={lpFaqPageJsonLd(DISPENSARY_LP_FAQS, PAGE_URL)} />
+      <JsonLd data={lpFaqPageJsonLd(faqs, PAGE_URL)} />
       <main className={styles.main}>
         <Navbar />
         <article className={styles.content}>
@@ -112,7 +115,11 @@ export default function WeedDispensaryKingstonRoadPage() {
               page. Weed delivery from this store is a separate path — use{" "}
               <Link href={DELIVERY_LP_PATH}>weed delivery Kingston Road</Link>,
               then the live delivery menu.{" "}
+              {SHOW_CIGARETTES ? (
+                <>
               <Link href={CIGARETTES_LP_PATH}>Native cigarettes</Link> and{" "}
+                </>
+              ) : null}
               <Link href={VAPE_LP_PATH}>nicotine vapes</Link> have their own
               Kingston Road pages.
             </p>
@@ -155,7 +162,7 @@ export default function WeedDispensaryKingstonRoadPage() {
 
           <section>
             <h2 className={styles.sectionTitle}>Kingston Road weed dispensary questions</h2>
-            {DISPENSARY_LP_FAQS.map((faq) => (
+            {faqs.map((faq) => (
               <details key={faq.q} className={styles.faqItem}>
                 <summary className={styles.faqQuestion}>{faq.q}</summary>
                 <p className={styles.faqAnswer}>{faq.a}</p>

@@ -16,6 +16,7 @@ import { WeedDiscoveryModule } from "./components/WeedDiscoveryModule";
 import SmokePilotSpotlight from "./components/SmokePilotSpotlight";
 import { FourPillarHub } from "./components/FourPillarHub";
 import { CIGARETTES_LP_PATH, DELIVERY_LP_PATH, DISPENSARY_LP_PATH, HOURS_LP_PATH, VAPE_LP_PATH } from "./lib/organicPaths";
+import { SHOW_CIGARETTES } from "./lib/siteConfig";
 import { HOME_FAQS, STORE_NAP } from "./lib/storeNap";
 import Papa from "papaparse";
 import { useLiveFlowers } from "./lib/useLiveMenu";
@@ -267,7 +268,9 @@ export default function HomePage({ initialFlowers }: { initialFlowers: Parameter
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Explore Categories</h2>
             <p className={styles.sectionSubtitle}>
-              From custom disposable vapes and concentrates to accessories and cigarettes.
+              {SHOW_CIGARETTES
+                ? "From custom disposable vapes and concentrates to accessories and cigarettes."
+                : "From custom disposable vapes and concentrates to accessories."}
             </p>
           </div>
 
@@ -347,8 +350,12 @@ export default function HomePage({ initialFlowers }: { initialFlowers: Parameter
               <Link href={DISPENSARY_LP_PATH}>Weed dispensary Kingston Road</Link>
               {" · "}
               <Link href={DELIVERY_LP_PATH}>Weed delivery Kingston Road</Link>
+              {SHOW_CIGARETTES ? (
+                <>
               {" · "}
               <Link href={CIGARETTES_LP_PATH}>Native cigarettes Kingston Road</Link>
+                </>
+              ) : null}
               {" · "}
               <Link href={VAPE_LP_PATH}>Nicotine vape Kingston Road</Link>
               .
@@ -503,9 +510,11 @@ export default function HomePage({ initialFlowers }: { initialFlowers: Parameter
             <Link className={styles.visitHubSecondary} href={DELIVERY_LP_PATH}>
               Weed delivery Kingston Road
             </Link>
+            {SHOW_CIGARETTES && (
             <Link className={styles.visitHubSecondary} href={CIGARETTES_LP_PATH}>
               Native cigarettes
             </Link>
+            )}
             <Link className={styles.visitHubSecondary} href={VAPE_LP_PATH}>
               Nicotine vape
             </Link>

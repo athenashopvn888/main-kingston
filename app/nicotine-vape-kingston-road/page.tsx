@@ -16,6 +16,7 @@ import {
 import { STORE_NAP } from "../lib/storeNap";
 import styles from "../visit/visit.module.css";
 import VapeActionPanel from "../components/VapeActionPanel";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 
 const PAGE_URL = pageUrl(VAPE_LP_PATH);
 
@@ -129,9 +130,13 @@ export default function NicotineVapeKingstonRoadPage() {
               <Link href="/visit">Kingston Road visit guide</Link>. Open-now
               questions use the{" "}
               <Link href={HOURS_LP_PATH}>24-hour Kingston Road dispensary</Link>{" "}
-              page. Cigarettes are a different retail category on this same
+              page.{SHOW_CIGARETTES ? (
+                <>
+              {" "}Cigarettes are a different retail category on this same
               corner — see{" "}
               <Link href={CIGARETTES_LP_PATH}>Native cigarettes on Kingston Road</Link>.
+                </>
+              ) : null}
             </p>
           </section>
 

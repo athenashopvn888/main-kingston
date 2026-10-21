@@ -3,6 +3,8 @@ import Link from "next/link";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { getGuidesByLane, type GuideLane } from "../lib/guideRegistry";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
+import { isKeptSmokeSlug } from "../lib/cigaretteCopy";
 import styles from "./guides-index.module.css";
 
 const SITE = "https://mainkingstoncannabis.ca";
@@ -10,7 +12,9 @@ const CANONICAL = `${SITE}/guides`;
 
 export const metadata: Metadata = {
   title: { absolute: "Guides | Main Kingston Cannabis" },
-  description: "Browse Main Kingston Cannabis name guides for strains, Native Cigarettes, Nicotine Vape, and THC Vape, then check today's menu. Adults 19+.",
+  description: SHOW_CIGARETTES
+    ? "Browse Main Kingston Cannabis name guides for strains, Native Cigarettes, Nicotine Vape, and THC Vape, then check today's menu. Adults 19+."
+    : "Browse Main Kingston Cannabis name guides for strains, Nicotine Vape, and THC Vape, then check today's menu. Adults 19+.",
   alternates: { canonical: CANONICAL },
   robots: { index: true, follow: true },
   openGraph: { url: CANONICAL },
@@ -35,7 +39,10 @@ const jsonLd = {
 };
 
 export default function GuidesPage() {
-  const groups = getGuidesByLane().filter((group) => group.guides.length > 0);
+  const groups = getGuidesByLane().map((group) => {
+    if (SHOW_CIGARETTES || group.lane !== "native_cig") return group;
+    return { ...group, label: "Backwoods", guides: group.guides.filter((guide) => isKeptSmokeSlug(guide.slug, guide.name)) };
+  }).filter((group) => group.guides.length > 0);
   return (
     <main className={styles.main}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
@@ -53,7 +60,7 @@ export default function GuidesPage() {
 
         <section className={`${styles.shell} ${styles.intro}`}>
           <h2>Find the right Main Kingston shelf</h2>
-          <p>Strain names, Native Cigarettes, Nicotine Vape, and THC Vape are kept in separate lanes. Open a name guide for context, then use its menu link or the lane&apos;s current board before travelling to Kingston Road.</p>
+          <p>{SHOW_CIGARETTES ? "Strain names, Native Cigarettes, Nicotine Vape, and THC Vape are kept in separate lanes. Open a name guide for context, then use its menu link or the lane's current board before travelling to Kingston Road." : "Strain names, Nicotine Vape, and THC Vape are kept in separate lanes. Open a name guide for context, then use its menu link or the lane's current board before travelling to Kingston Road. Backwoods stay in their own guide."}</p>
         </section>
 
         <div className={`${styles.shell} ${styles.groups}`}>
@@ -61,7 +68,7 @@ export default function GuidesPage() {
             <section key={group.lane} className={styles.group} aria-labelledby={`${group.lane}-guides`}>
               <div className={styles.groupHeader}>
                 <div><span>{group.guides.length} name guides</span><h2 id={`${group.lane}-guides`}>{group.label}</h2></div>
-                <Link href={laneCtas[group.lane].href}>{laneCtas[group.lane].label}</Link>
+                {(SHOW_CIGARETTES || group.lane !== "native_cig") && <Link href={laneCtas[group.lane].href}>{laneCtas[group.lane].label}</Link>}
               </div>
               <div className={styles.grid}>
                 {group.guides.map((guide) => <Link key={guide.slug} href={`/guides/${guide.slug}`} className={styles.card}><strong>{guide.name}</strong><span>Read {group.label} guide</span></Link>)}

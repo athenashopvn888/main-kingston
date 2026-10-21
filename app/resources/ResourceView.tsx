@@ -3,12 +3,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./resources.module.css";
 import type { ResourcePage } from "./resourceData";
+import { presentResourcePage } from "../lib/cigaretteGate";
 
 type ResourceViewProps = {
   page: ResourcePage;
 };
 
-export default function ResourceView({ page }: ResourceViewProps) {
+export default function ResourceView({ page: source }: ResourceViewProps) {
+  const page = presentResourcePage(source);
   const canonical = page.slug
     ? `https://www.mainkingstoncannabis.ca/resources/${page.slug}`
     : "https://www.mainkingstoncannabis.ca/weed-resources";

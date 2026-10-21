@@ -16,6 +16,7 @@ import {
   pageUrl,
 } from "../lib/organicPaths";
 import { STORE_NAP, storeClaimsOpen24Hours } from "../lib/storeNap";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 import styles from "../visit/visit.module.css";
 
 const PAGE_URL = pageUrl(HOURS_LP_PATH);
@@ -46,6 +47,8 @@ export default function TwentyFourHourKingstonRoadPage() {
           <p className={styles.kicker}>Open now · 24 hours daily · Kingston Road / Upper Beaches</p>
           <h1 className={styles.pageTitle}>24-hour dispensary on Kingston Road at 615 Kingston Rd — open now</h1>
           <p className={styles.lede}>
+            {SHOW_CIGARETTES ? (
+              <>
             Searching for a 24-hour dispensary near me on Kingston Road, the Upper
             Beaches, or the Beach corridor? Main Kingston Cannabis at 615 Kingston Rd
             is open now — the door stays open around the clock, every day. This page
@@ -53,6 +56,18 @@ export default function TwentyFourHourKingstonRoadPage() {
             side note beside delivery or tobacco pages. The homepage remains the
             name, address, phone, hours, and map hub. Use the visit guide for TTC,
             parking, and Upper Beaches landmarks.
+              </>
+            ) : (
+              <>
+            Searching for a 24-hour dispensary near me on Kingston Road, the Upper
+            Beaches, or the Beach corridor? Main Kingston Cannabis at 615 Kingston Rd
+            is open now — the door stays open around the clock, every day. This page
+            is the first-class overnight / open-now owner for this storefront, not a
+            side note beside the delivery page. The homepage remains the
+            name, address, phone, hours, and map hub. Use the visit guide for TTC,
+            parking, and Upper Beaches landmarks.
+              </>
+            )}
           </p>
 
           <section className={styles.nap} aria-labelledby="hours-nap-title">
@@ -147,7 +162,11 @@ export default function TwentyFourHourKingstonRoadPage() {
               Weed delivery from this store is a separate path. Use the{" "}
               <Link href={DELIVERY_LP_PATH}>Kingston Road weed delivery</Link> page
               for ordering context, then the delivery menu to start LIVE ORDER.{" "}
+              {SHOW_CIGARETTES ? (
+                <>
               <Link href={CIGARETTES_LP_PATH}>Native cigarettes</Link> and{" "}
+                </>
+              ) : null}
               <Link href={VAPE_LP_PATH}>nicotine vapes</Link> are sold in store on
               this same corridor.
             </p>

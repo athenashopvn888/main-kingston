@@ -1,5 +1,23 @@
 import type { NextConfig } from "next";
 
+const showCigarettes = process.env.NEXT_PUBLIC_SHOW_CIGARETTES === "true";
+
+/** Recallable: these permanent aliases exist only while cigarettes are visible. */
+const cigaretteLegacyRedirects = showCigarettes
+  ? [
+      {
+        source: "/cigarettes",
+        destination: "/items/cigarettes",
+        permanent: true,
+      },
+      {
+        source: "/info/native-cigarettes-york",
+        destination: "/info/native-cigarettes-kingston-road",
+        permanent: true,
+      },
+    ]
+  : [];
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -43,11 +61,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/info/native-cigarettes-york",
-        destination: "/info/native-cigarettes-kingston-road",
-        permanent: true,
-      },
-      {
         source: "/info/weed-store-near-toronto",
         destination: "/info/weed-store-near-main-street",
         permanent: true,
@@ -64,6 +77,7 @@ const nextConfig: NextConfig = {
       },
       { source: "/blog", destination: "/", permanent: true },
       { source: "/blog/:path*", destination: "/", permanent: true },
+      ...cigaretteLegacyRedirects,
       {
         source: "/product-category/edibles",
         destination: "/items/edibles",
@@ -88,11 +102,6 @@ const nextConfig: NextConfig = {
       },
       { source: "/prerolls", destination: "/items/prerolls", permanent: true },
       { source: "/add-ons", destination: "/items/add-ons", permanent: true },
-      {
-        source: "/cigarettes",
-        destination: "/items/cigarettes",
-        permanent: true,
-      },
       { source: "/magic", destination: "/items/magic", permanent: true },
     ];
   },

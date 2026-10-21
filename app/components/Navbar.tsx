@@ -1,5 +1,6 @@
 "use client";
 import CohortDeliveryActions from "./CohortDeliveryActions";
+import { SHOW_CIGARETTES } from "../lib/siteConfig";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -30,6 +31,8 @@ const ALL_LINKS: { href: string; label: string; featured?: boolean }[] = [
   { href: "/weed-resources", label: "Weed Resources" },
   { href: "/guides", label: "Guides" },
 ];
+
+const NAV_LINKS = SHOW_CIGARETTES ? ALL_LINKS : ALL_LINKS.filter((link) => link.href !== "/items/cigarettes");
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -85,7 +88,7 @@ export default function Navbar() {
       <div className={styles.scrollShell}>
         <div ref={scrollBarRef} id="store-menu-scrollbar" className={styles.scrollBar}>
           <div className={styles.scrollInner}>
-          {ALL_LINKS.map((link) => {
+          {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
@@ -102,7 +105,7 @@ export default function Navbar() {
         {canAdvance && <button type="button" className={styles.scrollAdvance} aria-label="Show more navigation links" aria-controls="store-menu-scrollbar" onClick={advanceScrollBar}><span aria-hidden="true">›</span></button>}
       </div>
       <div id="mobile-store-menu" className={`${styles.mobilePanel} ${menuOpen ? styles.mobilePanelOpen : ""}`} hidden={!menuOpen}>
-        {ALL_LINKS.map((link) => (
+        {NAV_LINKS.map((link) => (
           <Link key={link.href} href={link.href} className={styles.mobileLink} aria-current={pathname === link.href ? "page" : undefined}>
             {link.label}
           </Link>
