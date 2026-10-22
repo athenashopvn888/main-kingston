@@ -1,5 +1,11 @@
+import CigaretteStateProvider from "./components/CigaretteStateProvider";
+import FleetContentProvider from "./components/FleetContentProvider";
 import FullNameNap from "./components/FullNameNap";
 import PinnedNavClearance from "./components/PinnedNavClearance";
+import { CIG_WORDING_FALLBACK } from "./lib/cigDecision";
+import { getFleetContent } from "./lib/fleetContent";
+import { CODED_NAP } from "./lib/fleet/config";
+import { SHOW_CIGARETTES } from "./lib/siteConfig";
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
@@ -7,7 +13,9 @@ import { cannabisStoreJsonLd, renderedDocumentTitle, STORE_NAP, toJsonLd } from 
 
 const HOME_DOCUMENT_TITLE = renderedDocumentTitle("Open 24 Hours on Kingston Rd");
 
-export const metadata: Metadata = {
+export const revalidate = 60;
+
+const ROOT_METADATA: Metadata = {
   metadataBase: new URL(STORE_NAP.homeUrl),
   title: {
     default: HOME_DOCUMENT_TITLE,
@@ -58,14 +66,68 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export async function generateMetadata(): Promise<Metadata> {
+  const fleet = await getFleetContent();
+  if (!fleet.active) return ROOT_METADATA;
+  const description = fleet.pages.Home?.metaDescription || "";
+  if (!description || description === ROOT_METADATA.description) return ROOT_METADATA;
+  return {
+    ...ROOT_METADATA,
+    description,
+    openGraph: { ...ROOT_METADATA.openGraph, description },
+    twitter: { ...ROOT_METADATA.twitter, description },
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fleet = await getFleetContent();
+  const napChanged = fleet.active && (
+    fleet.nap.schemaName !== CODED_NAP.schemaName
+    || fleet.nap.name !== CODED_NAP.name
+    || fleet.nap.street !== CODED_NAP.street
+    || fleet.nap.city !== CODED_NAP.city
+    || fleet.nap.province !== CODED_NAP.province
+    || fleet.nap.postalCode !== CODED_NAP.postalCode
+    || fleet.nap.phoneTel !== CODED_NAP.phoneTel
+    || fleet.nap.lat !== CODED_NAP.lat
+    || fleet.nap.lng !== CODED_NAP.lng
+    || fleet.nap.mapsSearchUrl !== CODED_NAP.mapsSearchUrl
+    || fleet.nap.website !== CODED_NAP.website
+  );
+  const storeJsonLd = napChanged
+    ? {
+        ...cannabisStoreJsonLd,
+        "@graph": cannabisStoreJsonLd["@graph"].map((node) => node["@type"] === "CannabisStore"
+          ? {
+              ...node,
+              name: fleet.nap.schemaName,
+              telephone: fleet.nap.phoneTel,
+              url: fleet.nap.website,
+              hasMap: fleet.nap.mapsSearchUrl,
+              address: {
+                ...node.address,
+                streetAddress: fleet.nap.street,
+                addressLocality: fleet.nap.city,
+                addressRegion: fleet.nap.province,
+                postalCode: fleet.nap.postalCode,
+              },
+              geo: {
+                ...node.geo,
+                latitude: Number(fleet.nap.lat),
+                longitude: Number(fleet.nap.lng),
+              },
+            }
+          : node),
+      }
+    : cannabisStoreJsonLd;
   return (
     <html lang="en">
       <head>
+        <meta name="fleet-content-version" content={fleet.version} />
         <meta name="geo.region" content="CA-ON" />
         <meta name="geo.placename" content="Upper Beaches, Toronto" />
         <meta name="geo.position" content="43.6786661;-79.298503" />
@@ -78,7 +140,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: toJsonLd(cannabisStoreJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: toJsonLd(storeJsonLd) }}
         />
         <script
           async
@@ -99,9 +161,13 @@ export default function RootLayout({
         <Link className="deliveryAnnouncement" href="/weed-delivery-toronto">
           EXPLORE WEED DELIVERY
         </Link>
-        {children}
-        <FullNameNap />
-        <PinnedNavClearance />
+        <FleetContentProvider value={{ active: fleet.active, version: fleet.version, nap: fleet.nap }}>
+          <CigaretteStateProvider value={{ web: SHOW_CIGARETTES, tv: SHOW_CIGARETTES, wording: CIG_WORDING_FALLBACK }}>
+            {children}
+            <FullNameNap />
+            <PinnedNavClearance />
+          </CigaretteStateProvider>
+        </FleetContentProvider>
       </body>
     </html>
   );
