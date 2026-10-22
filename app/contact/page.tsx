@@ -2,13 +2,18 @@ import type { Metadata } from "next";
 import { FULL_NAME_NAP } from "../lib/fullNameNap";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { getFleetContent } from "../lib/fleetContent";
 import { resolveDocumentTitle } from "../lib/storeNap";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = {
-  title: resolveDocumentTitle("Contact Us — Main Kingston Cannabis | 615 Kingston Rd, Toronto"),
-  description:
-    "Visit Main Kingston Cannabis at 615 Kingston Rd, Toronto, ON M4E 1R3. Open 24 hours, 7 days a week. Walk-ins welcome.",
+export const dynamic = "force-dynamic";
+
+const CONTACT_TITLE = "Contact Us — Main Kingston Cannabis | 615 Kingston Rd, Toronto";
+const CONTACT_DESCRIPTION = "Visit Main Kingston Cannabis at 615 Kingston Rd, Toronto, ON M4E 1R3. Open 24 hours, 7 days a week. Walk-ins welcome.";
+
+const CONTACT_METADATA: Metadata = {
+  title: resolveDocumentTitle(CONTACT_TITLE),
+  description: CONTACT_DESCRIPTION,
   alternates: {
     canonical: "https://www.mainkingstoncannabis.ca/contact",
   },
@@ -18,6 +23,22 @@ export const metadata: Metadata = {
       "615 Kingston Rd, Toronto. Open 24 hours, 7 days a week. Premium cannabis, always fire.",
   },
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const fleet = await getFleetContent();
+  if (!fleet.active) return CONTACT_METADATA;
+  const page = fleet.pages.Contact;
+  const description = page?.metaDescription || "";
+  const title = page?.metaTitle || "";
+  const descriptionChanged = Boolean(description && description !== CONTACT_DESCRIPTION);
+  const titleChanged = Boolean(title && title !== CONTACT_TITLE);
+  if (!descriptionChanged && !titleChanged) return CONTACT_METADATA;
+  return {
+    ...CONTACT_METADATA,
+    ...(descriptionChanged ? { description } : {}),
+    ...(titleChanged ? { title: resolveDocumentTitle(title) } : {}),
+  };
+}
 
 export default function ContactPage() {
   return (

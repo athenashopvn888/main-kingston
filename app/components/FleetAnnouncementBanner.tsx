@@ -1,5 +1,7 @@
 "use client";
 import CigaretteSeasonalNotice from "./CigaretteSeasonalNotice";
+import SheetAnnouncementBanner from "./fleet/FleetAnnouncementBanner";
+import type { ResolvedBanner } from "../lib/fleet/types";
 import { SHOW_CIGARETTES } from "../lib/siteConfig";
 
 import Link from "next/link";
@@ -33,7 +35,7 @@ const imageStyle = { display: "block", width: "100%", maxWidth: "100%", height: 
 const linkStyle = { display: "block", width: "100%" } as const;
 const captionStyle = { margin: 0, padding: "10px 14px", background: "#111827", color: "#ffffff", textAlign: "center" as const, fontWeight: 800, lineHeight: 1.35 };
 
-export default function FleetAnnouncementBanner({ title }: { title: string }) {
+function CodedAnnouncementBanner({ title }: { title: string }) {
   const announcementRef = useRef<HTMLElement>(null);
   const [navClearance, setNavClearance] = useState<number | null>(null);
   const [showHalloweenNotice, setShowHalloweenNotice] = useState(false);
@@ -79,4 +81,9 @@ export default function FleetAnnouncementBanner({ title }: { title: string }) {
       {showHalloweenNotice ? <p data-halloween-hours-notice="">Happy Halloween! {STORE_NAME} is open regular hours on Saturday, October 31.</p> : null}
     </aside>
   );
+}
+
+export default function FleetAnnouncementBanner({ title, banners }: { title: string; banners?: ResolvedBanner[] }) {
+  if (banners && banners.length > 0) return <SheetAnnouncementBanner title={title} banners={banners} />;
+  return <CodedAnnouncementBanner title={title} />;
 }

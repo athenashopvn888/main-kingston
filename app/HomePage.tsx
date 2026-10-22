@@ -18,6 +18,7 @@ import { FourPillarHub } from "./components/FourPillarHub";
 import { CIGARETTES_LP_PATH, DELIVERY_LP_PATH, DISPENSARY_LP_PATH, HOURS_LP_PATH, VAPE_LP_PATH } from "./lib/organicPaths";
 import { SHOW_CIGARETTES } from "./lib/siteConfig";
 import { HOME_FAQS, STORE_NAP } from "./lib/storeNap";
+import type { ResolvedBanner } from "./lib/fleet/types";
 import Papa from "papaparse";
 import { useLiveFlowers } from "./lib/useLiveMenu";
 import { storeTierRange, tierRangeText } from "./lib/tierPriceRanges";
@@ -102,7 +103,7 @@ interface ReviewStats {
   avg: number;
 }
 
-export default function HomePage({ initialFlowers }: { initialFlowers: Parameters<typeof storeTierRange>[0] }) {
+export default function HomePage({ initialFlowers, contentBanners }: { initialFlowers: Parameters<typeof storeTierRange>[0]; contentBanners?: ResolvedBanner[] }) {
     const __liveFlowers = useLiveFlowers();
   const [featuredStrains, setFeaturedStrains] = useState<any[]>([]);
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -191,7 +192,7 @@ export default function HomePage({ initialFlowers }: { initialFlowers: Parameter
   return (
     <main className={styles.main}>
       <Navbar />
-      <FleetAnnouncementBanner title={HOME_TITLE} />
+      <FleetAnnouncementBanner title={HOME_TITLE} banners={contentBanners} />
       <HomepageTopNotices />
       {/* -- NAVBAR -- */}
 
