@@ -2,10 +2,9 @@ import CigaretteStateProvider from "./components/CigaretteStateProvider";
 import FleetContentProvider from "./components/FleetContentProvider";
 import FullNameNap from "./components/FullNameNap";
 import PinnedNavClearance from "./components/PinnedNavClearance";
-import { CIG_WORDING_FALLBACK } from "./lib/cigDecision";
+import { getCigaretteSnapshot, toPublicCigaretteState } from "./lib/cigaretteFeed";
 import { getFleetContent } from "./lib/fleetContent";
 import { CODED_NAP } from "./lib/fleet/config";
-import { SHOW_CIGARETTES } from "./lib/siteConfig";
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
@@ -84,7 +83,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const fleet = await getFleetContent();
+  const [fleet, cigaretteSnapshot] = await Promise.all([getFleetContent(), getCigaretteSnapshot()]);
+  const cigarettes = toPublicCigaretteState(cigaretteSnapshot);
   const napChanged = fleet.active && (
     fleet.nap.schemaName !== CODED_NAP.schemaName
     || fleet.nap.name !== CODED_NAP.name
@@ -162,7 +162,7 @@ export default async function RootLayout({
           EXPLORE WEED DELIVERY
         </Link>
         <FleetContentProvider value={{ active: fleet.active, version: fleet.version, nap: fleet.nap }}>
-          <CigaretteStateProvider value={{ web: SHOW_CIGARETTES, tv: SHOW_CIGARETTES, wording: CIG_WORDING_FALLBACK }}>
+          <CigaretteStateProvider value={cigarettes}>
             {children}
             <FullNameNap />
             <PinnedNavClearance />

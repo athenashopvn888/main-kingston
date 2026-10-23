@@ -122,6 +122,12 @@ export function decideCigaretteGuide(input: {
   return { show: true, reason: "on" };
 }
 
+/** TV cigarette shelf: real cartons follow the live TV flag. Wraps, papers, and pouches stay. */
+export function visibleTvCigaretteItems<T extends ShelfItem>(items: T[], show: boolean): T[] {
+  if (show) return items;
+  return items.filter((item) => !isRealCigaretteItem(item));
+}
+
 /** Drop real cigarettes when this surface is off. Always keep wraps and pouches. */
 export function reconcileSurfaceItems<T extends ShelfItem>(menuItems: T[], liveItems: T[], show: boolean): T[] {
   if (!show) return menuItems.filter((item) => !isRealCigaretteItem(item));

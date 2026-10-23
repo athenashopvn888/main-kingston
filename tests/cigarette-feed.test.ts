@@ -1,13 +1,18 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync } from "node:fs";
 import {
   CIG_WORDING_FALLBACK,
+  cigarettePublicHeaders,
   decideCigaretteGuide,
   decideCigaretteSurface,
+  readCigaretteTvHeader,
   reconcileSurfaceItems,
   resolveCigWording,
   resolveSurfaceFlag,
+  visibleTvCigaretteItems,
 } from "../app/lib/cigDecision.ts";
+import { isRealCigaretteItem } from "../app/lib/cigMarkers.ts";
 
 const carton = { category: "CIGARETTES", name: "BB FULL CARTON", slug: "bb-full-carton" };
 const grabba = { category: "CIGARETTES", name: "GRABBA", slug: "grabba" };
@@ -88,4 +93,59 @@ test("each surface hides real cigarettes itself and always keeps wraps and pouch
   assert.deepEqual(hidden.map((item) => item.slug), [vape.slug, backwoods.slug, pouch.slug]);
   const shown = reconcileSurfaceItems([vape, backwoods], [carton, backwoods], true);
   assert.deepEqual(shown.map((item) => item.slug), [vape.slug, backwoods.slug, carton.slug]);
+});
+
+test("TV flag on shows the cigarette card items and the website stays hidden", () => {
+  const menu = [vape, carton, grabba, backwoods, pouch];
+  const block = cig({ on: true, webOn: false, tvOn: true, master: true });
+  const web = decideCigaretteSurface({ cig: block, items: menu, surface: "web" });
+  const tv = decideCigaretteSurface({ cig: block, items: menu, surface: "tv" });
+  assert.equal(web.show, false);
+  assert.equal(web.reason, "off");
+  assert.equal(tv.show, true);
+  assert.equal(tv.reason, "on");
+  assert.deepEqual(visibleTvCigaretteItems(menu, true).map((item) => item.slug), menu.map((item) => item.slug));
+  assert.deepEqual(
+    reconcileSurfaceItems(menu, menu, false).map((item) => item.slug),
+    [vape.slug, backwoods.slug, pouch.slug],
+  );
+  const header = readCigaretteTvHeader({ get: (name) => cigarettePublicHeaders({ web: false, tv: true, wording: CIG_WORDING_FALLBACK })[name] ?? null });
+  assert.equal(header.show, true);
+  const hiddenHeader = readCigaretteTvHeader({ get: (name) => cigarettePublicHeaders({ web: false, tv: false, wording: CIG_WORDING_FALLBACK })[name] ?? null });
+  assert.equal(hiddenHeader.show, false);
+  assert.deepEqual(visibleTvCigaretteItems(menu, false).map((item) => item.slug), [vape.slug, backwoods.slug, pouch.slug]);
+});
+
+test("wraps, papers, pouches, and the named kept shelf stay on the TV card when cigarettes are off", () => {
+  const kept = [
+    { category: "CIGARETTES", name: "BACKWOODS ASSORTED", slug: "backwoods-assorted" },
+    { category: "CIGARETTES", name: "GRAPE CIGARILLO", slug: "grape-cigarillo" },
+    { category: "CIGARETTES", name: "RAW PAPER KING SIZE", slug: "raw-paper" },
+    { category: "CIGARETTES", name: "NICOTINE POUCHES", slug: "nicotine-pouches" },
+    { category: "CIGARETTES", name: "ZYN NICOTINE POUCHES", slug: "zyn-nicotine-pouches" },
+    { category: "CIGARETTES", name: "VELO POUCH", slug: "velo-pouch" },
+    { category: "CIGARETTES", name: "HEMP WRAP", slug: "hemp-wrap" },
+  ];
+  for (const item of kept) assert.equal(isRealCigaretteItem(item), false, item.name);
+  assert.equal(isRealCigaretteItem(carton), true);
+  const shelf = visibleTvCigaretteItems([...kept, carton], false);
+  assert.deepEqual(shelf.map((item) => item.slug), kept.map((item) => item.slug));
+  assert.equal(visibleTvCigaretteItems([...kept, carton], true).length, kept.length + 1);
+});
+
+test("TV pages read the live header and website surfaces keep the static gate", () => {
+  const tv2 = readFileSync(new URL("../app/tv2/page.tsx", import.meta.url), "utf8");
+  const tv = readFileSync(new URL("../app/tv/page.tsx", import.meta.url), "utf8");
+  const route = readFileSync(new URL("../app/api/tv-data/route.ts", import.meta.url), "utf8");
+  assert.match(tv2, /readCigaretteTvHeader/);
+  assert.match(tv2, /visibleTvCigaretteItems/);
+  assert.doesNotMatch(tv2, /SHOW_CIGARETTES/);
+  assert.match(tv, /readCigaretteTvHeader/);
+  assert.doesNotMatch(tv, /SHOW_CIGARETTES/);
+  assert.match(route, /reconcileSurfaceItems/);
+  assert.match(route, /snapshotHeaders/);
+  assert.doesNotMatch(route, /SHOW_CIGARETTES/);
+  assert.match(readFileSync(new URL("../app/components/Navbar.tsx", import.meta.url), "utf8"), /SHOW_CIGARETTES/);
+  assert.match(readFileSync(new URL("../app/sitemap.ts", import.meta.url), "utf8"), /SHOW_CIGARETTES/);
+  assert.match(readFileSync(new URL("../app/faq/page.tsx", import.meta.url), "utf8"), /SHOW_CIGARETTES/);
 });

@@ -6,6 +6,7 @@ import { beforeEach, test } from "node:test";
 const require = createRequire(import.meta.url);
 const {
   DEFAULT_APPS_SCRIPT_URL,
+  getCigaretteDataset,
   getTvData,
   postprocessFlowers,
   postprocessItems,
@@ -38,12 +39,12 @@ function flower(name, extra = {}) {
   };
 }
 
-function item(name, price = "$10") {
+function item(name, price = "$10", category = "VAPES") {
   return {
     sku: name,
     name,
     slug: name.toLowerCase(),
-    category: "VAPES",
+    category,
     type: "",
     thc: "",
     mg: "",
@@ -300,4 +301,38 @@ test("prebuild uses the shared post-processor", () => {
   assert.equal(itemsFixed, 1);
   assert.equal(items[0].price, "");
   assert.equal(items[1].price, "$12");
+});
+
+test("cigarette dataset keeps the feed flag and getTvData does not strip cigarette items", async () => {
+  const flowers = list(staticFlowers.length, (index) => flower(`FLOWER ${index}`));
+  const items = list(staticItems.length, (index) => (
+    index === 0 ? item("CANADIAN CLASSICS", "$25", "CIGARETTES") : item(`ITEM ${index}`)
+  ));
+  const { fetchImpl } = mockFetch({
+    flowers,
+    items,
+    stockDate: "2026-10-23T02:23:29.000Z",
+    cig: { on: true, tvOn: true, webOn: false, master: true },
+  });
+  const dataset = await getCigaretteDataset({
+    staticFlowers,
+    staticItems,
+    fetchImpl,
+    now: 5_000,
+  });
+  assert.equal(dataset.source, "live");
+  assert.equal(dataset.cig.tvOn, true);
+  assert.equal(dataset.cig.webOn, false);
+  assert.equal(dataset.items.length, staticItems.length);
+  assert.equal(dataset.items[0].name, "CANADIAN CLASSICS");
+
+  const tv = await getTvData({
+    type: "items",
+    staticFlowers,
+    staticItems,
+    fetchImpl,
+    now: 5_000,
+  });
+  assert.equal(tv.body.some((entry) => entry.name === "CANADIAN CLASSICS"), true);
+  assert.equal(tv.headers["x-tv-data-source"], "live");
 });
