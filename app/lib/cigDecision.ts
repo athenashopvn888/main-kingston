@@ -100,6 +100,17 @@ export function decideCigaretteSurface(input: {
   return { show: true, reason: "on", wording };
 }
 
+/**
+ * Website flag. The coded switch stays in front of the feed.
+ * A feed error or a missing block stays off, even when that switch is on.
+ * TV does not use this.
+ */
+export function publicWebsiteCigaretteFlag(decision: CigaretteSurfaceDecision, codedOn: boolean): boolean {
+  if (!codedOn) return false;
+  if (decision.reason === "error" || decision.reason === "missing") return false;
+  return decision.show;
+}
+
 /** Guide pages follow the master switch (`master`, otherwise `on`), not the web/TV split. */
 export function decideCigaretteGuide(input: {
   cig: unknown;

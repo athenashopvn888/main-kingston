@@ -7,6 +7,7 @@ import {
   decideCigaretteGuide,
   decideCigaretteSurface,
   readCigaretteTvHeader,
+  publicWebsiteCigaretteFlag,
   reconcileSurfaceItems,
   resolveCigWording,
   resolveSurfaceFlag,
@@ -133,6 +134,25 @@ test("wraps, papers, pouches, and the named kept shelf stay on the TV card when 
   assert.equal(visibleTvCigaretteItems([...kept, carton], true).length, kept.length + 1);
 });
 
+test("a feed error or a missing feed leaves the website off while TV can stay on", () => {
+  const items = [carton, backwoods];
+  const explicitOn = decideCigaretteSurface({ cig: cig({ webOn: true, tvOn: true }), items, surface: "web" });
+  const explicitOff = decideCigaretteSurface({ cig: cig({ webOn: false, tvOn: true }), items, surface: "web" });
+  const errored = decideCigaretteSurface({ cig: cig({ webOn: false, tvOn: false }), items, surface: "web", errored: true });
+  const missing = decideCigaretteSurface({ cig: null, items, surface: "web" });
+  const tvError = decideCigaretteSurface({ cig: null, items, surface: "tv", errored: true });
+  assert.equal(errored.show, true);
+  assert.equal(missing.show, true);
+  assert.equal(tvError.show, true);
+  assert.equal(publicWebsiteCigaretteFlag(explicitOn, false), false);
+  assert.equal(publicWebsiteCigaretteFlag(errored, false), false);
+  assert.equal(publicWebsiteCigaretteFlag(missing, false), false);
+  assert.equal(publicWebsiteCigaretteFlag(errored, true), false);
+  assert.equal(publicWebsiteCigaretteFlag(missing, true), false);
+  assert.equal(publicWebsiteCigaretteFlag(explicitOff, true), false);
+  assert.equal(publicWebsiteCigaretteFlag(explicitOn, true), true);
+});
+
 test("TV pages read the live header and website surfaces keep the static gate", () => {
   const tv2 = readFileSync(new URL("../app/tv2/page.tsx", import.meta.url), "utf8");
   const tv = readFileSync(new URL("../app/tv/page.tsx", import.meta.url), "utf8");
@@ -148,4 +168,6 @@ test("TV pages read the live header and website surfaces keep the static gate", 
   assert.match(readFileSync(new URL("../app/components/Navbar.tsx", import.meta.url), "utf8"), /SHOW_CIGARETTES/);
   assert.match(readFileSync(new URL("../app/sitemap.ts", import.meta.url), "utf8"), /SHOW_CIGARETTES/);
   assert.match(readFileSync(new URL("../app/faq/page.tsx", import.meta.url), "utf8"), /SHOW_CIGARETTES/);
+  const layout = readFileSync(new URL("../app/layout.tsx", import.meta.url), "utf8");
+  assert.match(layout, /web: SHOW_CIGARETTES \? cigarettes\.web : false/);
 });
