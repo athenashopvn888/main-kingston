@@ -50,8 +50,8 @@ export async function readCigaretteFeed(): Promise<CigaretteSnapshot> {
     const live = dataset?.source === "live";
     const items = Array.isArray(dataset?.items) ? dataset.items : allItems;
     const cig = dataset?.cig ?? null;
-    // Last-good cig is kept on the dataset. A miss with no saved cig fails open for TV.
-    // The website flag is applied separately and stays off.
+    // Last-good cig inside the cache window still follows its saved tvOn.
+    // A miss with no saved cig is an error. TV hides, and the website flag stays off.
     return snapshotFrom(cig, items.length ? items : allItems, live, !live && !cig);
   } catch {
     return snapshotFrom(null, allItems, false, true);
