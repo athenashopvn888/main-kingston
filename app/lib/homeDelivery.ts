@@ -27,4 +27,4 @@ export const HOME_DELIVERY_FAQS = [
 ] as const;
 
 // Document <title> only (exact Google name | area). H1 keeps HOME_TITLE.
-export const HOME_DOC_TITLE = "Main Kingston Cannabis Dispensary Weed Delivery | Kingston Rd, Upper Beaches";
+export const HOME_DOC_TITLE = "Main Kingston Cannabis Dispensary near me | Weed Delivery | Kingston Rd, Upper Beaches";
