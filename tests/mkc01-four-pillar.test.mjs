@@ -21,7 +21,7 @@ const PILLAR_PAGES = [
     path: "app/weed-dispensary-kingston-road/page.tsx",
     href: DISPENSARY,
     h1: "Weed dispensary on Kingston Road at Main Street in the Upper Beaches",
-    title: "Weed Dispensary on Kingston Road at the Beach | Main Kingston Cannabis",
+    title: "Weed Dispensary near me on Kingston Road at the Beach | Main Kingston Cannabis",
   },
   {
     path: "app/weed-delivery-kingston-road/page.tsx",

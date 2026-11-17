@@ -22,14 +22,14 @@ import styles from "../visit/visit.module.css";
 const PAGE_URL = pageUrl(DISPENSARY_LP_PATH);
 
 export const metadata: Metadata = {
-  title: { absolute: "Weed Dispensary on Kingston Road at the Beach | Main Kingston Cannabis" },
+  title: { absolute: "Weed Dispensary near me on Kingston Road at the Beach | Main Kingston Cannabis" },
   description:
     "Weed dispensary at Main Kingston Cannabis, 615 Kingston Rd on Kingston Road at Main Street in the Upper Beaches. Walk-in cannabis on the Beach corridor. Adults 19+.",
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Weed Dispensary on Kingston Road at the Beach | Main Kingston Cannabis",
+    title: "Weed Dispensary near me on Kingston Road at the Beach | Main Kingston Cannabis",
     description:
       "Neighbourhood weed-dispensary owner for 615 Kingston Rd on the Kingston Road / Beach corridor. Homepage stays the address, phone, and map hub.",
     url: PAGE_URL,
