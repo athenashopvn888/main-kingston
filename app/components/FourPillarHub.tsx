@@ -1,7 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { CIGARETTES_LP_PATH, FOUR_PILLAR_HUBS, HOURS_LP_PATH } from "../lib/organicPaths";
 import { storeClaimsOpen24Hours } from "../lib/storeNap";
-import { SHOW_CIGARETTES } from "../lib/siteConfig";
+import { useCigaretteState } from "./CigaretteStateProvider";
 import styles from "./FourPillarHub.module.css";
 
 export function FourPillarHub({
@@ -9,8 +11,9 @@ export function FourPillarHub({
 }: {
   heading?: string;
 }) {
+  const { web: showCigarettes } = useCigaretteState();
   const cards = FOUR_PILLAR_HUBS.filter(
-    (hub) => (hub.href !== HOURS_LP_PATH || storeClaimsOpen24Hours()) && (SHOW_CIGARETTES || hub.href !== CIGARETTES_LP_PATH),
+    (hub) => (hub.href !== HOURS_LP_PATH || storeClaimsOpen24Hours()) && (showCigarettes || hub.href !== CIGARETTES_LP_PATH),
   );
 
   return (
@@ -19,7 +22,7 @@ export function FourPillarHub({
         {heading}
       </h2>
       <p className={styles.intro}>
-        {SHOW_CIGARETTES ? (
+        {showCigarettes ? (
           <>
         Five neighbourhood pages plus the Kingston Road visit guide for this
         storefront at 615 Kingston Rd. Hours and what is sold stay true:

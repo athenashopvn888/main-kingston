@@ -1,6 +1,6 @@
 "use client";
 import CohortDeliveryActions from "./CohortDeliveryActions";
-import { SHOW_CIGARETTES } from "../lib/siteConfig";
+import { useCigaretteState } from "./CigaretteStateProvider";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -32,9 +32,10 @@ const ALL_LINKS: { href: string; label: string; featured?: boolean }[] = [
   { href: "/guides", label: "Guides" },
 ];
 
-const NAV_LINKS = SHOW_CIGARETTES ? ALL_LINKS : ALL_LINKS.filter((link) => link.href !== "/items/cigarettes");
 
 export default function Navbar() {
+  const { web: showCigarettes } = useCigaretteState();
+  const NAV_LINKS = showCigarettes ? ALL_LINKS : ALL_LINKS.filter((link) => link.href !== "/items/cigarettes");
   const pathname = usePathname();
   const scrollBarRef = useRef<HTMLDivElement>(null);
   const [canAdvance, setCanAdvance] = useState(false);

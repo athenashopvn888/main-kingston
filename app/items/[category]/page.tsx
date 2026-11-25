@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import CategoryCoreBanners, { cigaretteCategoryImage } from "../../components/CategoryCoreBanners";
+import { getCigaretteSnapshot, reconcileSurfaceItems, toPublicCigaretteState } from "../../lib/cigaretteFeed";
 import SafeImage from "../../components/SafeImage";
 import { getItemPriceDisplay } from "../../lib/itemPricing";
 import Footer from "../../components/Footer";
@@ -59,7 +60,9 @@ export default async function ItemsCategoryPage({
 
   /* Pre-Rolls also shows accessories (ADD ONS) */
   const { items: liveItems } = await fetchLiveProducts();
-  let items = liveItems.filter((item) => item.category.toUpperCase() === catInfo.key.toUpperCase());
+  const { web: showCigarettes } = toPublicCigaretteState(await getCigaretteSnapshot());
+  const cigaretteCategoryOff = catSlug === "cigarettes" && !showCigarettes;
+  let items = reconcileSurfaceItems(liveItems, [], showCigarettes).filter((item) => item.category.toUpperCase() === catInfo.key.toUpperCase());
   if (catInfo.key === "PREROLLS") {
     const accessories = liveItems.filter((item) => item.category.toUpperCase() === "ADD ONS");
     const existingIds = new Set(items.map(i => i.sku));
@@ -72,11 +75,11 @@ export default async function ItemsCategoryPage({
   return (
     <main className={styles.main}>
       <Navbar />
-      {catSlug === "cigarettes" && <CigaretteSeasonalNotice sticky />}
+      {showCigarettes && catSlug === "cigarettes" && <CigaretteSeasonalNotice sticky />}
 
       {/* Hero Banner */}
       <section style={{ width: "100%", overflow: "hidden", marginTop: "92px", marginBottom: "24px" }}>
-        {config.banner ? (
+        {config.banner && !cigaretteCategoryOff ? (
           <img
             src={config.banner}
             alt={catSlug === "cigarettes" ? cigaretteCategoryImage.alt : config.name}
@@ -95,7 +98,7 @@ export default async function ItemsCategoryPage({
       </section>
 
       {(catSlug === "vapes" || catSlug === "vape-disposables") && <CategoryCoreBanners kind="vapes" />}
-      {catSlug === "cigarettes" && <CategoryCoreBanners kind="cigarettes" />}
+      {showCigarettes && catSlug === "cigarettes" && <CategoryCoreBanners kind="cigarettes" />}
 
       {(catSlug === "vapes" || catSlug === "vape-disposables") && <VapeActionPanel compact />}
 
@@ -145,7 +148,7 @@ export default async function ItemsCategoryPage({
             <p className={styles.visitText}>
               615 Kingston Rd, Toronto, ON M4E 1R3 · Open 24 Hours
             </p>
-            {catSlug === "cigarettes" && (
+            {showCigarettes && catSlug === "cigarettes" && (
               <p className={styles.visitText}>
                 Neighbourhood guide: <Link href="/native-cigarettes-kingston-road">Native cigarettes Kingston Road</Link>
               </p>
