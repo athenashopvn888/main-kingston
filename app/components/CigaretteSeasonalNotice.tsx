@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { SHOW_CIGARETTES } from "../lib/siteConfig";
+import { useCigaretteState } from "./CigaretteStateProvider";
 
 export const CIGARETTE_SEASONAL_TEXT =
   "Cigarettes are seasonal and in limited stock. Please check in store for availability.";
@@ -46,6 +46,7 @@ const pillStyle = {
 
 /** Brown seasonal-stock notice. `sticky` pins it just under the site nav on scroll. */
 export default function CigaretteSeasonalNotice({ sticky = false }: { sticky?: boolean }) {
+  const { web: showCigarettes } = useCigaretteState();
   const ref = useRef<HTMLDivElement>(null);
   const [navBottom, setNavBottom] = useState(0);
   const [clearance, setClearance] = useState(0);
@@ -83,7 +84,7 @@ export default function CigaretteSeasonalNotice({ sticky = false }: { sticky?: b
     };
   }, [sticky]);
 
-  if (!SHOW_CIGARETTES) return null;
+  if (!showCigarettes) return null;
 
   return (
     <div

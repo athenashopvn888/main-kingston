@@ -16,7 +16,7 @@ import { WeedDiscoveryModule } from "./components/WeedDiscoveryModule";
 import SmokePilotSpotlight from "./components/SmokePilotSpotlight";
 import { FourPillarHub } from "./components/FourPillarHub";
 import { CIGARETTES_LP_PATH, DELIVERY_LP_PATH, DISPENSARY_LP_PATH, HOURS_LP_PATH, VAPE_LP_PATH } from "./lib/organicPaths";
-import { SHOW_CIGARETTES } from "./lib/siteConfig";
+import { useCigaretteState } from "./components/CigaretteStateProvider";
 import { HOME_FAQS, STORE_NAP } from "./lib/storeNap";
 import type { ResolvedBanner } from "./lib/fleet/types";
 import Papa from "papaparse";
@@ -104,6 +104,7 @@ interface ReviewStats {
 }
 
 export default function HomePage({ initialFlowers, contentBanners }: { initialFlowers: Parameters<typeof storeTierRange>[0]; contentBanners?: ResolvedBanner[] }) {
+  const { web: showCigarettes } = useCigaretteState();
     const __liveFlowers = useLiveFlowers();
   const [featuredStrains, setFeaturedStrains] = useState<any[]>([]);
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -269,7 +270,7 @@ export default function HomePage({ initialFlowers, contentBanners }: { initialFl
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Explore Categories</h2>
             <p className={styles.sectionSubtitle}>
-              {SHOW_CIGARETTES
+              {showCigarettes
                 ? "From custom disposable vapes and concentrates to accessories and cigarettes."
                 : "From custom disposable vapes and concentrates to accessories."}
             </p>
@@ -351,7 +352,7 @@ export default function HomePage({ initialFlowers, contentBanners }: { initialFl
               <Link href={DISPENSARY_LP_PATH}>Weed dispensary Kingston Road</Link>
               {" · "}
               <Link href={DELIVERY_LP_PATH}>Weed delivery Kingston Road</Link>
-              {SHOW_CIGARETTES ? (
+              {showCigarettes ? (
                 <>
               {" · "}
               <Link href={CIGARETTES_LP_PATH}>Native cigarettes Kingston Road</Link>
@@ -511,7 +512,7 @@ export default function HomePage({ initialFlowers, contentBanners }: { initialFl
             <Link className={styles.visitHubSecondary} href={DELIVERY_LP_PATH}>
               Weed delivery Kingston Road
             </Link>
-            {SHOW_CIGARETTES && (
+            {showCigarettes && (
             <Link className={styles.visitHubSecondary} href={CIGARETTES_LP_PATH}>
               Native cigarettes
             </Link>
